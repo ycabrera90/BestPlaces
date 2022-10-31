@@ -1,4 +1,5 @@
 import MeetupList from "../components/MeetupList/MeetupList";
+import MainHeader from "../components/UI/Card/MainHeader/MainHeader";
 
 const DUMMY_PLACES = [
   {
@@ -22,7 +23,12 @@ const DUMMY_PLACES = [
 ];
 
 function HomePage() {
-  return <MeetupList meetups={DUMMY_PLACES} />;
+  return (
+    <>
+      <MainHeader />
+      <MeetupList meetups={DUMMY_PLACES} />;
+    </>
+  );
 }
 
 export default HomePage;
