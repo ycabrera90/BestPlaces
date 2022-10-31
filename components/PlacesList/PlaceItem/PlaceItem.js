@@ -1,7 +1,15 @@
-import Card from '../../UI/Card/Card';
-import classes from './PlaceItem.module.css';
+import Card from "../../UI/Card/Card";
+import { useRouter } from "next/router";
+
+import classes from "./PlaceItem.module.css";
 
 function PlaceItem(props) {
+  const router = useRouter();
+
+  function showDetailsHandler() {
+    router.push("/" + props.id);
+  }
+
   return (
     <li className={classes.item}>
       <Card>
@@ -13,7 +21,7 @@ function PlaceItem(props) {
           <address>{props.address}</address>
         </div>
         <div className={classes.actions}>
-          <button>Show Details</button>
+          <button onClick={showDetailsHandler}>Show Details</button>
         </div>
       </Card>
     </li>
