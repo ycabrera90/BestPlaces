@@ -14,7 +14,7 @@ function HomePage({ places }) {
           content="Look at the best places in the world"
         />
       </Head>
-      <PlacesList meetups={places} />;
+      <PlacesList meetups={places} />
     </MainLayout>
   );
 }
