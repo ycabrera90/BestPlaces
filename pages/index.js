@@ -1,10 +1,10 @@
-import MeetupList from "../components/MeetupList/MeetupList";
+import PlacesList from "../components/PlacesList/PlacesList";
 import MainLayout from "../components/UI/MainLayout/MainLayout";
 
 const DUMMY_PLACES = [
   {
     id: "p1",
-    title: "A First Meetup",
+    title: "New York City",
     image:
       "https://www.planetware.com/photos-large/USNY/usa-best-places-new-york.jpg",
     address: "Empire State Building, West 34th Street, New York, NY, USA",
@@ -25,7 +25,7 @@ const DUMMY_PLACES = [
 function HomePage() {
   return (
     <MainLayout>
-      <MeetupList meetups={DUMMY_PLACES} />;
+      <PlacesList meetups={DUMMY_PLACES} />;
     </MainLayout>
   );
 }
