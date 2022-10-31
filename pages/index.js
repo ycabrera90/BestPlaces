@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from "next/head";
 import { MongoClient } from "mongodb";
 
 import PlacesList from "../components/PlacesList/PlacesList";
@@ -6,7 +6,7 @@ import MainLayout from "../components/UI/MainLayout/MainLayout";
 
 function HomePage({ places }) {
   return (
-    <MainLayout>
+    <>
       <Head>
         <title>Best Places</title>
         <meta
@@ -15,7 +15,7 @@ function HomePage({ places }) {
         />
       </Head>
       <PlacesList meetups={places} />
-    </MainLayout>
+    </>
   );
 }
 
