@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { MongoClient } from "mongodb";
 
 import PlacesList from "../components/PlacesList/PlacesList";
@@ -6,6 +7,13 @@ import MainLayout from "../components/UI/MainLayout/MainLayout";
 function HomePage({ places }) {
   return (
     <MainLayout>
+      <Head>
+        <title>Best Places</title>
+        <meta
+          name="description"
+          content="Look at the best places in the world"
+        />
+      </Head>
       <PlacesList meetups={places} />;
     </MainLayout>
   );
@@ -22,7 +30,7 @@ export async function getStaticProps() {
     title: item.title,
     address: item.address,
     image: item.image,
-    id: item._id.toString(),    // <--- this is because _id is an object
+    id: item._id.toString(), // <--- this is because _id is an object
   }));
 
   client.close();
