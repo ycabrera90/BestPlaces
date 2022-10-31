@@ -22,12 +22,20 @@ const DUMMY_PLACES = [
   },
 ];
 
-function HomePage() {
+function HomePage({ places }) {
   return (
     <MainLayout>
-      <PlacesList meetups={DUMMY_PLACES} />;
+      <PlacesList meetups={places} />;
     </MainLayout>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      places: DUMMY_PLACES,
+    },
+  };
 }
 
 export default HomePage;
