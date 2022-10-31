@@ -1,5 +1,5 @@
 import MeetupList from "../components/MeetupList/MeetupList";
-import MainHeader from "../components/UI/Card/MainHeader/MainHeader";
+import MainLayout from "../components/UI/MainLayout/MainLayout";
 
 const DUMMY_PLACES = [
   {
@@ -24,10 +24,9 @@ const DUMMY_PLACES = [
 
 function HomePage() {
   return (
-    <>
-      <MainHeader />
+    <MainLayout>
       <MeetupList meetups={DUMMY_PLACES} />;
-    </>
+    </MainLayout>
   );
 }
 
