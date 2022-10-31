@@ -12,7 +12,7 @@ function MainHeader() {
             <Link href="/">All Places</Link>
           </li>
           <li>
-            <Link href="/new-meetup">Add New Place</Link>
+            <Link href="/new-place">Add New Place</Link>
           </li>
         </ul>
       </nav>
