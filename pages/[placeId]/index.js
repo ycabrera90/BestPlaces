@@ -1,14 +1,56 @@
+import { MongoClient, ObjectId } from "mongodb";
+
 import PlaceDetail from "../../components/PlaceDetail/PlaceDetail";
 
-function MeetupDetails() {
+function PlaceDetailsPage({ placeData }) {
   return (
     <PlaceDetail
-      title="New York City"
-      image="https://www.planetware.com/photos-large/USNY/usa-best-places-new-york.jpg"
-      address="Empire State Building, West 34th Street, New York, NY, USA"
-      description="New York City is like no other city in the world, and one that must be experienced to be fully appreciated"
+      image={placeData.image}
+      title={placeData.title}
+      address={placeData.address}
+      description={placeData.description}
     />
   );
 }
 
-export default MeetupDetails;
+export async function getStaticPaths() {
+  const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.pbuk80v.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+  const client = await MongoClient.connect(dbUrl);
+  const db = client.db();
+  const placesCollection = db.collection("places");
+  const places = await placesCollection.find({}, { _id: 1 }).toArray();
+  client.close();
+
+  return {
+    fallback: false,
+    paths: places.map((place) => ({
+      params: { placeId: place._id.toString() },
+    })),
+  };
+}
+
+export async function getStaticProps(context) {
+  const placeId = context.params.placeId;
+  const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.pbuk80v.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+  const client = await MongoClient.connect(dbUrl);
+  const db = client.db();
+  const placesCollection = db.collection("places");
+  const selectedPlace = await placesCollection.findOne({
+    _id: ObjectId(placeId),
+  });
+  client.close();
+
+  return {
+    props: {
+      placeData: {
+        id: selectedPlace._id.toString(),
+        title: selectedPlace.title,
+        address: selectedPlace.address,
+        image: selectedPlace.image,
+        description: selectedPlace.description,
+      },
+    },
+  };
+}
+
+export default PlaceDetailsPage;
