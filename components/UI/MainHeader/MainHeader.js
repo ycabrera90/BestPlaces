@@ -20,7 +20,7 @@ const MainHeader = () => {
   return (
     <header className={classes["main-header"]}>
       <BpIcon />
-      <ToggleButton onClick={toggleButtonClicHandler} />
+      <ToggleButton expanded={isMainNavExpanded} onClick={toggleButtonClicHandler} />
       <MainNav
         onBackdropClick={backdropClickHandler}
         isExpanded={isMainNavExpanded}

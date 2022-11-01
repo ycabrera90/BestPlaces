@@ -2,23 +2,13 @@ import React from "react";
 import classes from "./ToggleButton.module.css";
 import { useState } from "react";
 
-const ToggleButton = (props) => {
-  const [expandedClass, setExpandedClass] = useState(false);
-
-  const toggleButtonHandler = () => {
-    props.onClick();
-    setExpandedClass((prevState) => !prevState);
-  };
-
+const ToggleButton = ({ onClick, expanded }) => {
   let toggleButtonClasses = `${classes["toggle-button"]}  ${
-    expandedClass ? classes["expanded"] : ""
+    expanded ? classes["expanded"] : ""
   }`;
 
   return (
-    <button
-      className={`${props.className} ${toggleButtonClasses}`}
-      onClick={toggleButtonHandler}
-    >
+    <button className={toggleButtonClasses} onClick={onClick}>
       <span></span>
       <span></span>
       <span></span>
