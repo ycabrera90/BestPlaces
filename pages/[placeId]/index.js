@@ -19,13 +19,14 @@ export async function getStaticPaths() {
   const db = client.db();
   const placesCollection = db.collection("places");
   const places = await placesCollection.find({}, { _id: 1 }).toArray();
+  const paths = places.map((place) => ({
+    params: { placeId: place._id.toString() },
+  }));
   client.close();
 
   return {
-    fallback: false,
-    paths: places.map((place) => ({
-      params: { placeId: place._id.toString() },
-    })),
+    fallback: 'blocking',
+    paths,
   };
 }
 
