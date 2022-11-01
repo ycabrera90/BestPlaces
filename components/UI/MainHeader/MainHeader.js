@@ -1,23 +1,32 @@
-import Link from "next/link";
-
+import React from "react";
+import { useState } from "react";
 import classes from "./MainHeader.module.css";
 
-function MainHeader() {
+import BpIcon from "../BpIcon/BpIcon";
+import ToggleButton from "./ToggleButton/ToggleButton";
+import MainNav from "./MainNav/MainNav";
+
+const MainHeader = () => {
+  const [isMainNavExpanded, setIsMainNavExpanded] = useState(false);
+
+  const toggleButtonClicHandler = () => {
+    setIsMainNavExpanded((prevState) => !prevState);
+  };
+
+  const backdropClickHandler = () => {
+    setIsMainNavExpanded((prevState) => !prevState);
+  };
+
   return (
-    <header className={classes.header}>
-      <div className={classes.logo}>Best Places</div>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/">All Places</Link>
-          </li>
-          <li>
-            <Link href="/new-place">Add New Place</Link>
-          </li>
-        </ul>
-      </nav>
+    <header className={classes["main-header"]}>
+      <BpIcon />
+      <ToggleButton onClick={toggleButtonClicHandler} />
+      <MainNav
+        onBackdropClick={backdropClickHandler}
+        isExpanded={isMainNavExpanded}
+      />
     </header>
   );
-}
+};
 
 export default MainHeader;
