@@ -1,3 +1,5 @@
+@import "../../../styles/global-vars.scss";
+
 .main-header {
   min-width: 20rem;
   position: fixed;
@@ -5,15 +7,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 3.5rem;
+  height: $header-height;
   background: linear-gradient(180deg, #d95642 0, #b94536);
   box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 25%);
   padding: 0 1rem;
   color: #fef9e5;
   z-index: 100;
 
-  >h1{
+  > h1 {
     font-size: 1.5rem;
-    
   }
 }

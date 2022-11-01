@@ -1,9 +1,10 @@
+@import "../../../styles/global-vars.scss";
+
 .main {
   position: fixed;
   top: 3.5rem;
   margin: 0;
-  height: calc(100vh - 3.5rem);
+  height: calc(100vh - $header-height);
   overflow: auto;
   width: 100vw;
-  padding: 0.5rem 1rem;
 }
