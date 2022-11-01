@@ -23,3 +23,34 @@ h6 {
 #__next {
   min-width: 20rem;
 }
+
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+::-webkit-scrollbar-button:increment {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#d95642, #b94536);
+  border-radius: 20px;
+  border: 1px solid #b94536;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
