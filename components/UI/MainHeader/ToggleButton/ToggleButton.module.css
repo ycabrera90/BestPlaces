@@ -9,12 +9,11 @@
   border: #b94536 2px solid;
   border-radius: 4px;
 }
-
-.toggle-button span {
+.toggle-button > span {
   width: 23px;
   height: 3px;
   border-radius: 3px;
-  background: #fefffb;
+  background: #fef9e5;
   display: block;
   margin-bottom: 5px;
   transition: all 0.25s ease;

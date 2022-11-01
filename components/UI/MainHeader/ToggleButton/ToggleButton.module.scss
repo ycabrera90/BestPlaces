@@ -8,16 +8,16 @@
   cursor: pointer;
   border: #b94536 2px solid;
   border-radius: 4px;
-}
 
-.toggle-button span {
-  width: 23px;
-  height: 3px;
-  border-radius: 3px;
-  background: #fefffb;
-  display: block;
-  margin-bottom: 5px;
-  transition: all 0.25s ease;
+  > span {
+    width: 23px;
+    height: 3px;
+    border-radius: 3px;
+    background: #fef9e5;
+    display: block;
+    margin-bottom: 5px;
+    transition: all 0.25s ease;
+  }
 }
 
 .toggle-button.expanded span:first-child {
