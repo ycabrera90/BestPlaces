@@ -25,7 +25,6 @@ h6 {
   min-width: 20rem;
 }
 
-
 ::-webkit-scrollbar {
   -webkit-appearance: none;
 }
@@ -56,4 +55,15 @@ h6 {
   border-radius: 10px;
 }
 
+.react-horizontal-scrolling-menu--wrapper {
+  height: 100%;
+  .react-horizontal-scrolling-menu--inner-wrapper {
+    height: 100%;
 
+    .react-horizontal-scrolling-menu--scroll-container {
+      overflow: hidden;
+      // border: red 2px solid;
+      height: 100%;
+    }
+  }
+}

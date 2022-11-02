@@ -14,10 +14,8 @@ function PlacesList({ meetups }) {
 
     if (ev.deltaY < 0) {
       apiObj.scrollNext();
-      console.log("scrollNext");
     } else if (ev.deltaY > 0) {
       apiObj.scrollPrev();
-      console.log("scrollPrev");
     }
   }
 

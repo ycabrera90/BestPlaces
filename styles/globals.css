@@ -53,3 +53,14 @@ h6 {
 ::-webkit-scrollbar-track {
   border-radius: 10px;
 }
+
+.react-horizontal-scrolling-menu--wrapper {
+  height: 100%;
+}
+.react-horizontal-scrolling-menu--wrapper .react-horizontal-scrolling-menu--inner-wrapper {
+  height: 100%;
+}
+.react-horizontal-scrolling-menu--wrapper .react-horizontal-scrolling-menu--inner-wrapper .react-horizontal-scrolling-menu--scroll-container {
+  overflow: hidden;
+  height: 100%;
+}
