@@ -11,8 +11,13 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 0.2rem;
+    // display: flex;
+    // justify-content: center;
+    // gap: 0.2rem;
+    // overflow: auto;
+
+    .react-horizontal-scrolling-menu--scroll-container {
+      overflow: hidden;
+    }
   }
 }
