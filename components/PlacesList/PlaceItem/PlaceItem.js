@@ -3,25 +3,16 @@ import { useRouter } from "next/router";
 
 import classes from "./PlaceItem.module.css";
 
-function PlaceItem(props) {
+function PlaceItem({ id, image, title }) {
   const router = useRouter();
 
   function showDetailsHandler() {
-    router.push("/" + props.id);
+    router.push("/" + id);
   }
 
   return (
     <li className={classes.item}>
-      {/* <div className={classes.image}> */}
-      <img src={props.image} alt={props.title} />
-      {/* </div> */}
-      {/* <div className={classes.content}>
-          <h3>{props.title}</h3>
-          <address>{props.address}</address>
-        </div> */}
-      {/* <div className={classes.actions}>
-          <button onClick={showDetailsHandler}>Show Details</button>
-        </div> */}
+      <img src={image} alt={title} />
     </li>
   );
 }

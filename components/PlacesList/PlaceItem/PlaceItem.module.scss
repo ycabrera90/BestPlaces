@@ -1,50 +1,15 @@
+@import "../../../styles/variables.scss";
+
+$item-widht: calc(((100vh - $header-height) / 3) * (4 / 3));
+
 .item {
-  // margin: 1rem 0;
-  // height: calc(100vh / 3);
-  // width: calc(100vw / 4);
+  min-width: $item-widht;
+  max-width: $item-widht;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
-
-// .image {
-  // width: 100%;
-  // height: 100%;
-  // object-fit: cover;
-  // overflow: hidden;
-  // border-top-right-radius: 6px;
-  // border-top-left-radius: 6px;
-// }
-
-.item img {
-  // width: 100%;
-  // object-fit: cover;
-  height: 100%;
-}
-
-// .content {
-//   text-align: center;
-//   padding: 1rem;
-// }
-
-// .content h3 {
-//   font-size: 1.25rem;
-//   color: #2c292b;
-// }
-
-// .actions {
-//   padding: 1.5rem;
-//   text-align: center;
-// }
-
-// .actions button {
-//   font: inherit;
-//   cursor: pointer;
-//   color: #77002e;
-//   border: 1px solid #77002e;
-//   background-color: transparent;
-//   padding: 0.5rem 1.5rem;
-//   border-radius: 4px;
-// }
-
-// .actions button:hover,
-// .actions button:active {
-//   background-color: #ffe2ed;
-// }

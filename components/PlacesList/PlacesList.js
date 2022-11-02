@@ -1,11 +1,11 @@
 import PlaceItem from "./PlaceItem/PlaceItem";
 import classes from "./PlacesList.module.css";
 
-function PlacesList(props) {
+function PlacesList({ meetups }) {
   return (
-    <div className={classes['items-container']}>
-      <ul className={classes.list}>
-        {props.meetups.map((meetup) => (
+    <div className={classes["items-container"]}>
+      <ul>
+        {meetups.map((meetup) => (
           <PlaceItem
             key={meetup.id}
             id={meetup.id}
@@ -15,8 +15,8 @@ function PlacesList(props) {
           />
         ))}
       </ul>
-      <ul className={classes.list}>
-        {props.meetups.map((meetup) => (
+      <ul>
+        {meetups.map((meetup) => (
           <PlaceItem
             key={meetup.id}
             id={meetup.id}
@@ -26,8 +26,8 @@ function PlacesList(props) {
           />
         ))}
       </ul>
-      <ul className={classes.list}>
-        {props.meetups.map((meetup) => (
+      <ul>
+        {meetups.map((meetup) => (
           <PlaceItem
             key={meetup.id}
             id={meetup.id}
