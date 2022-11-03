@@ -1,6 +1,8 @@
-import PlaceItem from "./PlaceItem/PlaceItem";
-
+import React from "react";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
+
+import PlaceItem from "./PlaceItem/PlaceItem";
+import ListContainer from "./ListContainer/ListContainer";
 import classes from "./PlacesList.module.css";
 
 function PlacesList({ meetups }) {
@@ -21,45 +23,49 @@ function PlacesList({ meetups }) {
 
   return (
     <div className={classes["items-container"]}>
-      <ul>
-        <ScrollMenu onWheel={onWheel}>
+      <ListContainer ulId="u1">
+        <ScrollMenu>
           {meetups.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
+              ulId="u1"
               image={meetup.image}
               title={meetup.title}
               address={meetup.address}
             />
           ))}
         </ScrollMenu>
-      </ul>
-      <ul>
+      </ListContainer>
+      <ListContainer ulId="u2">
         <ScrollMenu onWheel={onWheel}>
           {meetups.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
+              ulId="u2"
               image={meetup.image}
               title={meetup.title}
               address={meetup.address}
             />
           ))}
         </ScrollMenu>
-      </ul>
-      <ul>
-        <ScrollMenu onWheel={onWheel}>
+      </ListContainer>
+
+      <ListContainer ulId="u3">
+        <ScrollMenu>
           {meetups.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
+              ulId="u3"
               image={meetup.image}
               title={meetup.title}
               address={meetup.address}
             />
           ))}
         </ScrollMenu>
-      </ul>
+      </ListContainer>
     </div>
   );
 }

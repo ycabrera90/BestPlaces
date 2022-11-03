@@ -62,8 +62,8 @@ h6 {
 
     .react-horizontal-scrolling-menu--scroll-container {
       overflow: hidden;
-      // border: red 2px solid;
       height: 100%;
+      // scroll-behavior: smooth;
     }
   }
 }
