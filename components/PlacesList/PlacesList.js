@@ -7,14 +7,20 @@ import { onWheel } from "../../helpers/scrollMenu";
 import classes from "./PlacesList.module.css";
 
 function PlacesList({ places }) {
+  const placeListU1 = [...places];
+  const placeListU2 = [...places];
+  const placeListU3 = [...places];
 
+  // the arrays were disordered
+  placeListU1.sort((a, b) => 1 - Math.random() - 0.5);
+  placeListU2.sort((a, b) => 1 - Math.random() - 0.5);
+  placeListU3.sort((a, b) => 1 - Math.random() - 0.5);
 
-  
   return (
     <div className={classes["items-container"]}>
       <ListContainer ulId="u1">
         <ScrollMenu>
-          {places.map((meetup) => (
+          {placeListU1.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
@@ -28,7 +34,7 @@ function PlacesList({ places }) {
       </ListContainer>
       <ListContainer ulId="u2">
         <ScrollMenu onWheel={onWheel}>
-          {places.map((meetup) => (
+          {placeListU2.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
@@ -43,7 +49,7 @@ function PlacesList({ places }) {
 
       <ListContainer ulId="u3">
         <ScrollMenu>
-          {places.map((meetup) => (
+          {placeListU3.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
