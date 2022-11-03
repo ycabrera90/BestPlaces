@@ -4,9 +4,7 @@ import classes from "./MainNav.module.css";
 import MainNavItem from "./MainNavItem/MainNavItem";
 import { keyGen } from "../../../../util/keyGen";
 
-const MainNav = (props) => {
-  const { isExpanded } = props;
-
+const MainNav = ({ isExpanded, onBackdropClick }) => {
   const navBarClasses = isExpanded
     ? `${classes["nav-bar"]} ${classes["expanded"]}`
     : `${classes["nav-bar"]}`;
@@ -17,12 +15,12 @@ const MainNav = (props) => {
 
   const mainNavItems = [
     { title: "ALL PLACES", path: "/" },
-    { title: "ADD PLACE", path: "/new-place" },
+    // { title: "ADD PLACE", path: "/new-place" },
   ];
 
   return (
     <>
-      <div className={backdropClasses} onClick={props.onBackdropClick}></div>
+      <div className={backdropClasses} onClick={onBackdropClick}></div>
       <nav className={navBarClasses}>
         <ul>
           {mainNavItems.map((item) => (
