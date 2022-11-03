@@ -6,12 +6,15 @@ import ListContainer from "./ListContainer/ListContainer";
 import { onWheel } from "../../helpers/scrollMenu";
 import classes from "./PlacesList.module.css";
 
-function PlacesList({ meetups }) {
+function PlacesList({ places }) {
+
+
+  
   return (
     <div className={classes["items-container"]}>
       <ListContainer ulId="u1">
         <ScrollMenu>
-          {meetups.map((meetup) => (
+          {places.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
@@ -25,7 +28,7 @@ function PlacesList({ meetups }) {
       </ListContainer>
       <ListContainer ulId="u2">
         <ScrollMenu onWheel={onWheel}>
-          {meetups.map((meetup) => (
+          {places.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
@@ -40,7 +43,7 @@ function PlacesList({ meetups }) {
 
       <ListContainer ulId="u3">
         <ScrollMenu>
-          {meetups.map((meetup) => (
+          {places.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
