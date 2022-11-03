@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   height: 100%;
-  transform: scale(1.5);
   z-index: 1;
+  position: relative;
+  min-height: 400px;
 }

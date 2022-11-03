@@ -3,6 +3,8 @@ import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
 import PlaceItem from "./PlaceItem/PlaceItem";
 import ListContainer from "./ListContainer/ListContainer";
+import MainItems from "./MainItems/MainItems";
+import MainItem from "./MainItems/MainItem/MainItem";
 import { onWheel } from "../../helpers/scrollMenu";
 import classes from "./PlacesList.module.css";
 
@@ -33,8 +35,8 @@ function PlacesList({ places }) {
         </ScrollMenu>
       </ListContainer>
       <ListContainer ulId="u2">
-        <ScrollMenu onWheel={onWheel}>
-          {placeListU2.map((meetup) => (
+        <ScrollMenu>
+          {placeListU1.map((meetup) => (
             <PlaceItem
               key={meetup.id}
               id={meetup.id}
@@ -46,6 +48,20 @@ function PlacesList({ places }) {
           ))}
         </ScrollMenu>
       </ListContainer>
+      {/* <MainItems ulId="u2">
+        <ScrollMenu onWheel={onWheel}>
+          {placeListU2.map((meetup) => (
+            <MainItem
+              key={meetup.id}
+              id={meetup.id}
+              ulId="u2"
+              image={meetup.image}
+              title={meetup.title}
+              address={meetup.address}
+            />
+          ))}
+        </ScrollMenu>
+      </MainItems> */}
 
       <ListContainer ulId="u3">
         <ScrollMenu>

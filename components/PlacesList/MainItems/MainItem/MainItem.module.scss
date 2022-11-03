@@ -12,4 +12,6 @@ $item-widht: calc(((100vh - $header-height) / 3) * (4 / 3));
   height: 100%;
   // margin: 0.2rem;
   // height: $item-height;
+  // transform: scale(1.5);
+  z-index: 100;
 }

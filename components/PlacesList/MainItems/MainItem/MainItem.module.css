@@ -3,4 +3,5 @@
   max-width: calc((100vh - 3.5rem) / 3 * 1.3333333333);
   object-fit: cover;
   height: 100%;
+  z-index: 100;
 }

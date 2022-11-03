@@ -9,6 +9,9 @@ import classes from "./ListContainer.module.css";
 let scrollU1Position = 0; // <--- the initial value is 0
 let scrollU1increasing = true;
 
+let scrollU2Position = 0; // <--- the initial value is 0
+let scrollU2increasing = true;
+
 let scrollU3Position = 0; // <--- the initial value is 0
 let scrollU3increasing = true;
 let firstUl3Mount = true;
@@ -32,6 +35,18 @@ const ListContainer = ({ ulId, children }) => {
           scrollU1increasing,
           scrollU1Position,
           maxScrollUl1
+        );
+      }
+
+      if (ulId === "u2") {
+        [scrollU2Position, scrollU2increasing] = setScrollPosition(
+          ul2DOM,
+          scrollU2increasing,
+          scrollU2Position,
+          maxScrollUl2,
+          undefined,
+          undefined,
+          0.5
         );
       }
 
