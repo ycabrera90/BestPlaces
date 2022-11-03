@@ -1,0 +1,15 @@
+@import "../../../../styles/variables.scss";
+
+$item-widht: calc(((100vh - $header-height) / 3) * (4 / 3));
+// $item-height: calc((100vh - $header-height) / 3 / 1.5);
+
+
+.img {
+  min-width: $item-widht;
+  max-width: $item-widht;
+  // border: red 1px solid;
+  object-fit: cover;
+  height: 100%;
+  // margin: 0.2rem;
+  // height: $item-height;
+}

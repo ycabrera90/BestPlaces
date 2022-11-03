@@ -12,9 +12,9 @@ function PlacesList({ places }) {
   const placeListU3 = [...places];
 
   // the arrays were disordered
-  placeListU1.sort((a, b) => 1 - Math.random() - 0.5);
-  placeListU2.sort((a, b) => 1 - Math.random() - 0.5);
-  placeListU3.sort((a, b) => 1 - Math.random() - 0.5);
+  // placeListU1.sort((a, b) => 1 - Math.random() - 0.5);
+  // placeListU2.sort((a, b) => 1 - Math.random() - 0.5);
+  // placeListU3.sort((a, b) => 1 - Math.random() - 0.5);
 
   return (
     <div className={classes["items-container"]}>
