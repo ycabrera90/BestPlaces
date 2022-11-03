@@ -3,7 +3,6 @@
 $item-widht: calc(((100vh - $header-height) / 2) * (4 / 3));
 $item-height: calc((100vh - $header-height) / 2);
 
-
 .img {
   min-width: $item-widht;
   max-width: $item-widht;
@@ -12,4 +11,5 @@ $item-height: calc((100vh - $header-height) / 2);
   object-fit: cover;
   margin: 0 0.5rem;
   overflow: visible;
+  box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
 }
