@@ -12,4 +12,5 @@ $item-height: calc((100vh - $header-height) / 2);
   margin: 0 0.5rem;
   overflow: visible;
   box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
+  border-radius: 6px;
 }
