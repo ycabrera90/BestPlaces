@@ -28,7 +28,9 @@ const ListContainer = ({ ulId, children }) => {
       ul3DOM,
     ]);
 
-    setInterval(() => {
+    let interval; // <--- declare the interval variable
+
+    interval = setInterval(() => {
       if (ulId === "u1") {
         [scrollU1Position, scrollU1increasing] = setScrollPosition(
           ul1DOM,
@@ -62,6 +64,8 @@ const ListContainer = ({ ulId, children }) => {
           );
       }
     }, 50); // <--- whit a time less than 50ms the scroll is not smooth
+
+    return () => clearInterval(interval); // <--- clear the interval when the component unmount
   }, []);
 
   return <ul className={classes["list-container"]}>{children}</ul>;
