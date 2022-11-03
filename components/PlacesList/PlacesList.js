@@ -19,65 +19,68 @@ function PlacesList({ places }) {
   // placeListU3.sort((a, b) => 1 - Math.random() - 0.5);
 
   return (
-    <div className={classes["items-container"]}>
-      <ListContainer ulId="u1">
-        <ScrollMenu>
-          {placeListU1.map((meetup) => (
-            <PlaceItem
-              key={meetup.id}
-              id={meetup.id}
-              ulId="u1"
-              image={meetup.image}
-              title={meetup.title}
-              address={meetup.address}
-            />
-          ))}
-        </ScrollMenu>
-      </ListContainer>
-      <ListContainer ulId="u2">
-        <ScrollMenu>
-          {placeListU1.map((meetup) => (
-            <PlaceItem
-              key={meetup.id}
-              id={meetup.id}
-              ulId="u2"
-              image={meetup.image}
-              title={meetup.title}
-              address={meetup.address}
-            />
-          ))}
-        </ScrollMenu>
-      </ListContainer>
-      {/* <MainItems ulId="u2">
-        <ScrollMenu onWheel={onWheel}>
-          {placeListU2.map((meetup) => (
-            <MainItem
-              key={meetup.id}
-              id={meetup.id}
-              ulId="u2"
-              image={meetup.image}
-              title={meetup.title}
-              address={meetup.address}
-            />
-          ))}
-        </ScrollMenu>
-      </MainItems> */}
-
-      <ListContainer ulId="u3">
-        <ScrollMenu>
-          {placeListU3.map((meetup) => (
-            <PlaceItem
-              key={meetup.id}
-              id={meetup.id}
-              ulId="u3"
-              image={meetup.image}
-              title={meetup.title}
-              address={meetup.address}
-            />
-          ))}
-        </ScrollMenu>
-      </ListContainer>
-    </div>
+    <>
+      <section className={classes["items-container"]}>
+        <ListContainer ulId="u1">
+          <ScrollMenu>
+            {placeListU1.map((meetup) => (
+              <PlaceItem
+                key={meetup.id}
+                id={meetup.id}
+                ulId="u1"
+                image={meetup.image}
+                title={meetup.title}
+                address={meetup.address}
+              />
+            ))}
+          </ScrollMenu>
+        </ListContainer>
+        <ListContainer ulId="u2">
+          <ScrollMenu>
+            {placeListU1.map((meetup) => (
+              <PlaceItem
+                key={meetup.id}
+                id={meetup.id}
+                ulId="u2"
+                image={meetup.image}
+                title={meetup.title}
+                address={meetup.address}
+              />
+            ))}
+          </ScrollMenu>
+        </ListContainer>
+        <ListContainer ulId="u3">
+          <ScrollMenu>
+            {placeListU3.map((meetup) => (
+              <PlaceItem
+                key={meetup.id}
+                id={meetup.id}
+                ulId="u3"
+                image={meetup.image}
+                title={meetup.title}
+                address={meetup.address}
+              />
+            ))}
+          </ScrollMenu>
+        </ListContainer>
+      </section>
+      <section className={classes["main-items-container"]}>
+        <MainItems ulId="u2">
+          <ScrollMenu onWheel={onWheel}>
+            {placeListU2.map((meetup) => (
+              <MainItem
+                key={meetup.id}
+                id={meetup.id}
+                ulId="u2"
+                image={meetup.image}
+                title={meetup.title}
+                address={meetup.address}
+              />
+            ))}
+          </ScrollMenu>
+        </MainItems>
+      </section>
+    </>
   );
 }
 
