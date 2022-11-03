@@ -3,24 +3,10 @@ import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
 import PlaceItem from "./PlaceItem/PlaceItem";
 import ListContainer from "./ListContainer/ListContainer";
+import { onWheel } from "../../helpers/scrollMenu";
 import classes from "./PlacesList.module.css";
 
 function PlacesList({ meetups }) {
-  function onWheel(apiObj, ev) {
-    const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
-
-    if (isThouchpad) {
-      ev.stopPropagation();
-      return;
-    }
-
-    if (ev.deltaY < 0) {
-      apiObj.scrollNext();
-    } else if (ev.deltaY > 0) {
-      apiObj.scrollPrev();
-    }
-  }
-
   return (
     <div className={classes["items-container"]}>
       <ListContainer ulId="u1">

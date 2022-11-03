@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
 
+import {
+  getMaxScrollItems,
+  setScrollPosition,
+} from "../../../helpers/scrollMenu";
 import classes from "./ListContainer.module.css";
 
 let scrollU1Position = 0; // <--- the initial value is 0
@@ -10,49 +14,6 @@ let scrollU3increasing = true;
 let firstUl3Mount = true;
 
 const ListContainer = ({ ulId, children }) => {
-  const getMaxScrollItems = (domListElements) => {
-    let maxScrollListItems = [];
-
-    domListElements.forEach((domElement) => {
-      const containerWidth = domElement.getBoundingClientRect().width;
-
-      const itemsDOM = domElement.querySelectorAll(
-        ".react-horizontal-scrolling-menu--item "
-      );
-      let itemsWidth = 0;
-      itemsDOM.forEach((item) => {
-        itemsWidth += item.getBoundingClientRect().width;
-      });
-
-      maxScrollListItems.push(itemsWidth - containerWidth);
-    });
-
-    return maxScrollListItems;
-  };
-
-  const setScrollPosition = (
-    ulDOM,
-    scrollState,
-    scrollPosition,
-    maxScroll,
-    forward = true,
-    firsMount = false
-  ) => {
-    if (firsMount) {
-      scrollPosition = !forward ? maxScroll : 0;
-    }
-
-    scrollState = scrollPosition >= maxScroll ? false : scrollState;
-    scrollState = scrollPosition <= 0 ? true : scrollState;
-
-    scrollPosition = scrollState
-      ? (scrollPosition += 1)
-      : (scrollPosition -= 1);
-
-    ulDOM.scroll(scrollPosition, 0);
-    return [scrollPosition, scrollState, false];
-  };
-
   useEffect(() => {
     const [ul1DOM, ul2DOM, ul3DOM] = document.querySelectorAll(
       ".react-horizontal-scrolling-menu--scroll-container"
