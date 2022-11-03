@@ -1,7 +1,9 @@
 .img {
-  min-width: calc((100vh - 3.5rem) / 3 * 1.3333333333);
-  max-width: calc((100vh - 3.5rem) / 3 * 1.3333333333);
+  min-width: calc((100vh - 3.5rem) / 2 * 1.3333333333);
+  max-width: calc((100vh - 3.5rem) / 2 * 1.3333333333);
+  min-height: calc((100vh - 3.5rem) / 2);
+  max-height: calc((100vh - 3.5rem) / 2);
   object-fit: cover;
-  height: 100%;
-  z-index: 100;
+  margin: 0 0.5rem;
+  overflow: visible;
 }

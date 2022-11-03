@@ -1,14 +1,15 @@
+@import "../../../styles/variables.scss";
+@import "./MainItem/MainItem.module.scss";
+
+$item-position: calc(
+  0px - (((100vh - $header-height) / 3 * 2) + ($item-height / 2))
+);
+$item-position: calc(0px - (((100vh - $header-height) / 3 * 1.5) + ($item-height / 2)));
+
 .list-container {
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 30%;
-  z-index: 1;
   position: relative;
-  min-height: 400px;
-  top: -475px;
-  border: red 4px solid;
-  > ul {
-    position: relative;
-  }
+  top: $item-position;
 }

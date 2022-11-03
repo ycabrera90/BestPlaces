@@ -1,14 +1,17 @@
+.img {
+  min-width: calc((100vh - 3.5rem) / 2 * 1.3333333333);
+  max-width: calc((100vh - 3.5rem) / 2 * 1.3333333333);
+  min-height: calc((100vh - 3.5rem) / 2);
+  max-height: calc((100vh - 3.5rem) / 2);
+  object-fit: cover;
+  margin: 0 0.5rem;
+  overflow: visible;
+}
+
 .list-container {
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 30%;
-  z-index: 1;
   position: relative;
-  min-height: 400px;
-  top: -475px;
-  border: red 4px solid;
-}
-.list-container > ul {
-  position: relative;
+  top: calc(0px - ((100vh - 3.5rem) / 3 * 1.5 + (100vh - 3.5rem) / 2 / 2));
 }
