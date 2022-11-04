@@ -5,7 +5,10 @@ import classes from "./MainItem.module.css";
 
 function MainItem({ id, image, title }) {
   const visibility = React.useContext(VisibilityContext);
-  const visible = visibility.isItemVisible(id);
+  // const visible = visibility.isItemVisible(id);
+  const visible = id === "6363f4374ffdad97440c77f0";
+
+  // console.log(id);
 
   const imgClasses = `${classes.img} ${visible ? classes.visible : ""}`;
 

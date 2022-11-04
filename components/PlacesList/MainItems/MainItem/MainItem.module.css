@@ -11,4 +11,6 @@
 }
 .img.visible {
   border: red 4px solid;
+  transform: scale(1.2);
+  margin: 2rem;
 }

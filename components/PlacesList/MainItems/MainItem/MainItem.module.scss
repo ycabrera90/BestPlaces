@@ -16,5 +16,11 @@ $item-height: calc((100vh - $header-height) / 2);
 
   &.visible {
     border: red 4px solid;
+    // position: relative;
+    transform: scale(1.2);
+    // overflow: visible;
+    margin: 2rem;
   }
 }
+
+

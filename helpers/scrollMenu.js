@@ -49,7 +49,9 @@ export const setScrollPosition = (
   scrollState = scrollPosition >= maxScroll ? false : scrollState;
   scrollState = scrollPosition <= 0 ? true : scrollState;
 
-  scrollPosition = scrollState ? (scrollPosition += speed) : (scrollPosition -= speed);
+  scrollPosition = scrollState
+    ? (scrollPosition += speed)
+    : (scrollPosition -= speed);
 
   ulDOM.scroll(scrollPosition, 0);
   return [scrollPosition, scrollState, false];

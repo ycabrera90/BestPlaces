@@ -24,14 +24,6 @@ h6 {
   min-width: 20rem;
 }
 
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-}
-
-::-webkit-scrollbar:horizontal {
-  display: none;
-}
-
 .react-horizontal-scrolling-menu--wrapper {
   height: 100%;
 }
