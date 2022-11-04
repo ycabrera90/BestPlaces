@@ -6,6 +6,7 @@
   height: 100%;
   width: calc((100vh - 3.5rem) / 2 * 1.3333333333);
   z-index: 1;
+  cursor: all-scroll;
 }
 .imagen-container .img {
   min-width: calc((100vh - 3.5rem) / 2 * 1.3333333333);
