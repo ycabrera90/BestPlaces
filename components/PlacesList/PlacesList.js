@@ -66,13 +66,12 @@ function PlacesList({ places }) {
         </ListContainer>
       </section>
       <section className={classes["main-items-container"]}>
-        <MainItems ulId="u2">
+        <MainItems>
           <ScrollMenu onWheel={onWheel}>
             {placeListU2.map((meetup) => (
               <MainItem
                 key={meetup.id}
                 id={meetup.id}
-                ulId="u2"
                 image={meetup.image}
                 title={meetup.title}
                 address={meetup.address}
