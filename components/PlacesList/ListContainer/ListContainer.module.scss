@@ -3,4 +3,11 @@
   margin: 0;
   padding: 0;
   height: 100%;
+  // border: red 16px solid;
+
+  :global {
+    .react-horizontal-scrolling-menu--scroll-container {
+      overflow: hidden;
+    }
+  }
 }

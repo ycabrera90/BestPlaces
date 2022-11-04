@@ -4,3 +4,6 @@
   padding: 0;
   height: 100%;
 }
+.list-container :global .react-horizontal-scrolling-menu--scroll-container {
+  overflow: hidden;
+}
