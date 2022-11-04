@@ -6,6 +6,8 @@ import ListContainer from "./ListContainer/ListContainer";
 import MainItems from "./MainItems/MainItems";
 import MainItem from "./MainItems/MainItem/MainItem";
 import { onWheel } from "../../helpers/scrollMenu";
+import useDrag from "../../hooks/useDrag";
+
 import classes from "./PlacesList.module.css";
 
 function PlacesList({ places }) {
@@ -17,6 +19,17 @@ function PlacesList({ places }) {
   // placeListU1.sort((a, b) => 1 - Math.random() - 0.5);
   // placeListU2.sort((a, b) => 1 - Math.random() - 0.5);
   // placeListU3.sort((a, b) => 1 - Math.random() - 0.5);
+
+  const { dragStart, dragStop, dragMove, dragging } = useDrag();
+
+  const handleDrag =
+    ({ scrollContainer }) =>
+    (ev) =>
+      dragMove(ev, (posDiff) => {
+        if (scrollContainer.current) {
+          scrollContainer.current.scrollLeft += posDiff;
+        }
+      });
 
   return (
     <>
@@ -66,8 +79,14 @@ function PlacesList({ places }) {
         </ListContainer>
       </section>
       <section className={classes["main-items-container"]}>
-        <MainItems>
-          <ScrollMenu onWheel={onWheel}>
+        
+        <MainItems dragStop={dragStop}>
+          <ScrollMenu
+            onWheel={onWheel}
+            onMouseDown={() => dragStart}
+            onMouseUp={() => dragStop}
+            onMouseMove={handleDrag}
+          >
             {placeListU2.map((meetup) => (
               <MainItem
                 key={meetup.id}

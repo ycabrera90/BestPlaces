@@ -12,7 +12,12 @@ function MainItem({ id, image, title }) {
 
   const imgClasses = `${classes.img} ${visible ? classes.visible : ""}`;
 
-  return <img className={imgClasses} src={image} alt={title} />;
+  return (
+    <div role="button" className={classes["imagen-container"]}>
+      <div className={classes.fog}></div>
+      <img className={imgClasses} src={image} alt={title} />
+    </div>
+  );
 }
 
 export default MainItem;

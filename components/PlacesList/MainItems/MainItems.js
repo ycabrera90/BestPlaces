@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import usePreventBodyScroll from "../../../hooks/usePreventBodyScroll";
 import classes from "./MainItems.module.css";
 
-const MainItems = ({ children }) => {
+const MainItems = ({ children, dragStop }) => {
   const { disableScroll, enableScroll } = usePreventBodyScroll();
   return (
-    <div
-      className={classes["main-items_container"]}
-      onMouseEnter={disableScroll}
-      onMouseLeave={enableScroll}
-    >
-      {children}
-    </div>
+    <>
+      <div
+        className={classes["main-items_container"]}
+        onMouseLeave={dragStop}
+      >
+        {children}
+      </div>
+    </>
   );
 };
 
