@@ -15,7 +15,7 @@ const MainNav = ({ isExpanded, onBackdropClick }) => {
 
   const mainNavItems = [
     { title: "ALL PLACES", path: "/" },
-    // { title: "ADD PLACE", path: "/new-place" },
+    { title: "ADD PLACE", path: "/new-place" },
   ];
 
   return (

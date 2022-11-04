@@ -1,20 +1,20 @@
-import Head from "next/head";
+const pageTitle = "Best Places";
+const pageDescription = "Look at the best places in the world";
+
+import PageDatas from "../components/UI/PageDatas/PageDatas";
 import { MongoClient } from "mongodb";
 
-import PlacesList from "../components/PlacesList/PlacesList";
 import MainLayout from "../components/UI/MainLayout/MainLayout";
+import PlacesList from "../components/PlacesList/PlacesList";
+
 
 function HomePage({ places }) {
   return (
     <>
-      <Head>
-        <title>Best Places</title>
-        <meta
-          name="description"
-          content="Look at the best places in the world"
-        />
-      </Head>
-      <PlacesList places={places} />
+      <PageDatas title={pageTitle} description={pageDescription} />
+      <MainLayout>
+        <PlacesList places={places} />
+      </MainLayout>
     </>
   );
 }
