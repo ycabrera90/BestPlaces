@@ -1,16 +1,22 @@
 import React from "react";
-import { ScrollMenu } from "react-horizontal-scrolling-menu";
+import {
+  ScrollMenu,
+  getItemsPos,
+  slidingWindow,
+} from "react-horizontal-scrolling-menu";
 
 import PlaceItem from "./PlaceItem/PlaceItem";
 import ListContainer from "./ListContainer/ListContainer";
 import MainItems from "./MainItems/MainItems";
 import MainItem from "./MainItems/MainItem/MainItem";
-import { onWheel } from "../../helpers/scrollMenu";
+// import { onWheel } from "../../helpers/scrollMenu";
 import useDrag from "../../hooks/useDrag";
 
 import classes from "./PlacesList.module.css";
 
 function PlacesList({ places }) {
+  const [items] = React.useState(places);
+
   const placeListU1 = [...places];
   const placeListU2 = [...places];
   const placeListU3 = [...places];
@@ -31,6 +37,39 @@ function PlacesList({ places }) {
         }
       });
 
+  const handleItemClick =
+    (itemId) =>
+    ({ getItemById, scrollToItem }) => {
+      if (dragging) {
+        return false;
+      }
+      scrollToItem(getItemById(itemId), "smooth", "center", "nearest"); // <--- this is the line that makes the scroll to the center
+    };
+
+  function onWheel({ getItemById, items, visibleItems, scrollToItem }, ev) {
+    const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+
+    if (isThouchpad) {
+      ev.stopPropagation();
+      return;
+    }
+
+    if (ev.deltaY < 0) {
+      const nextGroupItems = slidingWindow(
+        items.toItemsKeys(),
+        visibleItems
+      ).next();
+      const { center } = getItemsPos(nextGroupItems);
+      scrollToItem(getItemById(center), "smooth", "center");
+    } else if (ev.deltaY > 0) {
+      const prevGroupItems = slidingWindow(
+        items.toItemsKeys(),
+        visibleItems
+      ).prev();
+      const { center } = getItemsPos(prevGroupItems);
+      scrollToItem(getItemById(center), "smooth", "center");
+    }
+  }
   return (
     <>
       <section className={classes["items-container"]}>
@@ -79,12 +118,17 @@ function PlacesList({ places }) {
         </ListContainer>
       </section>
       <section className={classes["main-items-container"]}>
-        
         <MainItems dragStop={dragStop}>
           <ScrollMenu
             onWheel={onWheel}
             onMouseDown={() => dragStart}
-            onMouseUp={() => dragStop}
+            onMouseUp={({ getItemById, scrollToItem, visibleItems }) =>
+              () => {
+                dragStop();
+                const { center } = getItemsPos(visibleItems);
+                scrollToItem(getItemById(center), "smooth", "center");
+              }}
+            options={{ throttle: 0 }}
             onMouseMove={handleDrag}
           >
             {placeListU2.map((meetup) => (
@@ -94,6 +138,7 @@ function PlacesList({ places }) {
                 image={meetup.image}
                 title={meetup.title}
                 address={meetup.address}
+                onClick={handleItemClick(meetup.id)}
               />
             ))}
           </ScrollMenu>
