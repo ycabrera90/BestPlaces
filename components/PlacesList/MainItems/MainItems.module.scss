@@ -12,4 +12,5 @@ $item-position: calc(0px - (((100vh - $header-height) / 3 * 1.5) + ($item-height
   padding: 0;
   position: relative;
   top: $item-position;
+  z-index: 2;
 }

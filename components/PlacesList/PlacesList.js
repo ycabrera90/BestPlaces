@@ -21,6 +21,7 @@ function PlacesList({ places }) {
   return (
     <>
       <section className={classes["items-container"]}>
+        <div className={classes.fog}></div>
         <ListContainer ulId="u1">
           <ScrollMenu>
             {placeListU1.map((meetup) => (

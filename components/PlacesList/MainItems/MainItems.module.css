@@ -6,6 +6,8 @@
   object-fit: cover;
   margin: 0 0.5rem;
   overflow: visible;
+  box-shadow: 4px 4px 0.5rem 0.1rem rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
 }
 
 .list-container {
@@ -14,4 +16,5 @@
   padding: 0;
   position: relative;
   top: calc(0px - ((100vh - 3.5rem) / 3 * 1.5 + (100vh - 3.5rem) / 2 / 2));
+  z-index: 2;
 }
