@@ -14,8 +14,8 @@ const MainNav = ({ isExpanded, onBackdropClick }) => {
     : `${classes["backdrop"]}`;
 
   const mainNavItems = [
-    { title: "ALL PLACES", path: "/" },
-    { title: "ADD PLACE", path: "/new-place" },
+    // { title: "ALL PLACES", path: "/" },
+    // { title: "ADD PLACE", path: "/new-place" },
   ];
 
   return (
