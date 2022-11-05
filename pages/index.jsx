@@ -1,5 +1,7 @@
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 const pageTitle = "Best Places";
 const pageDescription = "Look at the best places in the world";
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 import PageDatas from "../components/UI/PageDatas/PageDatas";
 import { MongoClient } from "mongodb";
@@ -7,12 +9,11 @@ import { MongoClient } from "mongodb";
 import MainLayout from "../components/UI/MainLayout/MainLayout";
 import PlacesList from "../components/PlacesList/PlacesList";
 
-
 function HomePage({ places }) {
   return (
     <>
       <PageDatas title={pageTitle} description={pageDescription} />
-      <MainLayout>
+      <MainLayout backgroundImages={places}>
         <PlacesList places={places} />
       </MainLayout>
     </>

@@ -1,11 +1,13 @@
 import MainHeader from "../MainHeader/MainHeader";
+import BackgroundImages from "../BackgroundImages/BackgroundImages";
 import classes from "./MainLayout.module.css";
 
-function MainLayout(props) {
+function MainLayout({ backgroundImages, children }) {
   return (
     <>
       <MainHeader />
-      <main className={classes.main}>{props.children}</main>
+      <BackgroundImages images={backgroundImages} />
+      <main className={classes.main}>{children}</main>
     </>
   );
 }
