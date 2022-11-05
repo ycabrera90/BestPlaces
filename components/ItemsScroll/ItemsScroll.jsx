@@ -1,12 +1,12 @@
 import React from "react";
 import { ScrollMenu, getItemsPos } from "react-horizontal-scrolling-menu";
 
-import useDrag from "../../../hooks/useDrag";
-import { onWheel } from "../../../helpers/scrollMenu";
+import useDrag from "../../hooks/useDrag";
+import { onWheel } from "../../helpers/scrollMenu";
 import MainItem from "./MainItem/MainItem";
-import classes from "./MainItems.module.css";
+import classes from "./ItemsScroll.module.css";
 
-const MainItems = ({ places }) => {
+const ItemsScroll = ({ places }) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
 
   const handleDrag =
@@ -59,4 +59,4 @@ const MainItems = ({ places }) => {
   );
 };
 
-export default MainItems;
+export default ItemsScroll;

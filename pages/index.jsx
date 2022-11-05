@@ -9,7 +9,7 @@ import { MongoClient } from "mongodb";
 
 import MainLayout from "../components/UI/MainLayout/MainLayout";
 import PlacesList from "../components/PlacesList/PlacesList";
-import MainItems from '../components/PlacesList/MainItems/MainItems';
+import ItemsScroll from '../components/ItemsScroll/ItemsScroll';
 
 function HomePage({ places }) {
   return (
@@ -17,7 +17,7 @@ function HomePage({ places }) {
       <PageDatas title={pageTitle} description={pageDescription} />
       <MainLayout backgroundImages={places}>
         {/* <PlacesList places={places} /> */}
-        <MainItems places={places}/>
+        <ItemsScroll places={places}/>
       </MainLayout>
     </>
   );

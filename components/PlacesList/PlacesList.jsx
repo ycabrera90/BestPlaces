@@ -7,8 +7,8 @@ import {
 
 import PlaceItem from "./PlaceItem/PlaceItem";
 import ListContainer from "./ListContainer/ListContainer";
-import MainItems from "./MainItems/MainItems";
-import MainItem from "./MainItems/MainItem/MainItem";
+import MainItems from "../ItemsScroll/ItemsScroll";
+import MainItem from "../ItemsScroll/MainItem/MainItem";
 // import { onWheel } from "../../helpers/scrollMenu";
 import useDrag from "../../hooks/useDrag";
 
