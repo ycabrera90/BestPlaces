@@ -1,7 +1,9 @@
 .main {
   position: fixed;
   top: 3.5rem;
-  margin: 0;
-  height: calc(100vh - 3.5rem);
+  display: flex;
+  align-items: center;
   width: 100vw;
+  height: calc(100vh - 3.5rem);
+  background-color: rgba(0, 0, 0, 0.127);
 }

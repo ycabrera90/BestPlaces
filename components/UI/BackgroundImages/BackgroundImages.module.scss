@@ -8,12 +8,4 @@ $sectionHeight: calc(100vh - $header-height);
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-
-  .fog {
-    position: absolute;
-    height: $sectionHeight;
-    background-color: rgba(0, 0, 0, 0.1);
-    width: 100%;
-    z-index: 1;
-  }
 }

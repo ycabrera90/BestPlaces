@@ -1,23 +1,5 @@
-@import "../../../styles/variables.scss";
-@import "./MainItem/MainItem.module.scss";
-
-$item-position: calc(
-  0px - (((100vh - $header-height) / 3 * 2) + ($item-height / 2))
-);
-$item-position: calc(
-  0px - (((100vh - $header-height) / 3 * 1.5) + ($item-height / 2))
-);
-
-
-
 .main-items_container {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: $item-position;
-  z-index: 2;
-
+  width: 100%;
   :global {
     .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
       display: none;

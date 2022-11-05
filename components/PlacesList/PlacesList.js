@@ -15,50 +15,8 @@ import useDrag from "../../hooks/useDrag";
 import classes from "./PlacesList.module.css";
 
 function PlacesList({ places }) {
-  const { dragStart, dragStop, dragMove, dragging } = useDrag();
+  
 
-  const handleDrag =
-    ({ scrollContainer }) =>
-    (ev) =>
-      dragMove(ev, (posDiff) => {
-        if (scrollContainer.current) {
-          scrollContainer.current.scrollLeft += posDiff;
-        }
-      });
-
-  const handleItemClick =
-    (itemId) =>
-    ({ getItemById, scrollToItem }) => {
-      if (dragging) {
-        return false;
-      }
-      scrollToItem(getItemById(itemId), "smooth", "center", "nearest"); // <--- this is the line that makes the scroll to the center
-    };
-
-  function onWheel({ getItemById, items, visibleItems, scrollToItem }, ev) {
-    const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
-
-    if (isThouchpad) {
-      ev.stopPropagation();
-      return;
-    }
-
-    if (ev.deltaY < 0) {
-      const nextGroupItems = slidingWindow(
-        items.toItemsKeys(),
-        visibleItems
-      ).next();
-      const { center } = getItemsPos(nextGroupItems);
-      scrollToItem(getItemById(center), "smooth", "center");
-    } else if (ev.deltaY > 0) {
-      const prevGroupItems = slidingWindow(
-        items.toItemsKeys(),
-        visibleItems
-      ).prev();
-      const { center } = getItemsPos(prevGroupItems);
-      scrollToItem(getItemById(center), "smooth", "center");
-    }
-  }
   return (
     <>
       {/* <section className={classes["items-container"]}>
