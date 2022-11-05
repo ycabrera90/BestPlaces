@@ -71,4 +71,3 @@ export const onWheel = (
     scrollToItem(getItemById(center), "smooth", "center");
   }
 };
-

@@ -14,7 +14,7 @@ $item-width-highlighted: calc(#{$item-width} * #{$scale-highlighted});
     position: absolute;
     z-index: 1;
 
-    cursor: all-scroll;
+    cursor: pointer;
     &.highlighted {
       z-index: 3;
     }
