@@ -1,11 +1,11 @@
-@import "../../../../styles/variables.scss";
+@import "../../../styles/variables.scss";
 
 $item-height: calc((100vh - $header-height) / 2);
 $item-width: calc(#{$item-height} * (4 / 3));
 
-$scale-visible: 1.2;
-$item-height-visible: calc(#{$item-height} * #{$scale-visible});
-$item-width-visible: calc(#{$item-width} * #{$scale-visible});
+$scale-highlighted: 1.2;
+$item-height-highlighted: calc(#{$item-height} * #{$scale-highlighted});
+$item-width-highlighted: calc(#{$item-width} * #{$scale-highlighted});
 
 .imagen-container {
   margin: 0 0.5rem;
@@ -15,7 +15,7 @@ $item-width-visible: calc(#{$item-width} * #{$scale-visible});
     z-index: 1;
 
     cursor: all-scroll;
-    &.visible {
+    &.highlighted {
       z-index: 3;
     }
   }
@@ -34,18 +34,18 @@ $item-width-visible: calc(#{$item-width} * #{$scale-visible});
     box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
     object-fit: cover;
 
-    &.visible {
+    &.highlighted {
       z-index: 1;
     }
   }
 
-  .visible {
-    min-width: $item-width-visible;
-    max-width: $item-width-visible;
-    min-height: $item-height-visible;
-    max-height: $item-height-visible;
+  .highlighted {
+    min-width: $item-width-highlighted;
+    max-width: $item-width-highlighted;
+    min-height: $item-height-highlighted;
+    max-height: $item-height-highlighted;
     box-shadow: 20px 20px 1rem 0.1rem rgb(0 0 0 / 50%);
-    margin: 0 calc(0px - (#{$item-width-visible} - #{$item-width}) / 2);
+    margin: 0 calc(0px - (#{$item-width-highlighted} - #{$item-width}) / 2);
     z-index: 1;
   }
 }

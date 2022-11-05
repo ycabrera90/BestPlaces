@@ -1,45 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import classes from "./MainItem.module.css";
 
 function MainItem({ id, image, title, onClick }) {
-  const visibility = React.useContext(VisibilityContext);
-  let visible = false;
-  // const visible = id === "6363f4374ffdad97440c77f0";
-  // let visible = false;
-  const visibilityItem = visibility.visibleElements;
+  const visibility = useContext(VisibilityContext);
+  const visibilityItems = visibility.visibleElements; //<-- array with visible items in the screen
+  const visibilityItemsLength = visibilityItems.length;
 
-  if (visibilityItem.length === 1) {
-    console.log("only one item");
-    visible = visibility.isItemVisible(id);
-  } else if (visibility.visibleElements.length % 2 !== 0) {
-    console.log("odd number of items");
-    const middleItemIndex = Math.floor(visibility.visibleElements.length / 2);
-    const middleItemId = visibilityItem[middleItemIndex];
-    console.log("middleItemIndex", middleItemIndex);
-    console.log("middleItemId", middleItemId);
-    if(id === middleItemId) {
-      visible = true;
+  let highlighted = false;
+
+  if (visibilityItemsLength === 1) {
+    highlighted = visibility.isItemVisible(id);
+  } else if (visibilityItemsLength % 2 !== 0) {
+    if (id === visibilityItems[Math.floor(visibilityItemsLength / 2)]) {
+      highlighted = true;
     }
-  } else {
-    console.log("even number of items");
   }
-
-  // if (visibility.visibleElements.length % 2 !== 0) {
-  //   console.log("odd");
-  //   const visibilityItem =
-  //     // visibility.visibleElements[
-  //     //   (visibility.visibleElements.length - 1) / 2 + 1
-  //     // ];
-  //     visibility.visibleElements;
-  //   console.log(visibilityItem);
-  //   // if (visibilityItem === id) {
-  //   //   visible = true;
-  //   // }
-  // } else {
-  //   // nada visible
-  // }
 
   return (
     <div
@@ -47,9 +24,11 @@ function MainItem({ id, image, title, onClick }) {
       className={classes["imagen-container"]}
       onClick={() => onClick(visibility)}
     >
-      <div className={`${classes.fog} ${visible ? classes.visible : ""}`}></div>
+      <div
+        className={`${classes.fog} ${highlighted ? classes.highlighted : ""}`}
+      ></div>
       <img
-        className={`${classes.img} ${visible ? classes.visible : ""}`}
+        className={`${classes.img} ${highlighted ? classes.highlighted : ""}`}
         src={image}
         alt={title}
       />
