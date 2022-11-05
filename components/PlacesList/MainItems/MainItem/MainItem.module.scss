@@ -1,29 +1,51 @@
 @import "../../../../styles/variables.scss";
 
-$item-widht: calc(((100vh - $header-height) / 2) * (4 / 3));
 $item-height: calc((100vh - $header-height) / 2);
+$item-width: calc(#{$item-height} * (4 / 3));
+
+$scale-visible: 1.2;
+$item-height-visible: calc(#{$item-height} * #{$scale-visible});
+$item-width-visible: calc(#{$item-width} * #{$scale-visible});
 
 .imagen-container {
   margin: 0 0.5rem;
+
   .fog {
     position: absolute;
-    height: 100%;
-    width: $item-widht;
     z-index: 1;
+
     cursor: all-scroll;
+    &.visible {
+      z-index: 3;
+    }
+  }
+
+  .fog,
+  .img {
+    min-width: $item-width;
+    max-width: $item-width;
+    min-height: $item-height;
+    max-height: $item-height;
   }
 
   .img {
-    min-width: $item-widht;
-    max-width: $item-widht;
-    min-height: $item-height;
-    max-height: $item-height;
+    position: relative;
     border-radius: 6px;
     box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
     object-fit: cover;
 
     &.visible {
-      // border: red 4px solid;
+      z-index: 1;
     }
+  }
+
+  .visible {
+    min-width: $item-width-visible;
+    max-width: $item-width-visible;
+    min-height: $item-height-visible;
+    max-height: $item-height-visible;
+    box-shadow: 20px 20px 1rem 0.1rem rgb(0 0 0 / 50%);
+    margin: 0 calc(0px - (#{$item-width-visible} - #{$item-width}) / 2);
+    z-index: 1;
   }
 }

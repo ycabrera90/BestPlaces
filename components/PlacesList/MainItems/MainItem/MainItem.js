@@ -5,12 +5,10 @@ import classes from "./MainItem.module.css";
 
 function MainItem({ id, image, title, onClick }) {
   const visibility = React.useContext(VisibilityContext);
-  // const visible = visibility.isItemVisible(id);
-  const visible = id === "6363f4374ffdad97440c77f0";
+  const visible = visibility.isItemVisible(id);
+  // const visible = id === "6363f4374ffdad97440c77f0";
 
   // console.log(id);
-
-  const imgClasses = `${classes.img} ${visible ? classes.visible : ""}`;
 
   return (
     <div
@@ -18,8 +16,12 @@ function MainItem({ id, image, title, onClick }) {
       className={classes["imagen-container"]}
       onClick={() => onClick(visibility)}
     >
-      <div className={classes.fog}></div>
-      <img className={imgClasses} src={image} alt={title} />
+      <div className={`${classes.fog} ${visible ? classes.visible : ""}`}></div>
+      <img
+        className={`${classes.img} ${visible ? classes.visible : ""}`}
+        src={image}
+        alt={title}
+      />
     </div>
   );
 }

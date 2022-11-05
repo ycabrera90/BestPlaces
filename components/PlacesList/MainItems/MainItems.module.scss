@@ -8,6 +8,7 @@
     .react-horizontal-scrolling-menu--scroll-container {
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
+      align-items: center;
     }
   }
 }

@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 body {
@@ -25,13 +25,7 @@ h6 {
   min-width: 20rem;
 }
 
-// ::-webkit-scrollbar {
-//   -webkit-appearance: none;
-// }
 
-// ::-webkit-scrollbar:horizontal {
-//   display: none;
-// }
 
 .react-horizontal-scrolling-menu--wrapper {
   height: 100%;
