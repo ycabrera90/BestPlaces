@@ -1,0 +1,14 @@
+.items-container {
+  margin-top: 3.5rem;
+  height: calc(100vh - 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.items-container .fog {
+  position: absolute;
+  height: calc(100vh - 3.5rem);
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 1;
+}

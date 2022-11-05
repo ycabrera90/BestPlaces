@@ -15,17 +15,6 @@ import useDrag from "../../hooks/useDrag";
 import classes from "./PlacesList.module.css";
 
 function PlacesList({ places }) {
-  const [items] = React.useState(places);
-
-  const placeListU1 = [...places];
-  const placeListU2 = [...places];
-  const placeListU3 = [...places];
-
-  // the arrays were disordered
-  // placeListU1.sort((a, b) => 1 - Math.random() - 0.5);
-  // placeListU2.sort((a, b) => 1 - Math.random() - 0.5);
-  // placeListU3.sort((a, b) => 1 - Math.random() - 0.5);
-
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
 
   const handleDrag =
@@ -72,7 +61,7 @@ function PlacesList({ places }) {
   }
   return (
     <>
-      <section className={classes["items-container"]}>
+      {/* <section className={classes["items-container"]}>
         <div className={classes.fog}></div>
         <ListContainer ulId="u1">
           <ScrollMenu>
@@ -116,8 +105,8 @@ function PlacesList({ places }) {
             ))}
           </ScrollMenu>
         </ListContainer>
-      </section>
-      <section className={classes["main-items-container"]}>
+      </section> */}
+      {/* <section className={classes["main-items-container"]}>
         <MainItems dragStop={dragStop}>
           <ScrollMenu
             onWheel={onWheel}
@@ -143,7 +132,7 @@ function PlacesList({ places }) {
             ))}
           </ScrollMenu>
         </MainItems>
-      </section>
+      </section> */}
     </>
   );
 }
