@@ -1,14 +1,25 @@
 @import "../../../styles/variables.scss";
 
-$item-height: calc((100vh - $header-height) / 2);
-$item-width: calc(#{$item-height} * (4 / 3));
+$margin-sides: 0.5rem;
 
-$scale-highlighted: 1.2;
-$item-height-highlighted: calc(#{$item-height} * #{$scale-highlighted});
-$item-width-highlighted: calc(#{$item-width} * #{$scale-highlighted});
+$lg_scale-highlighted: 1.2;
+$lg_item-height: calc((100vh - $header-height) / 2);
+$lg_item-width: calc(#{$lg_item-height} * (4 / 3));
+$lg_item-height-highlighted: calc(
+  #{$lg_item-height} * #{$lg_scale-highlighted}
+);
+$lg_item-width-highlighted: calc(#{$lg_item-width} * #{$lg_scale-highlighted});
+
+$sm_scale-highlighted: 1.1;
+$sm_item-width: 85vw;
+$sm_item-height: calc(#{$sm_item-width} * 3 / 4);
+$sm_item-width-highlighted: calc(#{$sm_item-width} * #{$sm_scale-highlighted});
+$sm_item-height-highlighted: calc(
+  #{$sm_item-height} * #{$sm_scale-highlighted}
+);
 
 .imagen-container {
-  margin: 0 0.5rem;
+  margin: 0 $margin-sides;
 
   .fog {
     position: absolute;
@@ -22,10 +33,17 @@ $item-width-highlighted: calc(#{$item-width} * #{$scale-highlighted});
 
   .fog,
   .img {
-    min-width: $item-width;
-    max-width: $item-width;
-    min-height: $item-height;
-    max-height: $item-height;
+    min-width: $sm_item-width;
+    max-width: $sm_item-width;
+    min-height: $sm_item-height;
+    max-height: $sm_item-height;
+
+    @media (min-width: 40rem) {
+      min-width: $lg_item-width;
+      max-width: $lg_item-width;
+      min-height: $lg_item-height;
+      max-height: $lg_item-height;
+    }
   }
 
   .img {
@@ -40,12 +58,23 @@ $item-width-highlighted: calc(#{$item-width} * #{$scale-highlighted});
   }
 
   .highlighted {
-    min-width: $item-width-highlighted;
-    max-width: $item-width-highlighted;
-    min-height: $item-height-highlighted;
-    max-height: $item-height-highlighted;
     box-shadow: 20px 20px 1rem 0.1rem rgb(0 0 0 / 50%);
-    margin: 0 calc(0px - (#{$item-width-highlighted} - #{$item-width}) / 2);
     z-index: 1;
+
+    min-width: $sm_item-width-highlighted;
+    max-width: $sm_item-width-highlighted;
+    min-height: $sm_item-height-highlighted;
+    max-height: $sm_item-height-highlighted;
+    margin: 0
+      calc(0px - (#{$sm_item-width-highlighted} - #{$sm_item-width}) / 2);
+
+    @media (min-width: 40rem) {
+      min-width: $lg_item-width-highlighted;
+      max-width: $lg_item-width-highlighted;
+      min-height: $lg_item-height-highlighted;
+      max-height: $lg_item-height-highlighted;
+      margin: 0
+        calc(0px - (#{$lg_item-width-highlighted} - #{$lg_item-width}) / 2);
+    }
   }
 }
