@@ -1,43 +1,13 @@
-import React, { useContext } from "react";
-import {
-  ScrollMenu,
-  getItemsPos,
-  slidingWindow,
-} from "react-horizontal-scrolling-menu";
+import React from "react";
+import { ScrollMenu, getItemsPos } from "react-horizontal-scrolling-menu";
 
 import useDrag from "../../../hooks/useDrag";
-import usePreventBodyScroll from "../../../hooks/usePreventBodyScroll";
+import { onWheel } from "../../../helpers/scrollMenu";
 import MainItem from "./MainItem/MainItem";
 import classes from "./MainItems.module.css";
 
 const MainItems = ({ places }) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
-  const { disableScroll, enableScroll } = usePreventBodyScroll();
-
-  function onWheel({ getItemById, items, visibleItems, scrollToItem }, ev) {
-    const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
-
-    if (isThouchpad) {
-      ev.stopPropagation();
-      return;
-    }
-
-    if (ev.deltaY < 0) {
-      const nextGroupItems = slidingWindow(
-        items.toItemsKeys(),
-        visibleItems
-      ).next();
-      const { center } = getItemsPos(nextGroupItems);
-      scrollToItem(getItemById(center), "smooth", "center");
-    } else if (ev.deltaY > 0) {
-      const prevGroupItems = slidingWindow(
-        items.toItemsKeys(),
-        visibleItems
-      ).prev();
-      const { center } = getItemsPos(prevGroupItems);
-      scrollToItem(getItemById(center), "smooth", "center");
-    }
-  }
 
   const handleDrag =
     ({ scrollContainer }) =>
@@ -57,28 +27,31 @@ const MainItems = ({ places }) => {
       scrollToItem(getItemById(itemId), "smooth", "center", "nearest"); // <--- this is the line that makes the scroll to the center
     };
 
+  const mouseUpHandler =
+    ({ getItemById, scrollToItem, visibleItems }) =>
+    () => {
+      dragStop();
+      const { center } = getItemsPos(visibleItems);
+      scrollToItem(getItemById(center), "smooth", "center");
+    };
+
   return (
     <div className={classes["main-items_container"]} onMouseLeave={dragStop}>
       <ScrollMenu
-        onWheel={onWheel}
-        onMouseDown={() => dragStart}
-        onMouseUp={({ getItemById, scrollToItem, visibleItems }) =>
-          () => {
-            dragStop();
-            const { center } = getItemsPos(visibleItems);
-            scrollToItem(getItemById(center), "smooth", "center");
-          }}
         options={{ throttle: 0 }}
+        onMouseDown={() => dragStart}
+        onMouseUp={mouseUpHandler}
         onMouseMove={handleDrag}
+        onWheel={onWheel}
       >
-        {places.map((meetup) => (
+        {places.map((place) => (
           <MainItem
-            key={meetup.id}
-            id={meetup.id}
-            image={meetup.image}
-            title={meetup.title}
-            address={meetup.address}
-            onClick={handleItemClick(meetup.id)}
+            key={place.id}
+            id={place.id}
+            image={place.image}
+            title={place.title}
+            address={place.address}
+            onClick={handleItemClick(place.id)}
           />
         ))}
       </ScrollMenu>
