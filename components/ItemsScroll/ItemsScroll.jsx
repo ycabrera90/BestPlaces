@@ -27,6 +27,7 @@ const ItemsScroll = ({ places }) => {
         return false;
       }
       scrollToItem(getItemById(itemId), "smooth", "center", "nearest"); // <--- this is the line that makes the scroll to the center
+      console.log('clicked');
     };
 
   const mouseUpHandler =

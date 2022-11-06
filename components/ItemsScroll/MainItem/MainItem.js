@@ -18,6 +18,8 @@ function MainItem({ id, image, title, onClick }) {
     }
   }
 
+  // highlighted = false;
+
   return (
     <div
       role="button"

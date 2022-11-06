@@ -8,11 +8,11 @@
   z-index: 4;
 }
 .arrow-button.left-arrow {
-  top: 7vh;
+  top: 5vh;
   left: 5vw;
 }
 .arrow-button.right-arrow {
-  bottom: 7vh;
+  bottom: 3vh;
   right: 5vw;
 }
 .arrow-button > svg {
