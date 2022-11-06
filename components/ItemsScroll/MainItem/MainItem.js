@@ -3,22 +3,25 @@ import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import classes from "./MainItem.module.css";
 
-function MainItem({ id, image, title, onClick }) {
+function MainItem({ id, image, title, onClick, dueEvent }) {
+  // dueEvent can be imgClick, wheel, arrowsClick
+
   const visibility = useContext(VisibilityContext);
-  const visibilityItems = visibility.visibleElements; //<-- array with visible items in the screen
-  const visibilityItemsLength = visibilityItems.length;
 
   let highlighted = false;
 
-  if (visibilityItemsLength === 1) {
-    highlighted = visibility.isItemVisible(id);
-  } else if (visibilityItemsLength % 2 !== 0) {
-    if (id === visibilityItems[Math.floor(visibilityItemsLength / 2)]) {
-      highlighted = true;
+  if (dueEvent === "imgClick") {
+    const visibilityItems = visibility.visibleElements; //<-- array with visible items in the screen
+    const visibilityItemsLength = visibilityItems.length;
+
+    if (visibilityItemsLength === 1) {
+      highlighted = visibility.isItemVisible(id);
+    } else if (visibilityItemsLength % 2 !== 0) {
+      if (id === visibilityItems[Math.floor(visibilityItemsLength / 2)]) {
+        highlighted = true;
+      }
     }
   }
-
-  // highlighted = false;
 
   return (
     <div

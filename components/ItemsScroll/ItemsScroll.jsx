@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ScrollMenu, getItemsPos } from "react-horizontal-scrolling-menu";
 
 import { onWheel } from "../../helpers/scrollMenu";
@@ -10,6 +10,7 @@ import classes from "./ItemsScroll.module.css";
 
 const ItemsScroll = ({ places }) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
+  const [triggeredEvent, setTriggeredEvent] = useState(null);
 
   const handleDrag =
     ({ scrollContainer }) =>
@@ -27,7 +28,7 @@ const ItemsScroll = ({ places }) => {
         return false;
       }
       scrollToItem(getItemById(itemId), "smooth", "center", "nearest"); // <--- this is the line that makes the scroll to the center
-      console.log('clicked');
+      setTriggeredEvent("imgClick");
     };
 
   const mouseUpHandler =
@@ -38,17 +39,26 @@ const ItemsScroll = ({ places }) => {
       scrollToItem(getItemById(center), "smooth", "center");
     };
 
+  const onWheelHandler = (apyObj, ev) => {
+    setTriggeredEvent("wheel");
+    onWheel(apyObj, ev);
+  };
+
   return (
     <>
       <div className={classes["main-items_container"]} onMouseLeave={dragStop}>
         <ScrollMenu
-          LeftArrow={LeftArrow}
-          RightArrow={RightArrow}
+          LeftArrow={
+            <LeftArrow onClick={() => setTriggeredEvent("arrowsClick")} />
+          }
+          RightArrow={
+            <RightArrow onClick={() => setTriggeredEvent("arrowsClick")} />
+          }
           options={{ throttle: 0 }}
           onMouseDown={() => dragStart}
           onMouseUp={mouseUpHandler}
           onMouseMove={handleDrag}
-          onWheel={onWheel}
+          onWheel={onWheelHandler}
         >
           {places.map((place) => (
             <MainItem
@@ -58,6 +68,7 @@ const ItemsScroll = ({ places }) => {
               title={place.title}
               address={place.address}
               onClick={handleItemClick(place.id)}
+              dueEvent={triggeredEvent}
             />
           ))}
         </ScrollMenu>
