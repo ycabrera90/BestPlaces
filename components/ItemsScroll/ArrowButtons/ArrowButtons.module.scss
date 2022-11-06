@@ -1,0 +1,42 @@
+@import "../../../styles/variables.scss";
+
+.arrow-button {
+  cursor: pointer;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: 5rem;
+  color: $color-2;
+  z-index: 4;
+
+  &.left-arrow {
+    top: 7vh;
+    left: 5vw;
+  }
+  &.right-arrow {
+    bottom: 7vh;
+    right: 5vw;
+  }
+
+  > svg {
+    position: relative;
+    box-shadow: 10px 5px 5px $color-3;
+    border: $color-2 1px solid;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background: $color-4;
+    transition: none;
+
+    &:hover {
+      background: $color-1;
+    }
+
+    &:active {
+      color: $color-3;
+      border: $color-3 1px solid;
+      bottom: -2px;
+      right: -4px;
+      box-shadow: 6px 3px 5px $color-3;
+    }
+  }
+}

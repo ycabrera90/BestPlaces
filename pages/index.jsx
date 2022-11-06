@@ -8,7 +8,6 @@ import PageDatas from "../components/UI/PageDatas/PageDatas";
 import { MongoClient } from "mongodb";
 
 import MainLayout from "../components/UI/MainLayout/MainLayout";
-import PlacesList from "../components/PlacesList/PlacesList";
 import ItemsScroll from '../components/ItemsScroll/ItemsScroll';
 
 function HomePage({ places }) {
@@ -16,7 +15,6 @@ function HomePage({ places }) {
     <>
       <PageDatas title={pageTitle} description={pageDescription} />
       <MainLayout backgroundImages={places}>
-        {/* <PlacesList places={places} /> */}
         <ItemsScroll places={places}/>
       </MainLayout>
     </>
