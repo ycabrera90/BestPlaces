@@ -14,18 +14,6 @@ $sm_item-margint-highlighted: calc(
   0px - (#{$sm_item-width-highlighted} - #{$sm_item-width}) / 2
 );
 
-// medium screens
-// $md_scale-highlighted: 1.5;
-// $md_item-width: 40vw;
-// $md_item-height: calc(#{$md_item-width} * 3 / 4);
-// $md_item-width-highlighted: calc(#{$md_item-width} * #{$md_scale-highlighted});
-// $md_item-height-highlighted: calc(
-//   #{$md_item-height} * #{$md_scale-highlighted}
-// );
-// $md_item-margint-highlighted: calc(
-//   0px - (#{$md_item-width-highlighted} - #{$md_item-width}) / 2
-// );
-
 // large screens
 $lg_scale-highlighted: 1.5;
 $lg_item-width: 30vw;
@@ -64,13 +52,6 @@ $lg_item-margint-highlighted: calc(
       min-height: $lg_item-height;
       max-height: $lg_item-height;
     }
-
-    // @media (min-width: 60rem) {
-    // min-width: $md_item-width;
-    // max-width: $md_item-width;
-    // min-height: $md_item-height;
-    // max-height: $md_item-height;
-    // }
   }
 
   .img {
@@ -100,14 +81,6 @@ $lg_item-margint-highlighted: calc(
       min-height: $lg_item-height-highlighted;
       max-height: $lg_item-height-highlighted;
       margin: 0 $lg_item-margint-highlighted;
-
-      // @media (min-width: 60rem) {
-      // min-width: $md_item-width-highlighted;
-      // max-width: $md_item-width-highlighted;
-      // min-height: $md_item-height-highlighted;
-      // max-height: $md_item-height-highlighted;
-      // margin: 0 $md_item-margint-highlighted;
-      // }
     }
   }
 }
