@@ -4,7 +4,9 @@ import { VisibilityContext } from "react-horizontal-scrolling-menu";
 import useDOM_helper from "../../../hooks/useDOM_helper";
 import classes from "./MainItem.module.css";
 
-let isFirstValidDOM_values = true;
+let isValidDOM_values = false;
+let isFirstPortraitLoad = true;
+
 
 function MainItem({ id, image, title, onClick, dueEvent, isFirtElement }) {
   // <-- dueEvent can be: imgClick, wheel, arrowsClick
@@ -13,29 +15,50 @@ function MainItem({ id, image, title, onClick, dueEvent, isFirtElement }) {
   const { screen } = useDOM_helper();
 
   const goToItem = () => onClick(visibility);
+  
+  // detect if useDOM_helper give us valid values due to window object
+  useEffect(() => {
+    if (screen.orientation) {
+      isValidDOM_values = true;
+    }
+  }, [screen.orientation]);
+
 
   // auto go to the first not emty element if you open the page on mobile screens
   useEffect(() => {
     let timeBeforeGo;
-    if (isFirstValidDOM_values) {
+    if (isValidDOM_values && isFirstPortraitLoad) {
       if (isFirtElement && screen.orientation === "portrait") {
         setTimeout(() => {
           goToItem();
-          isFirstValidDOM_values = false;
+          isFirstPortraitLoad = false;
         }, 500);
       }
     }
     return () => clearTimeout(timeBeforeGo);
   }, [isFirtElement, screen.orientation]);
 
-  // auto go to the the last highlighted element when you change the orientation of your screen
+  // if yo change to portrait mode without select any image, you go automatically to the first element you saw in the last view.
   useEffect(() => {
     let timeBeforeGo;
-    if (!isFirstValidDOM_values) {
-      if (highlighted) {
-        timeBeforeGo = setTimeout(() => {
-          goToItem();
-        }, 500);
+    if (isValidDOM_values && highlighted) {
+      timeBeforeGo = setTimeout(() => {
+        goToItem();
+      }, 500);
+    }
+    return () => clearTimeout(timeBeforeGo);
+  }, [screen.orientation]);
+
+  // auto select the firt highlighted element when you go to the portrait orientation of your screen
+  useEffect(() => {
+    let timeBeforeGo;
+    if (isValidDOM_values) {
+      if (screen.orientation === "portrait" && dueEvent !== "imgClick") {
+        if (visibility.visibleElements[0] === id) {
+          timeBeforeGo = setTimeout(() => {
+            goToItem();
+          }, 500);
+        }
       }
     }
     return () => clearTimeout(timeBeforeGo);
@@ -43,7 +66,7 @@ function MainItem({ id, image, title, onClick, dueEvent, isFirtElement }) {
 
   // auto hightlighting center items when click items or when you are on mobile screens
   useEffect(() => {
-    if (!isFirstValidDOM_values) {
+    if (isValidDOM_values) {
       setHighlighted(false);
       if (dueEvent === "imgClick" || screen.orientation === "portrait") {
         const visibilityItems = visibility.visibleElements;
