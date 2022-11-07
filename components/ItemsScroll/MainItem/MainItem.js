@@ -27,13 +27,16 @@ function MainItem({ id, image, title, onClick, dueEvent, isFirtElement }) {
   // auto go to the first not emty element if you open the page on mobile screens
   useEffect(() => {
     let timeBeforeGo;
-    if (isValidDOM_values && isFirstPortraitLoad) {
-      if (isFirtElement && screen.orientation === "portrait") {
-        setTimeout(() => {
-          goToItem();
-          isFirstPortraitLoad = false;
-        }, 500);
-      }
+    if (
+      isValidDOM_values &&
+      isFirstPortraitLoad &&
+      isFirtElement &&
+      screen.orientation === "portrait"
+    ) {
+      setTimeout(() => {
+        goToItem();
+        isFirstPortraitLoad = false;
+      }, 500);
     }
     return () => clearTimeout(timeBeforeGo);
   }, [isFirtElement, screen.orientation]);
@@ -52,14 +55,15 @@ function MainItem({ id, image, title, onClick, dueEvent, isFirtElement }) {
   // auto select the firt highlighted element when you go to the portrait orientation of your screen
   useEffect(() => {
     let timeBeforeGo;
-    if (isValidDOM_values) {
-      if (screen.orientation === "portrait" && dueEvent !== "imgClick") {
-        if (visibility.visibleElements[0] === id) {
-          timeBeforeGo = setTimeout(() => {
-            goToItem();
-          }, 500);
-        }
-      }
+    if (
+      isValidDOM_values &&
+      screen.orientation === "portrait" &&
+      dueEvent !== "imgClick" &&
+      visibility.visibleElements[0] === id
+    ) {
+      timeBeforeGo = setTimeout(() => {
+        goToItem();
+      }, 500);
     }
     return () => clearTimeout(timeBeforeGo);
   }, [screen.orientation]);
