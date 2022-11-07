@@ -4,7 +4,7 @@ import { VisibilityContext } from "react-horizontal-scrolling-menu";
 import classes from "./MainItem.module.css";
 
 function MainItem({ id, image, title, onClick, dueEvent }) {
-  // dueEvent can be imgClick, wheel, arrowsClick
+  // dueEvent can be: imgClick, wheel, arrowsClick
 
   const visibility = useContext(VisibilityContext);
 
@@ -28,9 +28,12 @@ function MainItem({ id, image, title, onClick, dueEvent }) {
       role="button"
       className={classes["imagen-container"]}
       onClick={() => onClick(visibility)}
+      style={{
+        visibility: image ? "visible" : "hidden",
+      }}
     >
       <div
-        className={`${classes.fog} ${highlighted ? classes.highlighted : ""}`}
+        className={`${classes.fog} ${highlighted ? classes.highlighted : ""} `}
       ></div>
       <img
         className={`${classes.img} ${highlighted ? classes.highlighted : ""}`}

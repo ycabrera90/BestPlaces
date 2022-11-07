@@ -3,19 +3,19 @@ const pageTitle = "Best Places";
 const pageDescription = "Look at the best places in the world";
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-import React from 'react'
+import React from "react";
 import PageDatas from "../components/UI/PageDatas/PageDatas";
 import { MongoClient } from "mongodb";
 
 import MainLayout from "../components/UI/MainLayout/MainLayout";
-import ItemsScroll from '../components/ItemsScroll/ItemsScroll';
+import ItemsScroll from "../components/ItemsScroll/ItemsScroll";
 
 function HomePage({ places }) {
   return (
     <>
       <PageDatas title={pageTitle} description={pageDescription} />
       <MainLayout backgroundImages={places}>
-        <ItemsScroll places={places}/>
+        <ItemsScroll places={places} />
       </MainLayout>
     </>
   );
@@ -34,6 +34,20 @@ export async function getStaticProps() {
     image: item.image,
     id: item._id.toString(), // <--- this is because _id is an object
   }));
+
+  places.unshift({
+    title: null,
+    address: null,
+    image: null,
+    id: "startEmtyItem",
+  });
+
+  places.push({
+    title: null,
+    address: null,
+    image: null,
+    id: "endEmtyItem",
+  });
 
   client.close();
   return {
