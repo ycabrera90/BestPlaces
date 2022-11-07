@@ -69,6 +69,14 @@ export const RightArrow = ({ onClick }) => {
     onClick();
     return scrollToItem(getNextElement(), "smooth", "center");
   };
+
+  // go to the first scroll elements for fill the entery screen
+  useState(() => {
+    setTimeout(() => {
+      clickHandler();
+    }, 100);
+  }, []);
+
   return (
     <ArrowButtons
       disabled={disabled}

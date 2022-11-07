@@ -5,7 +5,6 @@ import useDOM_helper from "../../../hooks/useDOM_helper";
 import classes from "./MainItem.module.css";
 
 let isValidDOM_values = false;
-let isFirstPortraitLoad = true;
 
 
 function MainItem({ id, image, title, onClick, dueEvent, isFirtElement }) {
@@ -22,24 +21,6 @@ function MainItem({ id, image, title, onClick, dueEvent, isFirtElement }) {
       isValidDOM_values = true;
     }
   }, [screen.orientation]);
-
-
-  // auto go to the first not emty element if you open the page on mobile screens
-  useEffect(() => {
-    let timeBeforeGo;
-    if (
-      isValidDOM_values &&
-      isFirstPortraitLoad &&
-      isFirtElement &&
-      screen.orientation === "portrait"
-    ) {
-      setTimeout(() => {
-        goToItem();
-        isFirstPortraitLoad = false;
-      }, 500);
-    }
-    return () => clearTimeout(timeBeforeGo);
-  }, [isFirtElement, screen.orientation]);
 
   // if yo change to portrait mode without select any image, you go automatically to the first element you saw in the last view.
   useEffect(() => {
