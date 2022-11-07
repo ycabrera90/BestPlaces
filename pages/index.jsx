@@ -35,19 +35,7 @@ export async function getStaticProps() {
     id: item._id.toString(), // <--- this is because _id is an object
   }));
 
-  places.unshift({
-    title: null,
-    address: null,
-    image: null,
-    id: "startEmtyItem",
-  });
-
-  places.push({
-    title: null,
-    address: null,
-    image: null,
-    id: "endEmtyItem",
-  });
+  
 
   client.close();
   return {

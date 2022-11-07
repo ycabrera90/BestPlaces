@@ -12,6 +12,22 @@ const ItemsScroll = ({ places }) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
   const [triggeredEvent, setTriggeredEvent] = useState(null);
 
+  let adjustedPlaces = [...places];
+
+  adjustedPlaces.unshift({
+    title: null,
+    address: null,
+    image: null,
+    id: "startEmtyItem",
+  });
+
+  adjustedPlaces.push({
+    title: null,
+    address: null,
+    image: null,
+    id: "endEmtyItem",
+  });
+
   const handleDrag =
     ({ scrollContainer }) =>
     (ev) =>
@@ -60,7 +76,7 @@ const ItemsScroll = ({ places }) => {
           onMouseMove={handleDrag}
           onWheel={onWheelHandler}
         >
-          {places.map((place) => (
+          {adjustedPlaces.map((place) => (
             <MainItem
               key={place.id}
               id={place.id}
