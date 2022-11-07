@@ -2,29 +2,21 @@
 
 $margin-sides: 0.5rem;
 
-// small screens
-$sm_scale-highlighted: 1.1;
-$sm_item-width: 85vw;
-$sm_item-height: calc(#{$sm_item-width} * 3 / 4);
-$sm_item-width-highlighted: calc(#{$sm_item-width} * #{$sm_scale-highlighted});
-$sm_item-height-highlighted: calc(
-  #{$sm_item-height} * #{$sm_scale-highlighted}
-);
-$sm_item-margint-highlighted: calc(
-  0px - (#{$sm_item-width-highlighted} - #{$sm_item-width}) / 2
-);
+// portrait
+$portrait_scale-highlighted: 1.12;
+$portrait_item-width: 85vw;
+$portrait_item-height: calc(#{$portrait_item-width} * 3 / 4);
+$portrait_item-width-highlighted: calc(#{$portrait_item-width} * #{$portrait_scale-highlighted});
+$portrait_item-height-highlighted: calc(#{$portrait_item-height} * #{$portrait_scale-highlighted});
+$portrait_item-margint-highlighted: calc(0px - (#{$portrait_item-width-highlighted} - #{$portrait_item-width}) / 2);
 
-// large screens
-$lg_scale-highlighted: 1.5;
-$lg_item-width: 30vw;
-$lg_item-height: calc(#{$lg_item-width} * 3 / 4);
-$lg_item-width-highlighted: calc(#{$lg_item-width} * #{$lg_scale-highlighted});
-$lg_item-height-highlighted: calc(
-  #{$lg_item-height} * #{$lg_scale-highlighted}
-);
-$lg_item-margint-highlighted: calc(
-  0px - (#{$lg_item-width-highlighted} - #{$lg_item-width}) / 2
-);
+// landscape
+$landscape_scale-highlighted: 1.5;
+$landscape_item-height: 40vh;
+$landscape_item-width: calc(#{$landscape_item-height} * 4 / 3);
+$landscape_item-width-highlighted: calc(#{$landscape_item-width} * #{$landscape_scale-highlighted});
+$landscape_item-height-highlighted: calc(#{$landscape_item-height} * #{$landscape_scale-highlighted});
+$landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlighted} - #{$landscape_item-width}) / 2);
 
 .imagen-container {
   margin: 0 $margin-sides;
@@ -41,16 +33,16 @@ $lg_item-margint-highlighted: calc(
 
   .fog,
   .img {
-    min-width: $sm_item-width;
-    max-width: $sm_item-width;
-    min-height: $sm_item-height;
-    max-height: $sm_item-height;
+    min-width: $portrait_item-width;
+    max-width: $portrait_item-width;
+    min-height: $portrait_item-height;
+    max-height: $portrait_item-height;
 
-    @media (min-width: 40rem) {
-      min-width: $lg_item-width;
-      max-width: $lg_item-width;
-      min-height: $lg_item-height;
-      max-height: $lg_item-height;
+    @media (orientation: landscape) {
+      min-width: $landscape_item-width;
+      max-width: $landscape_item-width;
+      min-height: $landscape_item-height;
+      max-height: $landscape_item-height;
     }
   }
 
@@ -69,18 +61,18 @@ $lg_item-margint-highlighted: calc(
     box-shadow: 20px 20px 1rem 0.1rem rgb(0 0 0 / 50%);
     z-index: 1;
 
-    min-width: $sm_item-width-highlighted;
-    max-width: $sm_item-width-highlighted;
-    min-height: $sm_item-height-highlighted;
-    max-height: $sm_item-height-highlighted;
-    margin: 0 $sm_item-margint-highlighted;
+    min-width: $portrait_item-width-highlighted;
+    max-width: $portrait_item-width-highlighted;
+    min-height: $portrait_item-height-highlighted;
+    max-height: $portrait_item-height-highlighted;
+    margin: 0 $portrait_item-margint-highlighted;
 
-    @media (min-width: 40rem) {
-      min-width: $lg_item-width-highlighted;
-      max-width: $lg_item-width-highlighted;
-      min-height: $lg_item-height-highlighted;
-      max-height: $lg_item-height-highlighted;
-      margin: 0 $lg_item-margint-highlighted;
+    @media (orientation: landscape) {
+      min-width: $landscape_item-width-highlighted;
+      max-width: $landscape_item-width-highlighted;
+      min-height: $landscape_item-height-highlighted;
+      max-height: $landscape_item-height-highlighted;
+      margin: 0 $landscape_item-margint-highlighted;
     }
   }
 }
