@@ -12,22 +12,6 @@ const ItemsScroll = ({ places }) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
   const [triggeredEvent, setTriggeredEvent] = useState(null);
 
-  let adjustedPlaces = [...places];
-
-  adjustedPlaces.unshift({
-    title: null,
-    address: null,
-    image: null,
-    id: "startEmtyItem",
-  });
-
-  adjustedPlaces.push({
-    title: null,
-    address: null,
-    image: null,
-    id: "endEmtyItem",
-  });
-
   const handleDrag =
     ({ scrollContainer }) =>
     (ev) =>
@@ -60,6 +44,23 @@ const ItemsScroll = ({ places }) => {
     onWheel(apyObj, ev);
   };
 
+  let adjustedPlaces = [...places];
+
+  // insert a transparent first element en the scroll for adjustment
+  adjustedPlaces.unshift({
+    title: null,
+    address: null,
+    image: null,
+    id: "startEmtyItem",
+  });
+
+  // insert a transparent end element en the scroll for adjustment
+  adjustedPlaces.push({
+    title: null,
+    address: null,
+    image: null,
+    id: "endEmtyItem",
+  });
   return (
     <>
       <div className={classes["main-items_container"]} onMouseLeave={dragStop}>

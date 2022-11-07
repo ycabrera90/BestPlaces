@@ -1,16 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
+import useDOM_helper from "../../../hooks/useDOM_helper";
 import classes from "./MainItem.module.css";
 
 function MainItem({ id, image, title, onClick, dueEvent }) {
-  // dueEvent can be: imgClick, wheel, arrowsClick
+  // <-- dueEvent can be: imgClick, wheel, arrowsClick
 
   const visibility = useContext(VisibilityContext);
+  const { screen } = useDOM_helper();
 
   let highlighted = false;
 
-  if (dueEvent === "imgClick") {
+  if (dueEvent === "imgClick" || screen.orientation === "portrait") {
     const visibilityItems = visibility.visibleElements; //<-- array with visible items in the screen
     const visibilityItemsLength = visibilityItems.length;
 
@@ -34,7 +36,7 @@ function MainItem({ id, image, title, onClick, dueEvent }) {
     >
       <div
         className={`${classes.fog} ${highlighted ? classes.highlighted : ""} `}
-      ></div>
+      />
       <img
         className={`${classes.img} ${highlighted ? classes.highlighted : ""}`}
         src={image}

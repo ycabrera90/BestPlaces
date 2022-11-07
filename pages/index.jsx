@@ -4,7 +4,8 @@ const pageDescription = "Look at the best places in the world";
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 import React from "react";
-import PageDatas from "../components/UI/PageDatas/PageDatas";
+import Script from "next/script";
+import PageHeaders from "../components/UI/PageHeaders/PageHeaders";
 import { MongoClient } from "mongodb";
 
 import MainLayout from "../components/UI/MainLayout/MainLayout";
@@ -13,7 +14,7 @@ import ItemsScroll from "../components/ItemsScroll/ItemsScroll";
 function HomePage({ places }) {
   return (
     <>
-      <PageDatas title={pageTitle} description={pageDescription} />
+      <PageHeaders title={pageTitle} description={pageDescription} />
       <MainLayout backgroundImages={places}>
         <ItemsScroll places={places} />
       </MainLayout>
@@ -34,8 +35,6 @@ export async function getStaticProps() {
     image: item.image,
     id: item._id.toString(), // <--- this is because _id is an object
   }));
-
-  
 
   client.close();
   return {
