@@ -76,6 +76,7 @@ const ItemsScroll = ({ places }) => {
               title={place.title}
               address={place.address}
               onClick={handleItemClick(place.id)}
+              onBackdrop={()=>setTriggeredEvent('backdropClick')}
               dueEvent={triggeredEvent}
               isFirtElement={place.id === firtElementId}
             />

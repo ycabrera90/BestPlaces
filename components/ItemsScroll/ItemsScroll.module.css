@@ -1,4 +1,5 @@
 .main-items_container {
+  padding: 1rem 0rem;
   width: 100%;
 }
 .main-items_container :global .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {

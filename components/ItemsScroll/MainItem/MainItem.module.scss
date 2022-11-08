@@ -19,32 +19,15 @@ $landscape_item-height-highlighted: calc(#{$landscape_item-height} * #{$landscap
 $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlighted} - #{$landscape_item-width}) / 2);
 
 .imagen-container {
-  margin: 0 $margin-sides;
+  margin: $margin-sides;
 
   .fog {
     position: absolute;
-    z-index: 1;
     padding: 1rem 1.5rem;
-    background: linear-gradient(195deg, #00000038, transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    
     cursor: pointer;
-    &.highlighted {
-      z-index: 3;
-        opacity: 1;
-      
-      }
-    
-    > h1{
-      color: $color-1;
-      font-size: 1.5rem;
-      transition: opacity 0.3s ease-in-out;
-    }
-  }
+    opacity: 0;
+    z-index: 2;
 
-  .fog,
-  .img {
     min-width: $portrait_item-width;
     max-width: $portrait_item-width;
     min-height: $portrait_item-height;
@@ -56,35 +39,60 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
       min-height: $landscape_item-height;
       max-height: $landscape_item-height;
     }
+
+    &.highlighted {
+      position: fixed;
+      top: $header-height;
+      right: 0px;
+      min-width: 200vw;
+      min-height: calc(100vh - $header-height);
+      z-index: 0;
+    }
   }
 
   .img {
     position: relative;
     border-radius: 6px;
-    box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
     object-fit: cover;
-
-    &.highlighted {
-      z-index: 2;
-    }
-  }
-
-  .highlighted {
-    box-shadow: 20px 20px 1rem 0.1rem rgb(0 0 0 / 50%);
+    box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
     z-index: 1;
 
-    min-width: $portrait_item-width-highlighted;
-    max-width: $portrait_item-width-highlighted;
-    min-height: $portrait_item-height-highlighted;
-    max-height: $portrait_item-height-highlighted;
-    margin: 0 $portrait_item-margint-highlighted;
+    min-width: $portrait_item-width;
+    max-width: $portrait_item-width;
+    min-height: $portrait_item-height;
+    max-height: $portrait_item-height;
 
     @media (orientation: landscape) {
-      min-width: $landscape_item-width-highlighted;
-      max-width: $landscape_item-width-highlighted;
-      min-height: $landscape_item-height-highlighted;
-      max-height: $landscape_item-height-highlighted;
-      margin: 0 $landscape_item-margint-highlighted;
+      min-width: $landscape_item-width;
+      max-width: $landscape_item-width;
+      min-height: $landscape_item-height;
+      max-height: $landscape_item-height;
+    }
+
+    &.highlighted {
+      box-shadow: 20px 20px 1rem 0.1rem rgb(0 0 0 / 50%);
+      z-index: 3;
+
+      min-width: $portrait_item-width-highlighted;
+      max-width: $portrait_item-width-highlighted;
+      min-height: $portrait_item-height-highlighted;
+      max-height: $portrait_item-height-highlighted;
+      margin: 0 $portrait_item-margint-highlighted;
+
+      @media (orientation: landscape) {
+        min-width: $landscape_item-width-highlighted;
+        max-width: $landscape_item-width-highlighted;
+        min-height: $landscape_item-height-highlighted;
+        max-height: $landscape_item-height-highlighted;
+        margin: 0 $landscape_item-margint-highlighted;
+      }
     }
   }
 }
+
+
+//   > h1{
+    //     color: $color-1;
+    //     font-size: 1.5rem;
+    //     // transition: opacity 0.3s ease-in-out;
+    //   }
