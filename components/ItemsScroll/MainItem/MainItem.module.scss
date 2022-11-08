@@ -8,7 +8,7 @@ $portrait_item-width: 85vw;
 $portrait_item-height: calc(#{$portrait_item-width} * 3 / 4);
 $portrait_item-width-highlighted: calc(#{$portrait_item-width} * #{$portrait_scale-highlighted});
 $portrait_item-height-highlighted: calc(#{$portrait_item-height} * #{$portrait_scale-highlighted});
-$portrait_item-margint-highlighted: calc(0px - (#{$portrait_item-width-highlighted} - #{$portrait_item-width}) / 2);
+$portrait_item-margint-highlighted: calc(0px - (#{$portrait_item-width-highlighted} - #{$portrait_item-width}) / 2 + $margin-sides);
 
 // landscape
 $landscape_scale-highlighted: 1.5;
@@ -16,10 +16,10 @@ $landscape_item-height: 40vh;
 $landscape_item-width: calc(#{$landscape_item-height} * 4 / 3);
 $landscape_item-width-highlighted: calc(#{$landscape_item-width} * #{$landscape_scale-highlighted});
 $landscape_item-height-highlighted: calc(#{$landscape_item-height} * #{$landscape_scale-highlighted});
-$landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlighted} - #{$landscape_item-width}) / 2);
+$landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlighted} - #{$landscape_item-width}) / 2 + $margin-sides );
 
 .item-container {
-  margin: $margin-sides;
+  margin: 0 $margin-sides;
   display: inline-block;
   overflow: hidden;
   border-radius: 6px;
@@ -42,12 +42,11 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
   }
 
   .fog {
-    top: -101.3%;
+    top: -102%;
     position: relative;
     cursor: pointer;
     padding: 1rem 1.5rem;
     background: linear-gradient(157deg, #00000023, transparent);
-
     opacity: 0;
 
     >h1 {
@@ -65,6 +64,7 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
   &.highlighted {
     @media (orientation: portrait) {
       min-width: $portrait_item-width-highlighted;
+      max-width: $portrait_item-width-highlighted;
       height: $portrait_item-height-highlighted;
       margin: 0 $portrait_item-margint-highlighted;
     }
@@ -85,15 +85,5 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
     }
 
   }
-
-
-
-
-
-
-
-
-
-
 }
 

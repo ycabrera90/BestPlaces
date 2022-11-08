@@ -10,7 +10,6 @@ import classes from "./ItemsScroll.module.css";
 
 const ItemsScroll = ({ places }) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
-  const [triggeredEvent, setTriggeredEvent] = useState(null);
 
   const handleDrag = ({ scrollContainer }) => (ev) => dragMove(ev, (posDiff) => {
     if (scrollContainer.current) {
@@ -23,7 +22,6 @@ const ItemsScroll = ({ places }) => {
       return false;
     }
     scrollToItem(getItemById(itemId), "smooth", "center", "nearest"); // <--- this is the line that makes the scroll to the center
-    setTriggeredEvent("imgClick");
   };
 
   const mouseUpHandler = ({ getItemById, scrollToItem, visibleItems }) => () => {
@@ -33,11 +31,9 @@ const ItemsScroll = ({ places }) => {
   };
 
   const onWheelHandler = (apyObj, ev) => {
-    setTriggeredEvent("wheel");
     onWheel(apyObj, ev);
   };
 
-  const firtElementId = places[0].id;
   let adjustedPlaces = [...places];
 
   // insert a transparent first element en the scroll for adjustment
@@ -60,8 +56,8 @@ const ItemsScroll = ({ places }) => {
     <>
       <div className={classes["main-items_container"]} onMouseLeave={dragStop}>
         <ScrollMenu
-          LeftArrow={<LeftArrow onClick={() => setTriggeredEvent("arrowsClick")} />          }
-          RightArrow={<RightArrow onClick={() => setTriggeredEvent("arrowsClick")} />          }
+          LeftArrow={LeftArrow}
+          RightArrow={RightArrow}
           options={{ throttle: 0 }}
           onMouseDown={() => dragStart}
           onMouseUp={mouseUpHandler}
@@ -76,9 +72,6 @@ const ItemsScroll = ({ places }) => {
               title={place.title}
               address={place.address}
               onClick={handleItemClick(place.id)}
-              onBackdrop={()=>setTriggeredEvent('backdropClick')}
-              dueEvent={triggeredEvent}
-              isFirtElement={place.id === firtElementId}
             />
           ))}
         </ScrollMenu>

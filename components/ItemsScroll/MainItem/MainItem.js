@@ -7,13 +7,23 @@ import classes from "./MainItem.module.css";
 let isValidDOM_values = false;
 
 
-function MainItem({ id, image, title, onClick, onBackdrop, dueEvent, isFirtElement }) {
-  // <-- dueEvent can be: imgClick, wheel, arrowsClick
+function MainItem({ id, image, title, onClick }) {
   const [highlighted, setHighlighted] = useState(false);
-  const visibility = useContext(VisibilityContext);
   const { screen } = useDOM_helper();
 
+  const visibility = useContext(VisibilityContext);
+  const { visibleElements, isItemVisible } = visibility;
+  
   const goToItem = () => onClick(visibility);
+
+  const clickItemHandler = () => {
+    if (!highlighted) {
+      setTimeout(() => {
+        setHighlighted(true);
+      }, 300);
+    }
+    return onClick(visibility); // <-- center the clicked item in the screen
+  };
   
   // detect if useDOM_helper give us valid values due to window object
   useEffect(() => {
@@ -22,25 +32,32 @@ function MainItem({ id, image, title, onClick, onBackdrop, dueEvent, isFirtEleme
     }
   }, [screen.orientation]);
 
-  // if yo change to portrait mode without select any image, you go automatically to the first element you saw in the last view.
+  // if you change the orientation of you screen yo go to the item higlighted before the change
   useEffect(() => {
     let timeBeforeGo;
+    let timeBeforeHighlight;
+
     if (isValidDOM_values && highlighted) {
       timeBeforeGo = setTimeout(() => {
         goToItem();
       }, 500);
+
+      timeBeforeHighlight = setTimeout(() => {
+        setHighlighted(true);
+      }, 1000);
     }
-    return () => clearTimeout(timeBeforeGo);
+    return () => {
+      clearTimeout(timeBeforeGo);
+      clearTimeout(timeBeforeHighlight);
+    };
   }, [screen.orientation]);
 
-  // auto select the firt highlighted element when you go to the portrait orientation of your screen
+  // if you change the orientation of you screen without higlighted elements, yo go to the first visible item before the change
   useEffect(() => {
     let timeBeforeGo;
     if (
       isValidDOM_values &&
-      screen.orientation === "portrait" &&
-      dueEvent !== "imgClick" &&
-      visibility.visibleElements[0] === id
+      visibleElements[0] === id
     ) {
       timeBeforeGo = setTimeout(() => {
         goToItem();
@@ -51,49 +68,26 @@ function MainItem({ id, image, title, onClick, onBackdrop, dueEvent, isFirtEleme
 
   // auto hightlighting center items when click items or when you are on mobile screens
   useEffect(() => {
-    if (isValidDOM_values) {
-      setHighlighted(false);
-      if (dueEvent === "imgClick" || screen.orientation === "portrait") {
-        const visibilityItems = visibility.visibleElements;
-        const visibilityItemsLength = visibilityItems.length;
-        if (visibilityItemsLength === 1) {
-          setHighlighted(visibility.isItemVisible(id));
-        } else if (visibilityItemsLength % 2 !== 0) {
-          setHighlighted(
-            id === visibilityItems[Math.floor(visibilityItemsLength / 2)]
-          );
-        }
+    if (isValidDOM_values && screen.orientation === "portrait") {
+      setHighlighted(isItemVisible(id));
+    }
+  }, [visibleElements, screen.orientation]);
+
+  // remove the hightlighting when the item is not in the center of the screen
+  useEffect(() => {
+    if (isValidDOM_values && visibleElements.length % 2 !== 0) {
+      const isCenterItem = visibleElements[Math.floor(visibleElements.length / 2)] === id;
+      if (!isCenterItem) {
+        setHighlighted(false);
       }
     }
-  }, [
-    dueEvent,
-    screen.orientation,
-    visibility.visibleElements,
-    visibility.isItemVisible,
-  ]);
-
-  // drive the click on image and on backdrop
-  const backdropClickHandler = () => {
-    if (highlighted && screen.orientation === "landscape") {
-      setHighlighted(false);
-      onBackdrop();
-    } else{
-      onClick(visibility)
-      setTimeout(() => {
-        if (!highlighted) {
-          setHighlighted(true);
-        }
-      }, 200);
-    }
-  };
+  }, [visibleElements]);
 
   return (
     <div
       role="button"
-      className={`${classes["item-container"]} ${
-        highlighted ? classes.highlighted : ""
-      }`}
-      onClick={() => onClick(visibility)}
+      className={`${classes["item-container"]} ${highlighted ? classes.highlighted : ""}`}
+      onClick={clickItemHandler}
       style={{ visibility: image ? "visible" : "hidden" }}
     >
       <img className={classes.img} src={image} alt={title} />

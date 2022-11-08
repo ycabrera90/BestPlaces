@@ -19,7 +19,7 @@ const ArrowButtons = ({ children, disabled, onClick, className }) => {
   );
 };
 
-export const LeftArrow = ({ onClick }) => {
+export const LeftArrow = () => {
   const {
     getPrevElement,
     isFirstItemVisible,
@@ -38,7 +38,6 @@ export const LeftArrow = ({ onClick }) => {
   }, [isFirstItemVisible, visibleElements]);
 
   const clickHandler = () => {
-    onClick();
     return scrollToItem(getPrevElement(), "smooth", "center");
   };
   return (
@@ -66,7 +65,6 @@ export const RightArrow = ({ onClick }) => {
   }, [isLastItemVisible, visibleElements]);
 
   const clickHandler = () => {
-    onClick();
     return scrollToItem(getNextElement(), "smooth", "center");
   };
 
