@@ -47,8 +47,7 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
     height: $landscape_item-height;
   }
 
-  .fog,
-  .img {
+  .fog {
     width: 100%;
     height: 100%;
   }
@@ -65,11 +64,6 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
       color: $color-1;
       font-size: 1rem;
     }
-  }
-
-  .img {
-    position: relative;
-    object-fit: cover;
   }
 
   &.highlighted {

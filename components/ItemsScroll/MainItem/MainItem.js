@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState, memo } from "react";
+import Image from 'next/image'
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import useDOM_helper from "../../../hooks/useDOM_helper";
@@ -85,20 +86,34 @@ function MainItem({ id, image, title, onClick }) {
 
   return (
     <>
-      <div 
+      <div
         className={`${classes.backdrop} ${highlighted ? classes.show : ""}`}
-        onClick={()=>setHighlighted(false)}
+        onClick={() => setHighlighted(false)}
       />
       <div
         role="button"
-        className={`${classes["item-container"]} ${highlighted ? classes.highlighted : ""}`}
+        className={`${classes["item-container"]} ${
+          highlighted ? classes.highlighted : ""
+        }`}
         onClick={clickItemHandler}
         style={{ visibility: image ? "visible" : "hidden" }}
       >
         <div className={classes.fog}>
           <h1 style={{ opacity: highlighted ? 1 : 0 }}>{title}</h1>
         </div>
-        <img className={classes.img} src={image} alt={title} />
+        {image && (
+          <Image
+            alt={title}
+            src={image}
+            fill
+            sizes="(max-width: 768px) 100vw,
+                 (max-width: 1200px) 50vw,
+                  33vw"
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        )}
       </div>
     </>
   );
