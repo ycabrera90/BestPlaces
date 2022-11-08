@@ -40,10 +40,6 @@ const ItemsScroll = ({ places }) => {
   const firtElementId = places[0].id;
   let adjustedPlaces = [...places];
 
-  
-
-
-
   // insert a transparent first element en the scroll for adjustment
   adjustedPlaces.unshift({
     title: null,
@@ -64,12 +60,8 @@ const ItemsScroll = ({ places }) => {
     <>
       <div className={classes["main-items_container"]} onMouseLeave={dragStop}>
         <ScrollMenu
-          LeftArrow={
-            <LeftArrow onClick={() => setTriggeredEvent("arrowsClick")} />
-          }
-          RightArrow={
-            <RightArrow onClick={() => setTriggeredEvent("arrowsClick")} />
-          }
+          LeftArrow={<LeftArrow onClick={() => setTriggeredEvent("arrowsClick")} />          }
+          RightArrow={<RightArrow onClick={() => setTriggeredEvent("arrowsClick")} />          }
           options={{ throttle: 0 }}
           onMouseDown={() => dragStart}
           onMouseUp={mouseUpHandler}

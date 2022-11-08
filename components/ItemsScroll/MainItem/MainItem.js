@@ -79,9 +79,9 @@ function MainItem({ id, image, title, onClick, dueEvent, isFirtElement }) {
       onClick={() => onClick(visibility)}
       style={{ visibility: image ? "visible" : "hidden" }}
     >
-      <div
-        className={`${classes.fog} ${highlighted ? classes.highlighted : ""} `}
-      />
+      <div className={`${classes.fog} ${highlighted ? classes.highlighted : ""} `}>
+        <h1 style={{ opacity: highlighted ? 1 : 0 }}>{title}</h1>
+      </div>
       <img
         className={`${classes.img} ${highlighted ? classes.highlighted : ""}`}
         src={image}
