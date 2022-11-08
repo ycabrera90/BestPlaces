@@ -18,8 +18,19 @@ $landscape_item-width-highlighted: calc(#{$landscape_item-width} * #{$landscape_
 $landscape_item-height-highlighted: calc(#{$landscape_item-height} * #{$landscape_scale-highlighted});
 $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlighted} - #{$landscape_item-width}) / 2 + $margin-sides );
 
+.backdrop {
+  position: fixed;
+  inset: 0px 0px 0px 0px;
+  display: none;
+  z-index: 0;
+
+  &.show{
+    display: block;
+  }
+}
+
 .item-container {
-  margin: 0 $margin-sides;
+  margin: $margin-sides;
   display: inline-block;
   overflow: hidden;
   border-radius: 6px;
@@ -39,10 +50,11 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
   .img {
     width: 100%;
     height: 100%;
+    z-index: 1;
   }
 
   .fog {
-    top: -102%;
+    top: -104%;
     position: relative;
     cursor: pointer;
     padding: 1rem 1.5rem;
@@ -51,13 +63,14 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
 
     >h1 {
       color: $color-1;
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
   }
 
   .img {
     position: relative;
     object-fit: cover;
+
   }
 
 
@@ -77,13 +90,12 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
 
     .fog,
     .img {
-      z-index: 1;
+      z-index: 2;
     }
 
     .fog {
       opacity: 1;
     }
-
   }
 }
 

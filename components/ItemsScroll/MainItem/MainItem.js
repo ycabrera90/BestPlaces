@@ -20,9 +20,14 @@ function MainItem({ id, image, title, onClick }) {
     if (!highlighted) {
       setTimeout(() => {
         setHighlighted(true);
-      }, 300);
+      }, 200);
     }
-    return onClick(visibility); // <-- center the clicked item in the screen
+    goToItem();
+  };
+
+  const backDropClickHandler = () => {
+    console.log("backDropClickHandler");
+    setHighlighted(false);
   };
   
   // detect if useDOM_helper give us valid values due to window object
@@ -84,17 +89,23 @@ function MainItem({ id, image, title, onClick }) {
   }, [visibleElements]);
 
   return (
-    <div
-      role="button"
-      className={`${classes["item-container"]} ${highlighted ? classes.highlighted : ""}`}
-      onClick={clickItemHandler}
-      style={{ visibility: image ? "visible" : "hidden" }}
-    >
-      <img className={classes.img} src={image} alt={title} />
-      <div className={classes.fog}>
-        <h1 style={{ opacity: highlighted ? 1 : 0 }}>{title}</h1>
+    <>
+      <div 
+        className={`${classes.backdrop} ${highlighted ? classes.show : ""}`}
+        onClick={backDropClickHandler}
+      />
+      <div
+        role="button"
+        className={`${classes["item-container"]} ${highlighted ? classes.highlighted : ""}`}
+        onClick={clickItemHandler}
+        style={{ visibility: image ? "visible" : "hidden" }}
+      >
+        <img className={classes.img} src={image} alt={title} />
+        <div className={classes.fog}>
+          <h1 style={{ opacity: highlighted ? 1 : 0 }}>{title}</h1>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
