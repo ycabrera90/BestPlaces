@@ -25,11 +25,6 @@ function MainItem({ id, image, title, onClick }) {
     goToItem();
   };
 
-  const backDropClickHandler = () => {
-    console.log("backDropClickHandler");
-    setHighlighted(false);
-  };
-  
   // detect if useDOM_helper give us valid values due to window object
   useEffect(() => {
     if (screen.orientation) {
@@ -92,7 +87,7 @@ function MainItem({ id, image, title, onClick }) {
     <>
       <div 
         className={`${classes.backdrop} ${highlighted ? classes.show : ""}`}
-        onClick={backDropClickHandler}
+        onClick={()=>setHighlighted(false)}
       />
       <div
         role="button"
@@ -100,10 +95,10 @@ function MainItem({ id, image, title, onClick }) {
         onClick={clickItemHandler}
         style={{ visibility: image ? "visible" : "hidden" }}
       >
-        <img className={classes.img} src={image} alt={title} />
         <div className={classes.fog}>
           <h1 style={{ opacity: highlighted ? 1 : 0 }}>{title}</h1>
         </div>
+        <img className={classes.img} src={image} alt={title} />
       </div>
     </>
   );
