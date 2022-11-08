@@ -90,21 +90,16 @@ function MainItem({ id, image, title, onClick, onBackdrop, dueEvent, isFirtEleme
   return (
     <div
       role="button"
-      className={classes["imagen-container"]}
-      // onClick={() => onClick(visibility)}
+      className={`${classes["item-container"]} ${
+        highlighted ? classes.highlighted : ""
+      }`}
+      onClick={() => onClick(visibility)}
       style={{ visibility: image ? "visible" : "hidden" }}
     >
-      <div
-        className={`${classes.fog} ${highlighted ? classes.highlighted : ""} `}
-        onClick={backdropClickHandler}
-      >
-        {/* <h1 style={{ opacity: highlighted ? 1 : 0 }}>{title}</h1> */}
+      <img className={classes.img} src={image} alt={title} />
+      <div className={classes.fog}>
+        <h1 style={{ opacity: highlighted ? 1 : 0 }}>{title}</h1>
       </div>
-      <img
-        className={`${classes.img} ${highlighted ? classes.highlighted : ""}`}
-        src={image}
-        alt={title}
-      />
     </div>
   );
 }

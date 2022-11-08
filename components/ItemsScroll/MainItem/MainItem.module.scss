@@ -18,81 +18,82 @@ $landscape_item-width-highlighted: calc(#{$landscape_item-width} * #{$landscape_
 $landscape_item-height-highlighted: calc(#{$landscape_item-height} * #{$landscape_scale-highlighted});
 $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlighted} - #{$landscape_item-width}) / 2);
 
-.imagen-container {
+.item-container {
   margin: $margin-sides;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
+
+  @media (orientation: portrait) {
+    min-width: $portrait_item-width;
+    height: $portrait_item-height;
+  }
+
+  @media (orientation: landscape) {
+    min-width: $landscape_item-width;
+    height: $landscape_item-height;
+  }
+
+  .fog,
+  .img {
+    width: 100%;
+    height: 100%;
+  }
 
   .fog {
-    position: absolute;
-    padding: 1rem 1.5rem;
+    top: -101.3%;
+    position: relative;
     cursor: pointer;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(157deg, #00000023, transparent);
+
     opacity: 0;
-    z-index: 2;
 
-    min-width: $portrait_item-width;
-    max-width: $portrait_item-width;
-    min-height: $portrait_item-height;
-    max-height: $portrait_item-height;
-
-    @media (orientation: landscape) {
-      min-width: $landscape_item-width;
-      max-width: $landscape_item-width;
-      min-height: $landscape_item-height;
-      max-height: $landscape_item-height;
-    }
-
-    &.highlighted {
-      position: fixed;
-      top: $header-height;
-      right: 0px;
-      min-width: 200vw;
-      min-height: calc(100vh - $header-height);
-      z-index: 0;
+    >h1 {
+      color: $color-1;
+      font-size: 1.5rem;
     }
   }
 
   .img {
     position: relative;
-    border-radius: 6px;
     object-fit: cover;
-    box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
-    z-index: 1;
+  }
 
-    min-width: $portrait_item-width;
-    max-width: $portrait_item-width;
-    min-height: $portrait_item-height;
-    max-height: $portrait_item-height;
+
+  &.highlighted {
+    @media (orientation: portrait) {
+      min-width: $portrait_item-width-highlighted;
+      height: $portrait_item-height-highlighted;
+      margin: 0 $portrait_item-margint-highlighted;
+    }
 
     @media (orientation: landscape) {
-      min-width: $landscape_item-width;
-      max-width: $landscape_item-width;
-      min-height: $landscape_item-height;
-      max-height: $landscape_item-height;
+      min-width: $landscape_item-width-highlighted;
+      height: $landscape_item-height-highlighted;
+      margin: 0 $landscape_item-margint-highlighted;
     }
 
-    &.highlighted {
-      box-shadow: 20px 20px 1rem 0.1rem rgb(0 0 0 / 50%);
-      z-index: 3;
-
-      min-width: $portrait_item-width-highlighted;
-      max-width: $portrait_item-width-highlighted;
-      min-height: $portrait_item-height-highlighted;
-      max-height: $portrait_item-height-highlighted;
-      margin: 0 $portrait_item-margint-highlighted;
-
-      @media (orientation: landscape) {
-        min-width: $landscape_item-width-highlighted;
-        max-width: $landscape_item-width-highlighted;
-        min-height: $landscape_item-height-highlighted;
-        max-height: $landscape_item-height-highlighted;
-        margin: 0 $landscape_item-margint-highlighted;
-      }
+    .fog,
+    .img {
+      z-index: 1;
     }
+
+    .fog {
+      opacity: 1;
+    }
+
   }
+
+
+
+
+
+
+
+
+
+
 }
 
-
-//   > h1{
-    //     color: $color-1;
-    //     font-size: 1.5rem;
-    //     // transition: opacity 0.3s ease-in-out;
-    //   }
