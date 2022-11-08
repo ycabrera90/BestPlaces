@@ -1,4 +1,4 @@
-export default (req, res) => {
+export default function handler(req, res) {
   res.status(200).json({
     name: "Yosniel",
     company: "EIP-Studios",
@@ -6,4 +6,4 @@ export default (req, res) => {
     linkedin: "https://linkedin.com/in/ingenieríacubana",
     github: "https://github.com/ycabrera90",
   });
-};
+}
