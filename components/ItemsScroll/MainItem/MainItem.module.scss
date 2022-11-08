@@ -73,7 +73,7 @@ $landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlig
   }
 
   &.highlighted {
-    z-index: 2;
+    z-index: 4;
 
     @media (orientation: portrait) {
       min-width: $portrait_item-width-highlighted;
