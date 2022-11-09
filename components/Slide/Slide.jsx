@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 import classes from "./Slide.module.css";
 
 const Slide = ({ datas, speed, reverse = false }) => {
@@ -6,9 +7,17 @@ const Slide = ({ datas, speed, reverse = false }) => {
   return (
     <section className={classes["items-container"]}>
       <ul style={{ animation: animationConstructor }}>
-        {datas.map((data) => (
-          <li key={data.id}>
-            <img key={data.id} src={data.image} alt={data.title} />
+        {datas.map(({ id, image, title }) => (
+          <li key={id}>
+            <Image
+              alt={title}
+              src={image}
+              fill
+              sizes="(max-width: 768px) 10vw,
+                 (max-width: 1200px) 20vw,
+                  50vw"
+              style={{ objectFit: "cover" }}
+            />
           </li>
         ))}
       </ul>
