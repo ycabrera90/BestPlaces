@@ -2,7 +2,8 @@
 
 $item-widht: calc(((100vh - $header-height) / 3) * (4 / 3));
 
-.img {
+.image-container {
+  position: relative;
   min-width: $item-widht;
   max-width: $item-widht;
   height: 100%;
