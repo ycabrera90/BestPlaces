@@ -1,9 +1,0 @@
-.list-container {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-.list-container :global .react-horizontal-scrolling-menu--scroll-container {
-  overflow: hidden;
-}

@@ -1,12 +1,7 @@
 import React from "react";
 
 import Slide from "../../Slide/Slide";
-import ListContainer from "../../PlacesList/ListContainer/ListContainer";
-import PlaceItem from "../../PlacesList/PlaceItem/PlaceItem";
 import classes from "./BackgroundImages.module.css";
-
-
-
 
 const BackgroundImages = ({ images }) => {
 

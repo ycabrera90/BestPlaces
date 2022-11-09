@@ -1,8 +1,0 @@
-.image-container {
-  position: relative;
-  min-width: calc((100vh - 3.5rem) / 3 * 1.3333333333);
-  max-width: calc((100vh - 3.5rem) / 3 * 1.3333333333);
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
-}
