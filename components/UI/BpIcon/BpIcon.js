@@ -4,7 +4,6 @@ import Image from "next/image";
 const BpIcon = () => {
   return (
     <i className={classes["bp-icon"]}>
-      {/* <img src="/favicon.ico" alt='Best Place'/> */}
       <Image
         src="/favicon.ico"
         alt="Best Place"

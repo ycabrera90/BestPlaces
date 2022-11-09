@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, memo } from "react";
+import { useContext, useEffect, useState, memo, useCallback } from "react";
 import Image from 'next/image'
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
@@ -15,7 +15,10 @@ function MainItem({ id, image, title, onClick }) {
   const visibility = useContext(VisibilityContext);
   const { visibleElements, isItemVisible } = visibility;
   
-  const goToItem = () => onClick(visibility);
+  const goToItem = useCallback(
+    () => onClick(visibility),
+    [visibility, onClick]
+  );
 
   const clickItemHandler = () => {
     if (!highlighted) {
@@ -119,5 +122,4 @@ function MainItem({ id, image, title, onClick }) {
   );
 }
 
-// export default memo(MainItem);
-export default MainItem;
+export default memo(MainItem);
