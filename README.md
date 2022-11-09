@@ -1,34 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <a href="https://eip-my-summary.web.app/"
+    ><img
+      src="https://eip-my-summary.herokuapp.com/images/logo"
+      alt="EIP Studios"
+     />
+  </a>
+</p>
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+# Meetup
+With this [web page](https://eip-best-places.vercel.app/) you can select the best place to meet with your friends on your next trip. You can also add, edit and delete your places and share them with others.
+
+🦾 **In construction yet**
+
+## Built with
+* [NextJs](https://nextjs.org/docs/getting-started) - React Framework
+* [React](https://es.reactjs.org/docs/getting-started.html) - Javascript Library (Framework!)
+* [Sass](https://sass-lang.com/) - CSS extension language
+* [Node.Js](https://nodejs.org/en/docs/) - JavaScript runtime environment
+* [MongoDB](https://www.mongodb.com/atlas) - NoSQLdatabase
+* [Vercel](https://vercel.com/solutions/nextjs) - Deployment platform
+  
+
+
+## Clone and run app
+These instructions will allow you to obtain a copy of the project on your local machine for development and test purposes.
+Look the [**deployment**](https://eip-best-places.vercel.app/) so you can see the final result.
+
+
+#### Pre-requirements
+For run this project you must have installed the following packages in your local machine
+
+* [NodeJs](https://nodejs.org/en/) 
+* [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+#### Clone
+For clone the project you need open a terminal, go to the folder which you want to work and put the follows commands
+```
+git clone https://github.com/ycabrera90/BestPlaces.git
+
+cd BestPlaces
+
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Serve the app in your machine
+* Create a MongoDB database with a collection called **places** and some documents with the following structure
+```
+{
+    "name": "Name of the place",
+    "description": "Description of the place",
+    "image": "Image of the place",
+    "location": {
+        "lat": "Latitude of the place",
+        "lng": "Longitude of the place"
+    }
+}
+```
+* Create a .env file in the root folder of the project with the following variables
+```
+DB_USER= yourUser
+DB_PASSWORD=yourPassword
+DB_NAME= yourDatabaseName
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+ * Serve the app in your machine
+  
+```
+npm start
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Authors
+* [**Yosniel Cabrera**](https://www.linkedin.com/in/eip-studios/) - *React Developer* 
+  
+## License
+This project is **public** and only for academic purposes.
 
-## Learn More
+## Read More 🎁
+* Nothing important so far  :-)
 
-To learn more about Next.js, take a look at the following resources:
+<br>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[⬆ Back to top](#meetup)<br>
+  
+---
+yosniel.ch@gmail.com
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
