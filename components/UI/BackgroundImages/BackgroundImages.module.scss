@@ -2,10 +2,12 @@
 
 $sectionHeight: calc(100vh - $header-height);
 
-.items-container {
+.background-container {
   margin-top: $header-height;
   height: $sectionHeight;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
+
+

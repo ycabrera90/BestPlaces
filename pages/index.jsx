@@ -15,7 +15,7 @@ function HomePage({ places }) {
     <>
       <PageHeaders title={pageTitle} description={pageDescription} />
       <MainLayout backgroundImages={places}>
-        <ItemsScroll places={places} />
+        {/* <ItemsScroll places={places} /> */}
       </MainLayout>
     </>
   );
