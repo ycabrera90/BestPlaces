@@ -4,7 +4,6 @@ const pageDescription = "Look at the best places in the world";
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 import React from "react";
-import Script from "next/script";
 import PageHeaders from "../components/UI/PageHeaders/PageHeaders";
 import { MongoClient } from "mongodb";
 
