@@ -72,7 +72,7 @@ export const RightArrow = ({ onClick }) => {
   useState(() => {
     setTimeout(() => {
       clickHandler();
-    }, 100);
+    }, 500);
   }, []);
 
   return (
