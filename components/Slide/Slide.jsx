@@ -13,9 +13,9 @@ const Slide = ({ datas, speed, reverse = false }) => {
               alt={title}
               src={image}
               fill
-              sizes="(max-width: 768px) 10vw,
-                 (max-width: 1200px) 20vw,
-                  50vw"
+              sizes="(max-width: 768px) 100vw,
+                 (max-width: 1200px) 50vw,
+                  20vw"
               style={{ objectFit: "cover" }}
             />
           </li>
