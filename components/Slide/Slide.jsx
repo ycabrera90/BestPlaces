@@ -17,6 +17,7 @@ const Slide = ({ datas, speed, reverse = false }) => {
                  (max-width: 1200px) 50vw,
                   20vw"
               style={{ objectFit: "cover" }}
+              priority
             />
           </li>
         ))}

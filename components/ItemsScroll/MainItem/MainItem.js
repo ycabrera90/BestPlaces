@@ -115,6 +115,7 @@ function MainItem({ id, image, title, onClick }) {
             style={{
               objectFit: "cover",
             }}
+            priority
           />
         )}
       </div>
