@@ -3,7 +3,6 @@ const pageTitle = "Best Places";
 const pageDescription = "Look at the best places in the world";
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-import React from "react";
 import PageHeaders from "../components/UI/PageHeaders/PageHeaders";
 import { MongoClient } from "mongodb";
 
