@@ -1,5 +1,6 @@
 .items-container {
   overflow: hidden;
+  height: 100%;
 }
 .items-container > ul {
   list-style: none;
@@ -7,7 +8,7 @@
   padding: 0;
   display: flex;
   gap: 0.2rem;
-  height: calc((100vh - 3.5rem) / 3);
+  height: 100%;
   width: fit-content;
 }
 .items-container > ul > li {

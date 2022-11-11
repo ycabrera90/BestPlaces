@@ -2,6 +2,8 @@
 
 .items-container {
   overflow: hidden;
+  height: 100%;
+
 
   >ul {
     list-style: none;
@@ -9,7 +11,7 @@
     padding: 0;
     display: flex;
     gap: 0.2rem;
-    height: calc((100vh - $header-height)/3);
+    height: 100%;
     width: fit-content;
 
     >li {
@@ -24,7 +26,6 @@
         object-fit: cover;
       }
     }
-
   }
 }
 
