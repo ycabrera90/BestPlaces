@@ -1,12 +1,14 @@
-import React from "react";
 import { ScrollMenu, getItemsPos } from "react-horizontal-scrolling-menu";
 
-import { onWheel } from "../../helpers/scrollMenu";
 import useDrag from "../../hooks/useDrag";
 import MainItem from "./MainItem/MainItem";
+import { onWheel } from "../../helpers/scrollMenu";
+
 import { LeftArrow, RightArrow } from "./ArrowButtons/ArrowButtons";
 
 import classes from "./ItemsScroll.module.css";
+
+
 
 const ItemsScroll = ({ places }) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
@@ -53,30 +55,28 @@ const ItemsScroll = ({ places }) => {
   });
 
   return (
-    <>
-      <div className={classes["main-items_container"]} onMouseLeave={dragStop}>
-        <ScrollMenu
-          LeftArrow={LeftArrow}
-          RightArrow={RightArrow}
-          options={{ throttle: 0 }}
-          onMouseDown={() => dragStart}
-          onMouseUp={mouseUpHandler}
-          onMouseMove={handleDrag}
-          onWheel={onWheelHandler}
-        >
-          {adjustedPlaces.map((place) => (
-            <MainItem
-              key={place.id}
-              id={place.id}
-              image={place.image}
-              title={place.title}
-              address={place.address}
-              onClick={handleItemClick(place.id)}
-            />
-          ))}
-        </ScrollMenu>
-      </div>
-    </>
+    <div className={classes["main-items_container"]} onMouseLeave={dragStop}>
+      <ScrollMenu
+        LeftArrow={LeftArrow}
+        RightArrow={RightArrow}
+        options={{ throttle: 0 }}
+        onMouseDown={() => dragStart}
+        onMouseUp={mouseUpHandler}
+        onMouseMove={handleDrag}
+        onWheel={onWheelHandler}
+      >
+        {adjustedPlaces.map((place) => (
+          <MainItem
+            key={place.id}
+            id={place.id}
+            image={place.image}
+            title={place.title}
+            address={place.address}
+            onClick={handleItemClick(place.id)}
+          />
+        ))}
+      </ScrollMenu>
+    </div>
   );
 };
 

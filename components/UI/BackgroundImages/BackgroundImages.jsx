@@ -1,7 +1,10 @@
 import useDOM_helper from "../../../hooks/useDOM_helper";
 
-import Slide from "../../Slide/Slide";
+import Slide from "./Slide/Slide";
+
 import classes from "./BackgroundImages.module.css";
+
+
 
 const BackgroundImages = ({ images }) => {
   const { screen } = useDOM_helper();

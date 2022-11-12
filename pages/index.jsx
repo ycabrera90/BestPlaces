@@ -3,6 +3,8 @@ import { MongoClient } from "mongodb";
 import MainLayout from "../components/UI/MainLayout/MainLayout";
 import ItemsScroll from "../components/ItemsScroll/ItemsScroll";
 
+
+
 function HomePage({ places }) {
   return <ItemsScroll places={places} />;
 }
@@ -18,19 +20,19 @@ export async function getStaticProps() {
   const placesCollection = db.collection("places");
   const datas = await placesCollection.find().toArray();
 
-  const places = datas.map((item) => ({
-    title: item.title,
-    address: item.address,
-    image: item.image,
-    id: item._id.toString(), // <--- this is because _id is an object
+  const places = datas.map(({ _id, title, address, image }) => ({
+    title,
+    address,
+    image,
+    id: _id.toString(), // <--- this is because _id is an object
   }));
-
   client.close();
+
   return {
     props: {
       places,
     },
-    // revalidate: 1,
+    // revalidate: 1, <<-- in real this comment should be removed
   };
 }
 

@@ -102,7 +102,7 @@ const dummyPlaces = [
 
 function SignUp({ places }) {
   return (
-      <h1>this works</h1>
+      <></>
   );
 }
 

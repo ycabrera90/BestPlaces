@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState, memo, useCallback } from "react";
 import Image from 'next/image'
+
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import useDOM_helper from "../../../hooks/useDOM_helper";
+
 import classes from "./MainItem.module.css";
 
 let isValidDOM_values = false;
+
 
 
 function MainItem({ id, image, title, onClick }) {
@@ -95,9 +98,7 @@ function MainItem({ id, image, title, onClick }) {
       />
       <div
         role="button"
-        className={`${classes["item-container"]} ${
-          highlighted ? classes.highlighted : ""
-        }`}
+        className={`${classes["item-container"]} ${highlighted ? classes.highlighted : ""}`}
         onClick={clickItemHandler}
         style={{ visibility: image ? "visible" : "hidden" }}
       >

@@ -1,34 +1,22 @@
-import React, { useContext } from "react";
+import MainNavItem from "./MainNavItem/MainNavItem"; // <-- under construction
+
 import classes from "./MainNav.module.css";
 
-import MainNavItem from "./MainNavItem/MainNavItem";
-import { keyGen } from "../../../../util/keyGen";
+
 
 const MainNav = ({ isExpanded, onBackdropClick }) => {
-  const navBarClasses = isExpanded
-    ? `${classes["nav-bar"]} ${classes["expanded"]}`
-    : `${classes["nav-bar"]}`;
-
-  const backdropClasses = isExpanded
-    ? `${classes["backdrop"]} ${classes["expanded"]}`
-    : `${classes["backdrop"]}`;
-
-  const mainNavItems = [
-    { title: "ALL PLACES", path: "/" },
-    // { title: "ADD PLACE", path: "/new-place" },
-    { title: "REGISTER", path: "/signup" },
-  ];
 
   return (
     <>
-      <div className={backdropClasses} onClick={onBackdropClick}></div>
-      <nav className={navBarClasses}>
+      <div 
+        className={`${classes["backdrop"]} ${isExpanded ? classes["expanded"]: ""}`} 
+        onClick={onBackdropClick}
+      />
+      <nav 
+        className={`${classes["nav-bar"]} ${isExpanded ? classes["expanded"] : ""}`}
+      >
         <ul>
-          {mainNavItems.map((item) => (
-            <MainNavItem key={keyGen()} to={item.path}>
-              {item.title}
-            </MainNavItem>
-          ))}
+          {/* <MainNavItem to="/">ALL PLACES</MainNavItem> */} 
         </ul>
       </nav>
     </>
