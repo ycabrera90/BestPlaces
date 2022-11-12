@@ -110,5 +110,4 @@ SignUp.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
 };
 
-
 export default SignUp;
