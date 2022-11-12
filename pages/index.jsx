@@ -1,18 +1,14 @@
-
-
 import { MongoClient } from "mongodb";
 
 import MainLayout from "../components/UI/MainLayout/MainLayout";
 import ItemsScroll from "../components/ItemsScroll/ItemsScroll";
-
-
 
 function HomePage({ places }) {
   return <ItemsScroll places={places} />;
 }
 
 HomePage.getLayout = function getLayout(page) {
-  return <MainLayout backgroundImages={dummyPlaces}>{page}</MainLayout>;
+  return <MainLayout>{page}</MainLayout>;
 };
 
 export async function getStaticProps() {

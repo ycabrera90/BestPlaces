@@ -107,7 +107,7 @@ function SignUp({ places }) {
 }
 
 SignUp.getLayout = function getLayout(page) {
-  return <MainLayout backgroundImages={dummyPlaces}>{page}</MainLayout>;
+  return <MainLayout>{page}</MainLayout>;
 };
 
 

@@ -5,7 +5,7 @@ const PageDatas = ({ title, description }) => {
   return (
     <Head>
       <title>{title}</title>
-      <meta name="description" content="Look at the best places in the world" />
+      <meta name="description" content="{description}" />
     </Head>
   );
 };
