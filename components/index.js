@@ -1,6 +1,8 @@
-export * from './ItemsScroll/ArrowButtons/ArrowButtons';
+export { default as ArrowButton } from './ItemsScroll/ArrowButton/ArrowButton';
 export { default as ItemsScroll } from './ItemsScroll/ItemsScroll';
+export { default as LeftArrow } from './ItemsScroll/LeftArrow/LeftArrow';
 export { default as MainItem } from './ItemsScroll/MainItem/MainItem';
+export { default as RightArrow } from './ItemsScroll/RightArrow/RightArrow';
 export { default as BackgroundImages } from './UI/BackgroundImages/BackgroundImages';
 export { default as Slide } from './UI/BackgroundImages/Slide/Slide';
 export { default as BpIcon } from './UI/BpIcon/BpIcon';

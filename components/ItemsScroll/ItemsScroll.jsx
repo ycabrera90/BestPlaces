@@ -4,8 +4,8 @@ import useDrag from "../../hooks/useDrag";
 import MainItem from "./MainItem/MainItem";
 import { onWheel } from "../../helpers/scrollMenu";
 
-import { LeftArrow, RightArrow } from "./ArrowButtons/ArrowButtons";
-
+import LeftArrow from "./LeftArrow/LeftArrow";
+import RightArrow from "./RightArrow/RightArrow";
 import classes from "./ItemsScroll.module.css";
 
 

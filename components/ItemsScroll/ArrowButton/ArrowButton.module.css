@@ -7,14 +7,6 @@
   color: #d95642;
   z-index: 4;
 }
-.arrow-button.left-arrow {
-  top: 5vh;
-  left: 5vw;
-}
-.arrow-button.right-arrow {
-  bottom: 3vh;
-  right: 5vw;
-}
 .arrow-button > svg {
   position: relative;
   box-shadow: 10px 5px 5px #b94536;

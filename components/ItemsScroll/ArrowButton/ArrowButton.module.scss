@@ -1,4 +1,4 @@
-@import "../../../styles/variables.scss";
+@import "../../../../styles/variables.scss";
 
 .arrow-button {
   cursor: pointer;
@@ -8,16 +8,6 @@
   font-size: 5rem;
   color: $color-2;
   z-index: 4;
-
-  &.left-arrow {
-    top: 5vh;
-    left: 5vw;
-  }
-
-  &.right-arrow {
-    bottom: 3vh;
-    right: 5vw;
-  }
 
   > svg {
     position: relative;
