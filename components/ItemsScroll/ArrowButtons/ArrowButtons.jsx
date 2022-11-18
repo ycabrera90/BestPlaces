@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
