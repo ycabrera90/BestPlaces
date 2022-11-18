@@ -6,10 +6,14 @@ import ArrowButton from "../ArrowButton/ArrowButton";
 import classes from "./RightArrow.module.css";
 
 
+type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
-const RightArrow = ({ onClick }) => {
-  const { getNextElement, isLastItemVisible, scrollToItem, visibleElements } =
-    useContext(VisibilityContext);
+const RightArrow = () => {
+  const { getNextElement, 
+    isLastItemVisible, 
+    scrollToItem, 
+    visibleElements } =
+    useContext<scrollVisibilityApiType>(VisibilityContext);
 
   const [disabled, setDisabled] = useState(
     !visibleElements.length && isLastItemVisible
@@ -25,7 +29,7 @@ const RightArrow = ({ onClick }) => {
   };
 
   // go to the first scroll elements for fill the entery screen
-  useState(() => {
+  useEffect(() => {
     setTimeout(() => {
       clickHandler();
     }, 500);

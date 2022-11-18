@@ -7,16 +7,20 @@ import classes from "./LeftArrow.module.css";
 
 
 
-const LeftArrow = () => {
+type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
+
+const LeftArrow  = () => {
   const {
     getPrevElement,
     isFirstItemVisible,
     scrollToItem,
     visibleElements,
     initComplete,
-  } = useContext(VisibilityContext);
+  } = useContext<scrollVisibilityApiType>(VisibilityContext);
   
-  const [disabled, setDisabled] = useState(!initComplete || (initComplete && isFirstItemVisible));
+  const [disabled, setDisabled] = useState<boolean>(
+    !initComplete || (initComplete && isFirstItemVisible)
+  );
 
   useEffect(() => {
     if (visibleElements.length) {
