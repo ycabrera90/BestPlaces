@@ -1,7 +1,5 @@
 import { MongoClient } from "mongodb";
-
-import MainLayout from "../components/UI/MainLayout/MainLayout";
-import ItemsScroll from "../components/ItemsScroll/ItemsScroll";
+import { ItemsScroll, MainLayout } from "../components";
 
 
 
