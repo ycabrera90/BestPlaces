@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, memo, useCallback } from "react";
+import { useContext, useEffect, useState, memo, useCallback, FC, ContextType } from "react";
 import Image from 'next/image'
 
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
@@ -9,18 +9,25 @@ import classes from "./MainItem.module.css";
 
 let isValidDOM_values = false;
 
+type scrollVisibilityApiType = ContextType<typeof VisibilityContext>;
 
 
-function MainItem({ id, image, title, onClick }) {
+// function MainItem({ id, image, title, onClick }) {
+const MainItem: FC<{
+  id: string;
+  image: string | null;
+  title: string | null;
+  onClick: (visibilityCtx: scrollVisibilityApiType) => void;
+}> = (props) => {
   const [highlighted, setHighlighted] = useState(false);
   const { screen } = useDOM_helper();
 
   const visibility = useContext(VisibilityContext);
   const { visibleElements, isItemVisible } = visibility;
-  
+
   const goToItem = useCallback(
-    () => onClick(visibility),
-    [visibility, onClick]
+    () => props.onClick(visibility),
+    [visibility, props.onClick]
   );
 
   const clickItemHandler = () => {
@@ -41,8 +48,8 @@ function MainItem({ id, image, title, onClick }) {
 
   // if you change the orientation of you screen yo go to the item higlighted before the change
   useEffect(() => {
-    let timeBeforeGo;
-    let timeBeforeHighlight;
+    let timeBeforeGo: ReturnType<typeof setTimeout>;
+    let timeBeforeHighlight: ReturnType<typeof setTimeout>;
 
     if (isValidDOM_values && highlighted) {
       timeBeforeGo = setTimeout(() => {
@@ -61,11 +68,8 @@ function MainItem({ id, image, title, onClick }) {
 
   // if you change the orientation of you screen without higlighted elements, yo go to the first visible item before the change
   useEffect(() => {
-    let timeBeforeGo;
-    if (
-      isValidDOM_values &&
-      visibleElements[0] === id
-    ) {
+    let timeBeforeGo: ReturnType<typeof setTimeout>;
+    if (isValidDOM_values && visibleElements[0] === props.id) {
       timeBeforeGo = setTimeout(() => {
         goToItem();
       }, 500);
@@ -76,14 +80,15 @@ function MainItem({ id, image, title, onClick }) {
   // auto hightlighting center items when click items or when you are on mobile screens
   useEffect(() => {
     if (isValidDOM_values && screen.orientation === "portrait") {
-      setHighlighted(isItemVisible(id));
+      setHighlighted(isItemVisible(props.id));
     }
   }, [visibleElements, screen.orientation]);
 
   // remove the hightlighting when the item is not in the center of the screen
   useEffect(() => {
     if (isValidDOM_values && visibleElements.length % 2 !== 0) {
-      const isCenterItem = visibleElements[Math.floor(visibleElements.length / 2)] === id;
+      const isCenterItem =
+        visibleElements[Math.floor(visibleElements.length / 2)] === props.id;
       if (!isCenterItem) {
         setHighlighted(false);
       }
@@ -100,15 +105,15 @@ function MainItem({ id, image, title, onClick }) {
         role="button"
         className={`${classes["item-container"]} ${highlighted ? classes.highlighted : ""}`}
         onClick={clickItemHandler}
-        style={{ visibility: image ? "visible" : "hidden" }}
+        style={{ visibility: props.image ? "visible" : "hidden" }}
       >
         <div className={classes.fog}>
-          <h1 style={{ opacity: highlighted ? 1 : 0 }}>{title}</h1>
+          <h1 style={{ opacity: highlighted ? 1 : 0 }}>{props.title}</h1>
         </div>
-        {image && (
+        {props.image && (
           <Image
-            alt={title}
-            src={image}
+            alt={props.title}
+            src={props.image}
             fill
             sizes="(max-width: 768px) 100vw,
                  (max-width: 1200px) 50vw,
@@ -122,6 +127,6 @@ function MainItem({ id, image, title, onClick }) {
       </div>
     </>
   );
-}
+};
 
 export default memo(MainItem);

@@ -1,3 +1,4 @@
+import { FC, ReactNode } from "react";
 import backgroundPlaces from "../../../store/backgroundData";
 
 import MainHeader from "../MainHeader/MainHeader";
@@ -13,7 +14,7 @@ const pageTitle = "Best Places";
 const pageDescription = "Look at the best places in the world";
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-function MainLayout({ children }) {
+const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       <PageHeaders title={pageTitle} description={pageDescription} />
@@ -22,6 +23,6 @@ function MainLayout({ children }) {
       <main className={classes.main}>{children}</main>
     </>
   );
-}
+};
 
 export default MainLayout;

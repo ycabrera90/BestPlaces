@@ -1,5 +1,7 @@
-import classes from "./BpIcon.module.css";
 import Image from "next/image";
+import classes from "./BpIcon.module.css";
+
+
 
 const BpIcon = () => {
   return (
@@ -19,5 +21,7 @@ const BpIcon = () => {
     </i>
   );
 };
+
+
 
 export default BpIcon;

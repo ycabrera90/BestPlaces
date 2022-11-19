@@ -1,7 +1,12 @@
-import React from "react";
+import { FC } from "react";
 import Head from "next/head";
 
-const PageDatas = ({ title, description }) => {
+
+
+const PageDatas: FC<{ title: string; description: string }> = ({
+  title,
+  description,
+}) => {
   return (
     <Head>
       <title>{title}</title>
@@ -9,5 +14,7 @@ const PageDatas = ({ title, description }) => {
     </Head>
   );
 };
+
+
 
 export default PageDatas;

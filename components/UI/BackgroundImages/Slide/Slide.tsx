@@ -1,20 +1,26 @@
+import { FC } from 'react';
 import Image from 'next/image';
 
+import { Places } from '../../../../models';
 import classes from "./Slide.module.css";
 
 
 
-const Slide = ({ datas, speed, reverse = false }) => {
-  const animationConstructor = `${speed}s linear 1s infinite ${reverse ?'alternate-reverse': 'alternate'} ${classes.slide}`
+const Slide: FC<{ datas: Places[]; speed: number; reverse?: boolean }> = (
+  props
+) => {
+  const animationConstructor = `${props.speed}s linear 1s infinite ${
+    props.reverse ? "alternate-reverse" : "alternate"
+  } ${classes.slide}`;
 
   return (
     <section className={classes["items-container"]}>
       <ul style={{ animation: animationConstructor }}>
-        {datas.map(({ id, image, title }) => (
+        {props.datas.map(({ id, image, title }) => (
           <li key={id}>
             <Image
-              alt={title}
-              src={image}
+              alt={title ? title : ""}
+              src={image ? image : ""}
               fill
               sizes="(max-width: 768px) 100vw,
                  (max-width: 1200px) 50vw,
@@ -28,5 +34,7 @@ const Slide = ({ datas, speed, reverse = false }) => {
     </section>
   );
 };
+
+
 
 export default Slide;
