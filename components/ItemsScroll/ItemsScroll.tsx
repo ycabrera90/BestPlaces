@@ -17,23 +17,19 @@ type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 const ItemsScroll: FC<{ places: Places[] }> = (props) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
 
-  const handleDrag =
-    ({ scrollContainer }: scrollVisibilityApiType) =>
-    (ev: MouseEvent) =>
-      dragMove(ev, (posDiff: number) => {
-        if (scrollContainer.current) {
-          scrollContainer.current.scrollLeft += posDiff;
-        }
-      });
+  const handleDrag = ({ scrollContainer }: scrollVisibilityApiType) => (ev: MouseEvent) => dragMove(ev, (posDiff: number) => {
+    if (scrollContainer.current) {
+      scrollContainer.current.scrollLeft += posDiff;
+    }
+  });
 
-  const handleItemClick =
-    (itemId: string) => (visibilityCtx: scrollVisibilityApiType) => {
-      const { getItemById, scrollToItem } = visibilityCtx;
-      if (dragging) {
-        return false;
-      }
-      scrollToItem(getItemById(itemId), "smooth", "center", "nearest"); // <--- this is the line that makes the scroll to the center
-    };
+  const handleItemClick = (itemId: string) => (visibilityCtx: scrollVisibilityApiType) => {
+    const { getItemById, scrollToItem } = visibilityCtx;
+    if (dragging) {
+      return false;
+    }
+    scrollToItem(getItemById(itemId), "smooth", "center", "nearest"); // <--- this is the line that makes the scroll to the center
+  };
 
   const mouseUpHandler = (visibilityCtx: scrollVisibilityApiType) => () => {
     const { getItemById, scrollToItem, visibleItems } = visibilityCtx;
@@ -47,10 +43,11 @@ const ItemsScroll: FC<{ places: Places[] }> = (props) => {
   };
 
   // Insert of a ghost element at the beginning and end of the scroll
-  let adjustedPlaces = [...props.places];
-  const emptyPlace: Places = new Places("endEmtyItem", null, null, null);
-  adjustedPlaces.unshift(emptyPlace);
-  adjustedPlaces.push(emptyPlace);
+  const adjustedPlaces = [
+    new Places("startEmtyItem", null, null, null),
+    ...props.places,
+    new Places("endEmtyItem", null, null, null),
+  ];
 
   return (
     <div className={classes["main-items_container"]} onMouseLeave={dragStop}>

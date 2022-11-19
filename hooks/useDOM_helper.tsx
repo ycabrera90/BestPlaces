@@ -1,10 +1,11 @@
 import { useEffect, useState, useCallback } from "react";
 
-
-
 type sizesType = { width: number; height: number };
+type useDOMType = { screen: { orientation: string; size: sizesType }};
 
-const useDOM_helper = () => {
+
+
+const useDOM_helper = (): useDOMType => {
   const [orientation, setOrientation] = useState<string | null>(null);
   const [size, setSize] = useState<sizesType | null>(null);
 
@@ -31,7 +32,7 @@ const useDOM_helper = () => {
       window.removeEventListener("resize", () => {
         setOrientation(getOrientation());
       });
-    }
+    };
   }, []);
 
   return { screen: { orientation, size } };

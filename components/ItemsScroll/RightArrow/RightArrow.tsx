@@ -5,20 +5,20 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import ArrowButton from "../ArrowButton/ArrowButton";
 import classes from "./RightArrow.module.css";
 
+type scrollCtxType = ContextType<typeof VisibilityContext>;
 
 
-type scrollVisibilityApiType = ContextType<typeof VisibilityContext>;
 
 const RightArrow = () => {
-  const { getNextElement, 
-    isLastItemVisible, 
-    scrollToItem, 
-    visibleElements } =
-    useContext<scrollVisibilityApiType>(VisibilityContext);
+  const { getNextElement, isLastItemVisible, scrollToItem, visibleElements } =
+    useContext<scrollCtxType>(VisibilityContext);
 
-  const [disabled, setDisabled] = useState(
-    !visibleElements.length && isLastItemVisible
-  );
+  
+
+  const [disabled, setDisabled] = 
+    useState(!visibleElements.length && isLastItemVisible);
+  
+
   useEffect(() => {
     if (visibleElements.length) {
       setDisabled(isLastItemVisible);
@@ -37,13 +37,16 @@ const RightArrow = () => {
   }, []);
 
   return (
-    <ArrowButton
-      disabled={disabled}
-      onClick={clickHandler}
-      className={classes["right-arrow"]}
-    >
-      <FaAngleDoubleRight />
-    </ArrowButton>
+    <>
+      {!disabled && (
+        <ArrowButton
+          onClick={clickHandler}
+          className={classes["right-arrow"]}
+        >
+          <FaAngleDoubleRight />
+        </ArrowButton>
+      )}
+    </>
   );
 };
 

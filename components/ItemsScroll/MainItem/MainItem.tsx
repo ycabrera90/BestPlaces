@@ -1,32 +1,31 @@
-import { useContext, useEffect, useState, memo, useCallback, FC, ContextType } from "react";
 import Image from 'next/image'
+import { useContext, useEffect, useState, memo, useCallback, FC, ContextType } from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import useDOM_helper from "../../../hooks/useDOM_helper";
 
 import classes from "./MainItem.module.css";
 
-
-
-let isValidDOM_values = false;
 type scrollVisibilityApiType = ContextType<typeof VisibilityContext>;
-
-const MainItem: FC<{
+type MainItemProps = {
   id: string;
   image: string | null;
   title: string | null;
   onClick: (visibilityCtx: scrollVisibilityApiType) => void;
-}> = (props) => {
+};
+
+
+
+let isValidDOM_values = false;
+
+const MainItem: FC<MainItemProps> = (props) => {
   const [highlighted, setHighlighted] = useState(false);
   const { screen } = useDOM_helper();
 
   const visibility = useContext(VisibilityContext);
   const { visibleElements, isItemVisible } = visibility;
 
-  const goToItem = useCallback(
-    () => props.onClick(visibility),
-    [visibility, props.onClick]
-  );
+  const goToItem = useCallback(() => props.onClick(visibility),[visibility, props.onClick]);
 
   const clickItemHandler = () => {
     if (!highlighted) {

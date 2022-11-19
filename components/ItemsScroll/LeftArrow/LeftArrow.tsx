@@ -33,13 +33,16 @@ const LeftArrow  = () => {
   };
 
   return (
-    <ArrowButton
-      disabled={disabled}
-      onClick={clickHandler}
-      className={classes["left-arrow"]}
-    >
-      <FaAngleDoubleLeft />
-    </ArrowButton>
+    <>
+      {!disabled && (
+        <ArrowButton 
+          onClick={clickHandler} 
+          className={classes["left-arrow"]}
+        >
+          <FaAngleDoubleLeft />
+        </ArrowButton>
+      )}
+    </>
   );
 };
 

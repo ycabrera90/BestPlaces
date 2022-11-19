@@ -18,7 +18,6 @@ HomePage.getLayout = function getLayout(page: ReactElement) {
 
 
 
-
 export async function getStaticProps() {
   const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.pbuk80v.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
   const client = await MongoClient.connect(dbUrl);
@@ -41,7 +40,6 @@ export async function getStaticProps() {
     // revalidate: 1, <<-- in real this comment should be removed
   };
 }
-
 
 
 

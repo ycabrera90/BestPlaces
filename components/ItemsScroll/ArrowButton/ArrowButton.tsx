@@ -1,20 +1,19 @@
 import { FC, ReactNode } from "react";
 import classes from "./ArrowButton.module.css";
 
-
-
-const ArrowButton: FC<{
+type ArrowButtonProps = {
   children: ReactNode;
-  disabled: boolean;
   onClick: () => void;
   className: string;
-}> = ({ children, disabled, onClick, className }) => {
+}
+
+
+
+const ArrowButton: FC<ArrowButtonProps> = ({ children, onClick, className }) => {
   return (
     <button
       className={`${classes["arrow-button"]} ${className ? className : ""}`}
-      disabled={disabled}
       onClick={onClick}
-      style={{ opacity: disabled ? "0" : "1" }}
     >
       {children}
     </button>
