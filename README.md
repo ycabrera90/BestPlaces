@@ -17,6 +17,7 @@ With this [web page](https://eip-best-places.vercel.app/) you can select the bes
 ## Built with
 * [NextJs](https://nextjs.org/docs/getting-started) - React Framework
 * [React](https://es.reactjs.org/docs/getting-started.html) - Javascript Library (Framework!)
+* [TypeScript](https://www.typescriptlang.org/docs/) - JavaScript with super powers
 * [Sass](https://sass-lang.com/) - CSS extension language
 * [Node.Js](https://nodejs.org/en/docs/) - JavaScript runtime environment
 * [MongoDB](https://www.mongodb.com/atlas) - NoSQLdatabase
