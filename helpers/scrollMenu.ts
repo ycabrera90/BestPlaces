@@ -1,10 +1,11 @@
+import { WheelEvent } from "react";
 import { getItemsPos, slidingWindow } from "react-horizontal-scrolling-menu";
 
-export const onWheel = (
-  { getItemById, items, visibleItems, scrollToItem },
-  ev
-) => {
+
+
+export const onWheel = (apyObj: any, ev: WheelEvent): void => {
   const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+  const { getItemById, items, visibleItems, scrollToItem } = apyObj;
 
   if (isThouchpad) {
     ev.stopPropagation();

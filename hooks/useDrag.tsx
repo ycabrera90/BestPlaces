@@ -1,16 +1,18 @@
-import React from "react";
+import { useRef, useState, useCallback, MouseEvent } from "react";
 
-export default function useDrag() {
-  const [clicked, setClicked] = React.useState(false);
-  const [dragging, setDragging] = React.useState(false);
-  const position = React.useRef(0);
 
-  const dragStart = React.useCallback((ev) => {
+
+const useDrag = () => {
+  const [clicked, setClicked] = useState(false);
+  const [dragging, setDragging] = useState(false);
+  const position = useRef(0);
+
+  const dragStart = useCallback((ev: MouseEvent) => {
     position.current = ev.clientX;
     setClicked(true);
   }, []);
 
-  const dragStop = React.useCallback(
+  const dragStop = useCallback(
     () =>
       // NOTE: need some delay so item under cursor won't be clicked
       window.requestAnimationFrame(() => {
@@ -20,7 +22,8 @@ export default function useDrag() {
     []
   );
 
-  const dragMove = (ev, cb) => {
+  // const dragMove: (ev: MouseEvent, cb: (posDif: number) => void ) => void = (ev, cb) => {
+  const dragMove = (ev: MouseEvent, cb: (posDif: number) => void ): void => {
     const newDiff = position.current - ev.clientX;
 
     const movedEnough = Math.abs(newDiff) > 5;
@@ -43,4 +46,9 @@ export default function useDrag() {
     position,
     setDragging,
   };
-}
+};
+
+
+
+export default useDrag;
+

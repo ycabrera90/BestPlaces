@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, FC, ReactNode } from "react";
+import { useContext, useState, useEffect, ContextType } from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
@@ -6,7 +6,8 @@ import ArrowButton from "../ArrowButton/ArrowButton";
 import classes from "./RightArrow.module.css";
 
 
-type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
+
+type scrollVisibilityApiType = ContextType<typeof VisibilityContext>;
 
 const RightArrow = () => {
   const { getNextElement, 

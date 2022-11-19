@@ -1,4 +1,4 @@
-import { Places } from "../models";
+import { Places } from "../types";
 
 const backgroundPlaces = [
   new Places(

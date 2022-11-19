@@ -1,18 +1,16 @@
 import { useContext, useEffect, useState, memo, useCallback, FC, ContextType } from "react";
 import Image from 'next/image'
-
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import useDOM_helper from "../../../hooks/useDOM_helper";
 
 import classes from "./MainItem.module.css";
 
-let isValidDOM_values = false;
 
+
+let isValidDOM_values = false;
 type scrollVisibilityApiType = ContextType<typeof VisibilityContext>;
 
-
-// function MainItem({ id, image, title, onClick }) {
 const MainItem: FC<{
   id: string;
   image: string | null;
@@ -103,7 +101,9 @@ const MainItem: FC<{
       />
       <div
         role="button"
-        className={`${classes["item-container"]} ${highlighted ? classes.highlighted : ""}`}
+        className={`${classes["item-container"]} ${
+          highlighted ? classes.highlighted : ""
+        }`}
         onClick={clickItemHandler}
         style={{ visibility: props.image ? "visible" : "hidden" }}
       >
@@ -112,7 +112,7 @@ const MainItem: FC<{
         </div>
         {props.image && (
           <Image
-            alt={props.title}
+            alt={props.title ? props.title : ""}
             src={props.image}
             fill
             sizes="(max-width: 768px) 100vw,
@@ -128,5 +128,7 @@ const MainItem: FC<{
     </>
   );
 };
+
+
 
 export default memo(MainItem);

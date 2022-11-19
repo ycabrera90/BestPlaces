@@ -1,14 +1,18 @@
 import { useEffect, useState, useCallback } from "react";
 
-const useDOM_helper = () => {
-  const [orientation, setOrientation] = useState(null);
-  const [size, setSize] = useState(null);
 
-  const getOrientation = useCallback(() => {
+
+type sizesType = { width: number; height: number };
+
+const useDOM_helper = () => {
+  const [orientation, setOrientation] = useState<string | null>(null);
+  const [size, setSize] = useState<sizesType | null>(null);
+
+  const getOrientation: () => string = useCallback(() => {
     return window.innerWidth > window.innerHeight ? "landscape" : "portrait";
   }, []);
 
-  const getSizes = useCallback(() => {
+  const getSizes: () => sizesType = useCallback(() => {
     return {
       width: window.innerWidth,
       height: window.innerHeight,
@@ -31,6 +35,8 @@ const useDOM_helper = () => {
   }, []);
 
   return { screen: { orientation, size } };
-};;;
+};
+
+
 
 export default useDOM_helper;

@@ -1,15 +1,23 @@
 import { MongoClient } from "mongodb";
+import { FC, ReactElement } from "react";
+
+import type { NextPageWithLayout } from './_app'
+import { Places } from "../types";
+
 import { ItemsScroll, MainLayout } from "../components";
 
 
 
-function HomePage({ places }) {
+const HomePage: NextPageWithLayout<{ places: Places[] }> = ({ places }) => {
   return <ItemsScroll places={places} />;
-}
+};
 
-HomePage.getLayout = function getLayout(page) {
+HomePage.getLayout = function getLayout(page: ReactElement) {
   return <MainLayout>{page}</MainLayout>;
 };
+
+
+
 
 export async function getStaticProps() {
   const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.pbuk80v.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -33,5 +41,8 @@ export async function getStaticProps() {
     // revalidate: 1, <<-- in real this comment should be removed
   };
 }
+
+
+
 
 export default HomePage;

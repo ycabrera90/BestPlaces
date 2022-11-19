@@ -1,10 +1,10 @@
-import { FC, MouseEvent } from "react";
+import { FC, WheelEvent, MouseEvent } from "react";
 import { ScrollMenu, getItemsPos, VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import useDrag from "../../hooks/useDrag";
 import MainItem from "./MainItem/MainItem";
 import { onWheel } from "../../helpers/scrollMenu";
-import { Places } from "../../models";
+import { Places } from "../../types";
 
 import LeftArrow from "./LeftArrow/LeftArrow";
 import RightArrow from "./RightArrow/RightArrow";
@@ -42,7 +42,7 @@ const ItemsScroll: FC<{ places: Places[] }> = (props) => {
     scrollToItem(getItemById(center), "smooth", "center");
   };
 
-  const onWheelHandler = (apyObj: scrollVisibilityApiType, ev: MouseEvent) => {
+  const onWheelHandler = (apyObj: scrollVisibilityApiType, ev: WheelEvent) => {
     onWheel(apyObj, ev);
   };
 
@@ -76,5 +76,7 @@ const ItemsScroll: FC<{ places: Places[] }> = (props) => {
     </div>
   );
 };
+
+
 
 export default ItemsScroll;

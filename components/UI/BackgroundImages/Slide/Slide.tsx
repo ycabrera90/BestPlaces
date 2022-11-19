@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import { Places } from '../../../../models';
+import { Places } from '../../../../types';
 import classes from "./Slide.module.css";
 
 

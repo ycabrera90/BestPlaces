@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/ItemsScroll/RightArrow/RightArrow.tsx"  ],
+, "components/ItemsScroll/RightArrow/RightArrow.tsx", "helpers/scrollMenu.js"  ],
   "exclude": [
     "node_modules"
   ]
