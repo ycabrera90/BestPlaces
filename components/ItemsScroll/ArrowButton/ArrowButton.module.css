@@ -1,25 +1,25 @@
 .arrow-button {
   cursor: pointer;
-  position: absolute;
-  background-color: transparent;
+  position: relative;
   border: none;
   font-size: 5rem;
   color: #d95642;
   z-index: 4;
-}
-.arrow-button > svg {
-  position: relative;
+  border-radius: 50%;
   box-shadow: 10px 5px 5px #b94536;
   border: #d95642 1px solid;
-  border-radius: 50%;
-  padding: 0.5rem;
   background: rgba(0, 0, 0, 0.1803921569);
   transition: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
 }
-.arrow-button > svg:hover {
+.arrow-button:hover {
   background: #fef9e5;
 }
-.arrow-button > svg:active {
+.arrow-button:active {
   color: #b94536;
   border: #b94536 1px solid;
   bottom: -2px;

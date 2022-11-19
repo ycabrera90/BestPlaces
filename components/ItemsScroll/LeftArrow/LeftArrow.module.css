@@ -1,4 +1,9 @@
 .left-arrow {
+  position: absolute;
   top: 5vh;
   left: 5vw;
+}
+.left-arrow svg {
+  position: relative;
+  left: -0.1rem;
 }

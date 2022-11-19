@@ -4,12 +4,13 @@ import classes from "./ArrowButton.module.css";
 type ArrowButtonProps = {
   children: ReactNode;
   onClick: () => void;
-  className: string;
+  className?: string;
 }
 
 
 
-const ArrowButton: FC<ArrowButtonProps> = ({ children, onClick, className }) => {
+const ArrowButton: FC<ArrowButtonProps> = 
+  ({ children, onClick, className }) => {
   return (
     <button
       className={`${classes["arrow-button"]} ${className ? className : ""}`}

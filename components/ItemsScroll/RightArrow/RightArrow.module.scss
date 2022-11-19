@@ -1,8 +1,10 @@
-@import "../../../../styles/variables.scss";
-
-
-
 .right-arrow {
+  position: absolute;
   bottom: 3vh;
   right: 5vw;
+
+  svg {
+    position: relative;
+    left: 0.2rem;
+  }
 }

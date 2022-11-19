@@ -10,13 +10,8 @@ import classes from "./LeftArrow.module.css";
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
 const LeftArrow  = () => {
-  const {
-    getPrevElement,
-    isFirstItemVisible,
-    scrollToItem,
-    visibleElements,
-    initComplete,
-  } = useContext<scrollVisibilityApiType>(VisibilityContext);
+  const { getPrevElement, isFirstItemVisible, scrollToItem, visibleElements, initComplete } = 
+    useContext<scrollVisibilityApiType>(VisibilityContext);
   
   const [disabled, setDisabled] = useState<boolean>(
     !initComplete || (initComplete && isFirstItemVisible)
@@ -35,12 +30,11 @@ const LeftArrow  = () => {
   return (
     <>
       {!disabled && (
-        <ArrowButton 
-          onClick={clickHandler} 
-          className={classes["left-arrow"]}
-        >
-          <FaAngleDoubleLeft />
-        </ArrowButton>
+        <div className={classes["left-arrow"]}>
+          <ArrowButton onClick={clickHandler}>
+            <FaAngleDoubleLeft />
+          </ArrowButton>
+        </div>
       )}
     </>
   );

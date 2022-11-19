@@ -13,11 +13,8 @@ const RightArrow = () => {
   const { getNextElement, isLastItemVisible, scrollToItem, visibleElements } =
     useContext<scrollCtxType>(VisibilityContext);
 
-  
-
   const [disabled, setDisabled] = 
     useState(!visibleElements.length && isLastItemVisible);
-  
 
   useEffect(() => {
     if (visibleElements.length) {
@@ -39,12 +36,11 @@ const RightArrow = () => {
   return (
     <>
       {!disabled && (
-        <ArrowButton
-          onClick={clickHandler}
-          className={classes["right-arrow"]}
-        >
-          <FaAngleDoubleRight />
-        </ArrowButton>
+        <div className={classes["right-arrow"]}>
+          <ArrowButton onClick={clickHandler}>
+            <FaAngleDoubleRight />
+          </ArrowButton>
+        </div>
       )}
     </>
   );

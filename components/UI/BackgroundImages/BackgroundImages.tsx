@@ -6,9 +6,13 @@ import Slide from "./Slide/Slide";
 import classes from "./BackgroundImages.module.css";
 import { Places } from "../../../types";
 
+type BackgroundImagesProps = {
+  images: Places[];
+};
 
 
-const BackgroundImages: FC<{ images: Places[] }> = ({ images }) => {
+
+const BackgroundImages: FC<BackgroundImagesProps> = ({ images }) => {
   const { screen } = useDOM_helper();
 
   return (
