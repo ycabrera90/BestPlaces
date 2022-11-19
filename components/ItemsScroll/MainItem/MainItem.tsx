@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { useContext, useEffect, useState, memo, useCallback, FC, ContextType } from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 
-import useDOM_helper from "../../../hooks/useDOM_helper";
+import useDOM from "../../../hooks/useDOM";
 
 import classes from "./MainItem.module.css";
 
@@ -20,7 +20,7 @@ let isValidDOM_values = false;
 
 const MainItem: FC<MainItemProps> = (props) => {
   const [highlighted, setHighlighted] = useState(false);
-  const { screen } = useDOM_helper();
+  const { screen } = useDOM();
 
   const visibility = useContext(VisibilityContext);
   const { visibleElements, isItemVisible } = visibility;
@@ -36,7 +36,7 @@ const MainItem: FC<MainItemProps> = (props) => {
     goToItem();
   };
 
-  // detect if useDOM_helper give us valid values due to window object
+  // detect if useDOM give us valid values due to window object
   useEffect(() => {
     if (screen.orientation) {
       isValidDOM_values = true;

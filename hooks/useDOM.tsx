@@ -1,15 +1,16 @@
 import { useEffect, useState, useCallback } from "react";
 
-type sizesType = { width: number; height: number };
-type useDOMType = { screen: { orientation: string; size: sizesType }};
+type orientationType = string | null;
+type sizesType = { width: number; height: number } | null;
+type useDOMType = { screen: { orientation: orientationType; size: sizesType } };
 
 
 
-const useDOM_helper = (): useDOMType => {
-  const [orientation, setOrientation] = useState<string | null>(null);
-  const [size, setSize] = useState<sizesType | null>(null);
+const useDOM = (): useDOMType => {
+  const [orientation, setOrientation] = useState<orientationType>(null);
+  const [size, setSize] = useState<sizesType>(null);
 
-  const getOrientation: () => string = useCallback(() => {
+  const getOrientation: () => orientationType = useCallback(() => {
     return window.innerWidth > window.innerHeight ? "landscape" : "portrait";
   }, []);
 
@@ -40,4 +41,4 @@ const useDOM_helper = (): useDOMType => {
 
 
 
-export default useDOM_helper;
+export default useDOM;

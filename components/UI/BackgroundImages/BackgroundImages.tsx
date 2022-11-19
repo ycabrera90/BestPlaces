@@ -1,5 +1,5 @@
 import { FC } from "react";
-import useDOM_helper from "../../../hooks/useDOM_helper";
+import useDOM from "../../../hooks/useDOM";
 
 import Slide from "./Slide/Slide";
 
@@ -13,7 +13,7 @@ type BackgroundImagesProps = {
 
 
 const BackgroundImages: FC<BackgroundImagesProps> = ({ images }) => {
-  const { screen } = useDOM_helper();
+  const { screen } = useDOM();
 
   return (
     <div className={classes["background-container"]}>

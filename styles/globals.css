@@ -21,11 +21,6 @@ h6 {
   margin: 0px;
 }
 
-#__next {
-  min-width: 20rem;
-  min-height: 20rem;
-}
-
 .react-horizontal-scrolling-menu--wrapper {
   height: 100%;
 }
