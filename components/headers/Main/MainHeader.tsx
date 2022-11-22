@@ -1,15 +1,8 @@
-import { useState } from "react";
-
+import { FC, useState } from "react";
 import SmLogoIcon from "../../icons/SmLogo/SmLogoIcon";
-import ToggleButton from "../../buttons/Toggle/ToggleButton";
-// import MainNav from "./MainNav/MainNav";
-import MainNavBar from "../../navigation/MainNavBar/MainNavBar";
+import styles from "./MainHeader.module.css";
 
-import classes from "./MainHeader.module.css";
-
-
-
-const MainHeader = () => {
+const MainHeader: FC = () => {
   const [isMainNavExpanded, setIsMainNavExpanded] = useState(false);
 
   const toggleButtonClicHandler = () => {
@@ -21,7 +14,7 @@ const MainHeader = () => {
   };
 
   return (
-    <header className={classes["main-header"]}>
+    <header className={styles["main-header"]}>
       <SmLogoIcon description="Places" />
       {/* commentes while building */}
       {/* <ToggleButton
@@ -35,7 +28,5 @@ const MainHeader = () => {
     </header>
   );
 };
-
-
 
 export default MainHeader;

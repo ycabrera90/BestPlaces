@@ -1,13 +1,9 @@
 import { FC, ReactNode } from "react";
 import backgroundPlaces from "../../../store/backgroundData";
-
 import MetaHeader from "../../headers/Meta/MetaHeader";
-import MainHeader from "../MainHeader/MainHeader";
+import MainHeader from "../../headers/Main/MainHeader";
 import BackgroundImages from "../BackgroundImages/BackgroundImages";
-
 import classes from "./MainLayout.module.css";
-
-
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 const pageTitle = "Best Places";
