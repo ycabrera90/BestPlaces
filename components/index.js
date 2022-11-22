@@ -5,7 +5,6 @@ export { default as MainItem } from './ItemsScroll/MainItem/MainItem.tsx';
 export { default as RightArrow } from './ItemsScroll/RightArrow/RightArrow';
 export { default as BackgroundImages } from './UI/BackgroundImages/BackgroundImages';
 export { default as Slide } from './UI/BackgroundImages/Slide/Slide';
-export { default as BpIcon } from './UI/BpIcon/BpIcon';
 export { default as Card } from './UI/Card/Card';
 export { default as MainHeader } from './UI/MainHeader/MainHeader';
 export { default as MainNav } from './UI/MainHeader/MainNav/MainNav';

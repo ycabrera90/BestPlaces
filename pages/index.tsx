@@ -9,7 +9,7 @@ import { ItemsScroll, MainLayout } from "../components";
 
 
 const HomePage: NextPageWithLayout<{ places: Places[] }> = ({ places }) => {
-  // return <ItemsScroll places={places} />;
+  return <ItemsScroll places={places} />;
   return <></> ;
 };
 
