@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import styles from './BaseTemplate.module.css';
 
 export interface IBaseTemplate {
@@ -6,7 +7,7 @@ export interface IBaseTemplate {
 
 
 
-const BaseTemplate: React.FC<IBaseTemplate> = ({ sampleTextProp }) => {
+const BaseTemplate: FC<IBaseTemplate> = ({ sampleTextProp }) => {
   return <div className={styles.container}>{sampleTextProp}</div>;
 };
 

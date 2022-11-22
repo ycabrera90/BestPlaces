@@ -13,4 +13,3 @@ export { default as MainNavButton } from './UI/MainHeader/MainNav/MainNavButton/
 export { default as MainNavItem } from './UI/MainHeader/MainNav/MainNavItem/MainNavItem';
 export { default as ToggleButton } from './UI/MainHeader/ToggleButton/ToggleButton';
 export { default as MainLayout } from './UI/MainLayout/MainLayout';
-export { default as PageHeaders } from './UI/PageHeaders/PageHeaders';
