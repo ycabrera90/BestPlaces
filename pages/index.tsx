@@ -5,6 +5,7 @@ import { Places } from "../types";
 import ItemsScroll from "../components/ItemsScroll/ItemsScroll";
 import MainLayout from "../components/UI/MainLayout/MainLayout";
 
+
 const HomePage: NextPageWithLayout<{ places: Places[] }> = ({ places }) => {
   return <ItemsScroll places={places} />;
   return <></>;

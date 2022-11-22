@@ -1,0 +1,91 @@
+.backdrop {
+    display: none;
+    background: transparent;
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    &.expanded {
+      display: block;
+      @media (min-width: 40rem) {
+        display: none;
+      }
+    }
+  }
+  
+  .nav-bar {
+    inset: 3.5rem 0px auto auto;
+    border-bottom-left-radius: 10px;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    min-width: 10rem;
+    width: 15rem;
+  
+    @media (min-width: 40rem) {
+      height: auto;
+      position: static;
+      width: auto;
+      overflow: visible;
+    }
+  
+    &.expanded {
+      height: 8rem;
+      box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 25%);
+      padding: 1rem;
+      background: linear-gradient(180deg, #d95642 0, #b94536);;
+      opacity: 0.9;
+  
+      @media (min-width: 40rem) {
+        height: auto;
+        box-shadow: none;
+        padding: 0;
+        background: transparent;
+        opacity: 1;
+      }
+    }
+  
+    > ul {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+  
+      @media (min-width: 40rem) {
+        gap: 1.5rem;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+  }
+  
+
+  .main-nav_item {
+    list-style: none;
+    > a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 1rem;
+  
+      &:hover,
+      &.active {
+        @media (min-width: 40rem) {
+          border-bottom: #fefffb 2px solid;
+          border-radius: 4px;
+        }
+      }
+  
+      &:active {
+        color: #ff6b58;
+        border-color: #ff6b58;
+      }
+    }
+  }
+  

@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import SmLogoIcon from "../../icons/SmLogo/SmLogoIcon";
 import ToggleButton from "../../buttons/Toggle/ToggleButton";
-import MainNav from "./MainNav/MainNav";
+// import MainNav from "./MainNav/MainNav";
+import MainNavBar from "../../navigation/MainNavBar/MainNavBar";
 
 import classes from "./MainHeader.module.css";
 
@@ -26,11 +27,11 @@ const MainHeader = () => {
       {/* <ToggleButton
         expanded={isMainNavExpanded}
         onClick={toggleButtonClicHandler}
-      /> */}
-      <MainNav
+      />
+      <MainNavBar
         onBackdropClick={backdropClickHandler}
         isExpanded={isMainNavExpanded}
-      />
+      /> */}
     </header>
   );
 };

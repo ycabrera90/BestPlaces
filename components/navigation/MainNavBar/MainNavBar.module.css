@@ -68,3 +68,22 @@
     flex-direction: row;
   }
 }
+
+.main-nav_item {
+  list-style: none;
+}
+.main-nav_item > a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+@media (min-width: 40rem) {
+  .main-nav_item > a:hover, .main-nav_item > a.active {
+    border-bottom: #fefffb 2px solid;
+    border-radius: 4px;
+  }
+}
+.main-nav_item > a:active {
+  color: #ff6b58;
+  border-color: #ff6b58;
+}
