@@ -1,0 +1,39 @@
+.toggle-button {
+    padding-top: 5px;
+    background-color: transparent;
+    right: 0;
+    color: #fef9e5;
+    font-size: 1.4em;
+    margin: 0;
+    cursor: pointer;
+    border: #b94536 2px solid;
+    border-radius: 4px;
+  
+  
+    > span {
+      width: 23px;
+      height: 3px;
+      border-radius: 3px;
+      background: #fef9e5;
+      display: block;
+      margin-bottom: 5px;
+      transition: all 0.25s ease;
+    }
+  }
+  
+  .toggle-button.expanded span:first-child {
+    transform: translateY(8px) rotate(-225deg);
+  }
+  .toggle-button.expanded span:nth-child(2) {
+    width: 0;
+  }
+  .toggle-button.expanded span:last-child {
+    transform: translateY(-8px) rotate(225deg);
+  }
+  
+  @media (min-width: 40rem) {
+    .toggle-button {
+      display: none;
+    }
+  }
+  

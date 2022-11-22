@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import SmLogoIcon from "../../icons/SmLogo/SmLogoIcon";
-import ToggleButton from "./ToggleButton/ToggleButton";
+import ToggleButton from "../../buttons/Toggle/ToggleButton";
 import MainNav from "./MainNav/MainNav";
 
 import classes from "./MainHeader.module.css";
@@ -22,10 +22,11 @@ const MainHeader = () => {
   return (
     <header className={classes["main-header"]}>
       <SmLogoIcon description="Places" />
-      <ToggleButton
+      {/* commentes while building */}
+      {/* <ToggleButton
         expanded={isMainNavExpanded}
         onClick={toggleButtonClicHandler}
-      />
+      /> */}
       <MainNav
         onBackdropClick={backdropClickHandler}
         isExpanded={isMainNavExpanded}
