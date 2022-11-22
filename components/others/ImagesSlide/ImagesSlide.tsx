@@ -1,20 +1,21 @@
-import { FC } from 'react';
-import Image from 'next/image';
+import Image from "next/image";
+import { FC } from "react";
+import { Places } from "../../../types";
+import styles from "./ImagesSlide.module.css";
 
-import { Places } from '../../../../types';
-import classes from "./Slide.module.css";
+export interface IImagesSlide {
+  datas: Places[];
+  speed: number;
+  reverse?: boolean;
+}
 
-
-
-const Slide: FC<{ datas: Places[]; speed: number; reverse?: boolean }> = (
-  props
-) => {
+const ImagesSlide: FC<IImagesSlide> = (props) => {
   const animationConstructor = `${props.speed}s linear 1s infinite ${
     props.reverse ? "alternate-reverse" : "alternate"
-  } ${classes.slide}`;
+  } ${styles.slide}`;
 
   return (
-    <section className={classes["items-container"]}>
+    <section className={styles["items-container"]}>
       <ul style={{ animation: animationConstructor }}>
         {props.datas.map(({ id, image, title }) => (
           <li key={id}>
@@ -35,6 +36,4 @@ const Slide: FC<{ datas: Places[]; speed: number; reverse?: boolean }> = (
   );
 };
 
-
-
-export default Slide;
+export default ImagesSlide;
