@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-import { FC, ReactElement } from "react";
+import { ReactElement } from "react";
 
 import type { NextPageWithLayout } from './_app'
 import { Places } from "../types";
