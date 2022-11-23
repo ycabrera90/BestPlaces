@@ -1,20 +1,20 @@
 import { FC, WheelEvent, MouseEvent } from "react";
 import { ScrollMenu, getItemsPos, VisibilityContext } from "react-horizontal-scrolling-menu";
-
-import useDrag from "../../hooks/useDrag";
-import ImageDetail from "../others/ImageDetail/ImageDetail";
-import { onWheel } from "../../helpers/scrollMenu";
-import { Places } from "../../types";
-
-import LeftArrow from "../buttons/LeftArrow/LeftArrow";
-import RightArrow from "../buttons/RightArrow/RightArrow";
-import classes from "./ItemsScroll.module.css";
-
-
+import useDrag from "../../../hooks/useDrag";
+import ImageDetail from "../../others/ImageDetail/ImageDetail";
+import { onWheel } from "../../../helpers/scrollMenu";
+import { Places } from "../../../types";
+import LeftArrow from "../../buttons/LeftArrow/LeftArrow";
+import RightArrow from "../../buttons/RightArrow/RightArrow";
+import styles from "./ImagesSroll.module.css";
 
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
-const ItemsScroll: FC<{ places: Places[] }> = (props) => {
+export interface IImagesSroll {
+  places: Places[];
+}
+
+const ImagesSroll: FC<IImagesSroll> = (props) => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
 
   const handleDrag = ({ scrollContainer }: scrollVisibilityApiType) => (ev: MouseEvent) => dragMove(ev, (posDiff: number) => {
@@ -50,7 +50,7 @@ const ItemsScroll: FC<{ places: Places[] }> = (props) => {
   ];
 
   return (
-    <div className={classes["main-items_container"]} onMouseLeave={dragStop}>
+    <div className={styles["main-items_container"]} onMouseLeave={dragStop}>
       <ScrollMenu
         LeftArrow={LeftArrow}
         RightArrow={RightArrow}
@@ -74,6 +74,4 @@ const ItemsScroll: FC<{ places: Places[] }> = (props) => {
   );
 };
 
-
-
-export default ItemsScroll;
+export default ImagesSroll;
