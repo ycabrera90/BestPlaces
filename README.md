@@ -15,6 +15,7 @@ With this [web page](https://eip-best-places.vercel.app/) you can select the bes
 🦾 **In construction yet**
 
 ## Built with
+This project was developed using [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) and [Atomic Design](https://atomicdesign.bradfrost.com/table-of-contents/) with the following technoligies:
 * [NextJs](https://nextjs.org/docs/getting-started) - React Framework
 * [React](https://es.reactjs.org/docs/getting-started.html) - Javascript Library (Framework!)
 * [TypeScript](https://www.typescriptlang.org/docs/) - JavaScript with super powers
