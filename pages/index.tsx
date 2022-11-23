@@ -1,14 +1,13 @@
-import { MongoClient } from "mongodb";
 import { ReactElement } from "react";
-import type { NextPageWithLayout } from "./_app";
+import { MongoClient } from "mongodb";
 import { Places } from "../types";
 import ItemsScroll from "../components/ItemsScroll/ItemsScroll";
-import MainLayout from "../components/UI/MainLayout/MainLayout";
+import MainLayout from "../components/layouts/MainLayout/MainLayout";
+import type { NextPageWithLayout } from "./_app";
 
 
 const HomePage: NextPageWithLayout<{ places: Places[] }> = ({ places }) => {
   return <ItemsScroll places={places} />;
-  return <></>;
 };
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
