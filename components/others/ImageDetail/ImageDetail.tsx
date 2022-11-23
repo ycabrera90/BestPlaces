@@ -1,24 +1,21 @@
 import Image from 'next/image'
 import { useContext, useEffect, useState, memo, useCallback, FC, ContextType } from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
-
 import useDOM from "../../../hooks/useDOM";
-
-import classes from "./MainItem.module.css";
+import styles from "./ImageDetail.module.css";
 
 type scrollVisibilityApiType = ContextType<typeof VisibilityContext>;
-type MainItemProps = {
+export interface IImageDetail {
   id: string;
   image: string | null;
   title: string | null;
   onClick: (visibilityCtx: scrollVisibilityApiType) => void;
-};
-
-
+}
 
 let isValidDOM_values = false;
 
-const MainItem: FC<MainItemProps> = (props) => {
+const ImageDetail: FC<IImageDetail> = (props) => {
+  
   const [highlighted, setHighlighted] = useState(false);
   const { screen } = useDOM();
 
@@ -95,18 +92,18 @@ const MainItem: FC<MainItemProps> = (props) => {
   return (
     <>
       <div
-        className={`${classes.backdrop} ${highlighted ? classes.show : ""}`}
+        className={`${styles.backdrop} ${highlighted ? styles.show : ""}`}
         onClick={() => setHighlighted(false)}
       />
       <div
         role="button"
-        className={`${classes["item-container"]} ${
-          highlighted ? classes.highlighted : ""
+        className={`${styles["item-container"]} ${
+          highlighted ? styles.highlighted : ""
         }`}
         onClick={clickItemHandler}
         style={{ visibility: props.image ? "visible" : "hidden" }}
       >
-        <div className={classes.fog}>
+        <div className={styles.fog}>
           <h1 style={{ opacity: highlighted ? 1 : 0 }}>{props.title}</h1>
         </div>
         {props.image && (
@@ -128,6 +125,4 @@ const MainItem: FC<MainItemProps> = (props) => {
   );
 };
 
-
-
-export default memo(MainItem);
+export default ImageDetail;

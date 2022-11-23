@@ -2,7 +2,7 @@ import { FC, WheelEvent, MouseEvent } from "react";
 import { ScrollMenu, getItemsPos, VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import useDrag from "../../hooks/useDrag";
-import MainItem from "./MainItem/MainItem";
+import ImageDetail from "../others/ImageDetail/ImageDetail";
 import { onWheel } from "../../helpers/scrollMenu";
 import { Places } from "../../types";
 
@@ -61,7 +61,7 @@ const ItemsScroll: FC<{ places: Places[] }> = (props) => {
         onWheel={onWheelHandler}
       >
         {adjustedPlaces.map((place) => (
-          <MainItem
+          <ImageDetail
             key={place.id}
             id={place.id}
             image={place.image}

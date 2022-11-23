@@ -1,0 +1,89 @@
+@import "../../../styles/variables.scss";
+
+$margin-sides: 0.5rem;
+
+// portrait
+$portrait_scale-highlighted: 1.12;
+$portrait_item-width: 85vw;
+$portrait_item-height: calc(#{$portrait_item-width} * 3 / 4);
+$portrait_item-width-highlighted: calc(#{$portrait_item-width} * #{$portrait_scale-highlighted});
+$portrait_item-height-highlighted: calc(#{$portrait_item-height} * #{$portrait_scale-highlighted});
+$portrait_item-margint-highlighted: calc(0px - (#{$portrait_item-width-highlighted} - #{$portrait_item-width}) / 2 + $margin-sides);
+
+// landscape
+$landscape_scale-highlighted: 1.5;
+$landscape_item-height: 40vh;
+$landscape_item-width: calc(#{$landscape_item-height} * 4 / 3);
+$landscape_item-width-highlighted: calc(#{$landscape_item-width} * #{$landscape_scale-highlighted});
+$landscape_item-height-highlighted: calc(#{$landscape_item-height} * #{$landscape_scale-highlighted});
+$landscape_item-margint-highlighted: calc(0px - (#{$landscape_item-width-highlighted} - #{$landscape_item-width}) / 2 + $margin-sides );
+
+.backdrop {
+    position: fixed;
+    inset: 0px 0px 0px 0px;
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}
+
+.item-container {
+    position: relative;
+    margin: $margin-sides;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 4px 4px 0.5rem 0.1rem rgb(0 0 0 / 50%);
+    z-index: 1;
+
+    @media (orientation: portrait) {
+        min-width: $portrait_item-width;
+        height: $portrait_item-height;
+    }
+
+    @media (orientation: landscape) {
+        min-width: $landscape_item-width;
+        height: $landscape_item-height;
+    }
+
+    .fog {
+        width: 100%;
+        height: 100%;
+    }
+
+    .fog {
+        position: absolute;
+        cursor: pointer;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(157deg, #00000023, transparent);
+        opacity: 0;
+        z-index: 5;
+
+        >h1 {
+            color: $color-1;
+            font-size: 1rem;
+        }
+    }
+
+    &.highlighted {
+        z-index: 4;
+
+        @media (orientation: portrait) {
+            min-width: $portrait_item-width-highlighted;
+            max-width: $portrait_item-width-highlighted;
+            height: $portrait_item-height-highlighted;
+            margin: 0 $portrait_item-margint-highlighted;
+        }
+
+        @media (orientation: landscape) {
+            min-width: $landscape_item-width-highlighted;
+            height: $landscape_item-height-highlighted;
+            margin: 0 $landscape_item-margint-highlighted;
+        }
+
+        .fog {
+            opacity: 1;
+        }
+    }
+}
