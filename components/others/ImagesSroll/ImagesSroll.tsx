@@ -1,12 +1,14 @@
 import { FC, WheelEvent, MouseEvent } from "react";
 import { ScrollMenu, getItemsPos, VisibilityContext } from "react-horizontal-scrolling-menu";
-import useDrag from "../../../hooks/useDrag";
-import ImageDetail from "../../others/ImageDetail/ImageDetail";
-import { onWheel } from "../../../helpers/scrollMenu";
-import { Places } from "../../../types";
-import LeftArrow from "../../buttons/LeftArrow/LeftArrow";
-import RightArrow from "../../buttons/RightArrow/RightArrow";
+
+import useDrag from "@/hooks/useDrag";
+import ImageDetail from "../ImageDetail/ImageDetail";
+import onWheel from "@/helpers/scrollMenu";
+import Places from "@/types/Places";
+import LeftArrow from "@/components/buttons/LeftArrow/LeftArrow";
+import RightArrow from "@/components/buttons/RightArrow/RightArrow";
 import styles from "./ImagesSroll.module.css";
+
 
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 

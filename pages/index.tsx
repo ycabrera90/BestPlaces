@@ -6,6 +6,7 @@ import ImagesSroll from "../components/others/ImagesSroll/ImagesSroll";
 
 import type { NextPageWithLayout } from "./_app";
 
+
 const HomePage: NextPageWithLayout<{ places: Places[] }> = ({ places }) => {
   return <ImagesSroll places={places} />;
 };

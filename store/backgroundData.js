@@ -1,4 +1,4 @@
-import { Places } from "../types";
+import Places from "@/types/Places";
 
 const backgroundPlaces = [
   new Places(

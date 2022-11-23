@@ -3,7 +3,7 @@ import { getItemsPos, slidingWindow } from "react-horizontal-scrolling-menu";
 
 
 
-export const onWheel = (apyObj: any, ev: WheelEvent): void => {
+const onWheel = (apyObj: any, ev: WheelEvent): void => {
   const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
   const { getItemById, items, visibleItems, scrollToItem } = apyObj;
 
@@ -28,3 +28,5 @@ export const onWheel = (apyObj: any, ev: WheelEvent): void => {
     scrollToItem(getItemById(center), "smooth", "center");
   }
 };
+
+export default onWheel;
