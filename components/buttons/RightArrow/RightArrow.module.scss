@@ -32,3 +32,15 @@
     box-shadow: 6px 3px 5px $color-3;
   }
 }
+
+.right-arrow {
+    position: absolute;
+    bottom: 6vh;
+    right: 5vw;
+  
+    svg {
+      position: relative;
+      left: 0.2rem;
+    }
+  }
+  

@@ -1,15 +1,11 @@
-import { useContext, useState, useEffect, ContextType } from "react";
+import { FC, useContext, useState, useEffect, ContextType } from "react";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
 import { FaAngleDoubleRight } from "react-icons/fa";
-
-import ArrowButton from "../ArrowButton/ArrowButton";
-import classes from "./RightArrow.module.css";
+import styles from "./RightArrow.module.css";
 
 type scrollCtxType = ContextType<typeof VisibilityContext>;
 
-
-
-const RightArrow = () => {
+const RightArrow: FC = () => {
   const { getNextElement, isLastItemVisible, scrollToItem, visibleElements } =
     useContext<scrollCtxType>(VisibilityContext);
 
@@ -36,16 +32,14 @@ const RightArrow = () => {
   return (
     <>
       {!disabled && (
-        <div className={classes["right-arrow"]}>
-          <ArrowButton onClick={clickHandler}>
+        <div className={styles["right-arrow"]}>
+          <button className={styles["arrow-button"]} onClick={clickHandler}>
             <FaAngleDoubleRight />
-          </ArrowButton>
+          </button>
         </div>
       )}
     </>
   );
 };
-
-
 
 export default RightArrow;

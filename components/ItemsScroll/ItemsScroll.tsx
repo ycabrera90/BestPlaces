@@ -6,8 +6,8 @@ import ImageDetail from "../others/ImageDetail/ImageDetail";
 import { onWheel } from "../../helpers/scrollMenu";
 import { Places } from "../../types";
 
-import LeftArrow from "./LeftArrow/LeftArrow";
-import RightArrow from "./RightArrow/RightArrow";
+import LeftArrow from "../buttons/LeftArrow/LeftArrow";
+import RightArrow from "../buttons/RightArrow/RightArrow";
 import classes from "./ItemsScroll.module.css";
 
 

@@ -1,15 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
-
-import ArrowButton from "../ArrowButton/ArrowButton";
-import classes from "./LeftArrow.module.css";
-
-
+import styles from "./LeftArrow.module.css";
 
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
-const LeftArrow  = () => {
+const LeftArrow: FC = () => {
   const { getPrevElement, isFirstItemVisible, scrollToItem, visibleElements, initComplete } = 
     useContext<scrollVisibilityApiType>(VisibilityContext);
   
@@ -30,16 +26,17 @@ const LeftArrow  = () => {
   return (
     <>
       {!disabled && (
-        <div className={classes["left-arrow"]}>
-          <ArrowButton onClick={clickHandler}>
+        <div className={styles["left-arrow"]}>
+          <button
+            className={`${styles["arrow-button"]} ${styles ? styles : ""}`}
+            onClick={clickHandler}
+          >
             <FaAngleDoubleLeft />
-          </ArrowButton>
+          </button>
         </div>
       )}
     </>
   );
 };
-
-
 
 export default LeftArrow;
