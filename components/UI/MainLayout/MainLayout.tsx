@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 import backgroundPlaces from "../../../store/backgroundData";
 import MetaHeader from "../../headers/Meta/MetaHeader";
 import MainHeader from "../../headers/Main/MainHeader";
-import BackgroundImages from "../BackgroundImages/BackgroundImages";
+import ImageMotion from "../../backdrops/ImageMotion/ImageMotion";
 import classes from "./MainLayout.module.css";
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -15,7 +15,8 @@ const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
     <>
       <MetaHeader title={pageTitle} description={pageDescription} />
       <MainHeader />
-      <BackgroundImages images={backgroundPlaces} />
+      <ImageMotion images={backgroundPlaces} />
+      {/* <BackgroundImages images={backgroundPlaces} /> */}
       <main className={classes.main}>{children}</main>
     </>
   );
