@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import ImagesSroll, { IImagesSroll } from "./ImagesSroll";
-import { mockImagesSrollProps } from "./ImagesSroll.mocks";
+import ImagesSroll from "./ImagesSroll";
 
 export default {
   title: "others/ImagesSroll",
@@ -13,8 +12,3 @@ const Template: ComponentStory<typeof ImagesSroll> = (args) => (
 );
 
 export const Base = Template.bind({});
-
-Base.args = {
-  ...mockImagesSrollProps.base,
-} as IImagesSroll;
-

@@ -1,11 +1,10 @@
 import { ReactElement } from "react";
 import { MongoClient } from "mongodb";
-import { Places } from "../types";
-import MainLayout from "../components/layouts/MainLayout/MainLayout";
-import ImagesSroll from "../components/others/ImagesSroll/ImagesSroll";
-
 import type { NextPageWithLayout } from "./_app";
 
+import Places from "@/types/Places";
+import MainLayout from "@/components/layouts/MainLayout/MainLayout";
+import ImagesSroll from "@/components/others/ImagesSroll/ImagesSroll";
 
 const HomePage: NextPageWithLayout<{ places: Places[] }> = ({ places }) => {
   return <ImagesSroll places={places} />;

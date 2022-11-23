@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { FC } from "react";
-import { Places } from "../../../types";
+import Image from "next/image";
+import Places from "@/types/Places";
 import styles from "./ImagesSlide.module.css";
 
 export interface IImagesSlide {

@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import RightArrow, { IRightArrow } from "./RightArrow";
-import { mockRightArrowProps } from "./RightArrow.mocks";
+import RightArrow from "./RightArrow";
 
 export default {
   title: "buttons/RightArrow",
@@ -13,8 +12,3 @@ const Template: ComponentStory<typeof RightArrow> = (args) => (
 );
 
 export const Base = Template.bind({});
-
-Base.args = {
-  ...mockRightArrowProps.base,
-} as IRightArrow;
-

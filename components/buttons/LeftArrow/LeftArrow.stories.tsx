@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import LeftArrow, { ILeftArrow } from "./LeftArrow";
-import { mockLeftArrowProps } from "./LeftArrow.mocks";
+import LeftArrow from "./LeftArrow";
 
 export default {
   title: "buttons/LeftArrow",
@@ -14,7 +13,5 @@ const Template: ComponentStory<typeof LeftArrow> = (args) => (
 
 export const Base = Template.bind({});
 
-Base.args = {
-  ...mockLeftArrowProps.base,
-} as ILeftArrow;
+
 

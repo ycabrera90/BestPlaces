@@ -9,9 +9,7 @@ import LeftArrow from "@/components/buttons/LeftArrow/LeftArrow";
 import RightArrow from "@/components/buttons/RightArrow/RightArrow";
 import styles from "./ImagesSroll.module.css";
 
-
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
-
 export interface IImagesSroll {
   places: Places[];
 }

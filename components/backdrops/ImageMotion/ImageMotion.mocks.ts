@@ -1,4 +1,4 @@
-import { Places } from "../../../types";
+import Places from "@/types/Places";
 import { IImageMotion } from "./ImageMotion";
 
 export const backgroundPlaces = [
