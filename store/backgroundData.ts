@@ -1,7 +1,6 @@
 import { Places } from "@/models/Places.type";
-import { IImageMotion } from "./ImageMotion";
 
-export const backgroundPlaces: Places[] = [
+const backgroundPlaces: Places[] = [
   {
     id: "63601dc5a2d76466a83e84e4",
     title: "New York City",
@@ -116,10 +115,4 @@ export const backgroundPlaces: Places[] = [
   },
 ];
 
-const base: IImageMotion = {
-  images: backgroundPlaces,
-};
-
-export const mockImageMotionProps = {
-  base,
-};
+export default backgroundPlaces;

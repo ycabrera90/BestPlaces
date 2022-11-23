@@ -4,7 +4,7 @@ import { ScrollMenu, getItemsPos, VisibilityContext } from "react-horizontal-scr
 import useDrag from "@/hooks/useDrag";
 import ImageDetail from "../ImageDetail/ImageDetail";
 import onWheel from "@/helpers/scrollMenu";
-import Places from "@/types/Places";
+import { Places } from "@/models/Places.type";
 import LeftArrow from "@/components/buttons/LeftArrow/LeftArrow";
 import RightArrow from "@/components/buttons/RightArrow/RightArrow";
 import styles from "./ImagesSroll.module.css";
@@ -42,11 +42,10 @@ const ImagesSroll: FC<IImagesSroll> = (props) => {
     onWheel(apyObj, ev);
   };
 
-  // Insert of a ghost element at the beginning and end of the scroll
-  const adjustedPlaces = [
-    new Places("startEmtyItem", null, null, null),
+  const adjustedPlaces: Places[] = [
+    { id: "startEmtyItem", title: null, address: null, image: null },
     ...props.places,
-    new Places("endEmtyItem", null, null, null),
+    { id: "endEmtyItem", title: null, address: null, image: null },
   ];
 
   return (

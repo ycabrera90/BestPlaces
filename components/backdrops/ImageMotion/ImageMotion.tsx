@@ -1,6 +1,7 @@
 import { FC } from "react";
 
-import Places from "@/types/Places";
+// import Places from "@/types/Places";
+import { Places } from "@/models/Places.type";
 import useDOM from "@/hooks/useDOM";
 import ImagesSlide from "../../others/ImagesSlide/ImagesSlide";
 import styles from "./ImageMotion.module.css";
