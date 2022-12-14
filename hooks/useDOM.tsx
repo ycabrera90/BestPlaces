@@ -1,10 +1,9 @@
+// version 1.0.2
 import { useEffect, useState, useCallback } from "react";
 
 type orientationType = string | null;
 type sizesType = { width: number; height: number } | null;
 type useDOMType = { screen: { orientation: orientationType; size: sizesType } };
-
-
 
 const useDOM = (): useDOMType => {
   const [orientation, setOrientation] = useState<orientationType>(null);
@@ -27,6 +26,7 @@ const useDOM = (): useDOMType => {
 
     window.addEventListener("resize", () => {
       setOrientation(getOrientation());
+      setSize(getSizes());
     });
 
     return () => {
