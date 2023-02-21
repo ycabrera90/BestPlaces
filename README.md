@@ -1,7 +1,7 @@
 <p align="center">
-  <a href="https://my-summary-sooty.vercel.app/"
+  <a href="https://eip-best-places.vercel.app/"
     ><img
-      src="https://eip-my-summary.herokuapp.com/images/logo"
+      src="https://eip-best-places.vercel.app/project-landing-page.gif"
       alt="EIP Studios"
      />
   </a>
